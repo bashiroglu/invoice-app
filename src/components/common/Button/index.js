@@ -26,7 +26,7 @@ export const Button = styled.button`
 		edit &&
 		`
 		background: #F9FAFE;
-		color: #7E88C3;
+		color: var(--color-figure-3);
 
 		&:hover {
 			background: #DFE3FA;
@@ -37,7 +37,7 @@ export const Button = styled.button`
 		saveDraft &&
 		`
 		background: #373B53;
-		color: #888EB0;
+		color: var(--color-gray-2);
 
 		&:hover {
 			background: #0C0E16;
@@ -55,7 +55,7 @@ export const Button = styled.button`
 		`
 		width: 30rem;
 		background: #F9FAFE;
-		color: #7E88C3;
+		color: var(--color-figure-3);
 
 		&:hover {
 		background: #DFE3FA;
