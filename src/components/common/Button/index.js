@@ -4,4 +4,61 @@ export const Button = styled.button`
 	font-family: inherit;
 	font-weight: bold;
 	font-size: 1.2rem;
+	padding: 1.6rem 2.3rem;
+	color: #fff;
+	border: none;
+	outline: none;
+	border-radius: 24px;
+	cursor: pointer;
+	transition: 0.2s all ease-in-out;
+
+	${({ primary }) =>
+		primary &&
+		`
+		background: var(--color-figure-1);
+
+		&:hover {
+			background: var(--color-figure-2);
+		};
+	`};
+
+	${({ edit }) =>
+		edit &&
+		`
+		background: #F9FAFE;
+		color: #7E88C3;
+
+		&:hover {
+			background: #DFE3FA;
+		};
+	`};
+
+	${({ saveDraft }) =>
+		saveDraft &&
+		`
+		background: #373B53;
+		color: #888EB0;
+
+		&:hover {
+			background: #0C0E16;
+		};
+	`};
+
+	${({ remove }) =>
+		remove &&
+		`
+		background: #ec5757;
+	`};
+
+	${({ newItem }) =>
+		newItem &&
+		`
+		width: 30rem;
+		background: #F9FAFE;
+		color: #7E88C3;
+
+		&:hover {
+		background: #DFE3FA;
+		};
+	`};
 `;
