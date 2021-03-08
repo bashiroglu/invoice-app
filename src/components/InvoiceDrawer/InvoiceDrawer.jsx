@@ -9,35 +9,67 @@ import {
   Text,
 } from './InvoiceDrawer.styles';
 
+import { useState } from 'react';
+
 const InvoiceDrawer = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [_, setFormData] = useState({});
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+  };
+
+  const onFormChange = (e) => {
+    setFormData((oldState) => ({
+      ...oldState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
     <Container>
       <h2 style={styles.heading}>
         Edit <InvoiceID>#XM9141</InvoiceID>
       </h2>
-      <Form>
+      <Form onChange={onFormChange} onSubmit={onFormSubmit}>
         <BillToFrom>Bill From</BillToFrom>
         <label>
           <Text>Street Address</Text>
-          <Input large type='text' value='19 Union Terrace' />
+          <Input
+            large
+            name='fromStreetAdress'
+            type='text'
+            placeholder='19 Union Terrace'
+          />
         </label>
         <Flex>
           <div>
             <label>
               <Text>City</Text>
-              <Input mr type='text' value='London' />
+              <Input mr name='fromCity' type='text' placeholder='London' />
             </label>
           </div>
           <div>
             <label>
               <Text>Post Code</Text>
-              <Input mr postCode type='text' value='e1 3ez' />
+              <Input
+                mr
+                postCode
+                name='fromPostCode'
+                type='text'
+                placeholder='e1 3ez'
+              />
             </label>
           </div>
           <div>
             <label>
               <Text>Country</Text>
-              <Input type='text' value='United Kingdom' />
+              <Input
+                name='fromCountry'
+                type='text'
+                placeholder='United Kingdom'
+              />
             </label>
           </div>
         </Flex>
@@ -45,38 +77,63 @@ const InvoiceDrawer = () => {
         <div>
           <label>
             <Text>Client’s Name</Text>
-            <Input large type='text' value='Alex Grim' />
+            <Input
+              large
+              name='toClientName'
+              type='text'
+              placeholder='Alex Grim'
+            />
           </label>
         </div>
         <div>
           <label>
             <Text>Client&#39;s email</Text>
-            <Input large type='text' value='alexgrim@mail.com' />
+            <Input
+              large
+              name='toClientEmail'
+              type='text'
+              placeholder='alexgrim@mail.com'
+            />
           </label>
         </div>
         <div>
           <label>
             <Text>Street Address</Text>
-            <Input large type='text' value='84 Church Way' />
+            <Input
+              large
+              name='toStreetAdress'
+              type='text'
+              placeholder='84 Church Way'
+            />
           </label>
         </div>
         <Flex>
           <div>
             <label>
               <Text>City</Text>
-              <Input mr type='text' value='Bradford' />
+              <Input mr name='toCity' type='text' placeholder='Bradford' />
             </label>
           </div>
           <div>
             <label>
               <Text>Post code</Text>
-              <Input mr type='text' postCode value='BD1 9PB' />
+              <Input
+                mr
+                name='toPostCode'
+                type='text'
+                postCode
+                placeholder='BD1 9PB'
+              />
             </label>
           </div>
           <div>
             <label>
               <Text>Country</Text>
-              <Input type='text' value='United Kingdom' />
+              <Input
+                name='toCountry'
+                type='text'
+                placeholder='United Kingdom'
+              />
             </label>
           </div>
         </Flex>
@@ -84,7 +141,7 @@ const InvoiceDrawer = () => {
           <div>
             <label>
               <Text>Invoice Date</Text>
-              <Input half type='date' />
+              <Input half name='invoiceDate' type='date' />
             </label>
           </div>
           <div>
@@ -102,7 +159,12 @@ const InvoiceDrawer = () => {
         <div>
           <label>
             <Text>Project Description</Text>
-            <Input large type='text' value='Graphic Design' />
+            <Input
+              large
+              name='projectDescription'
+              type='text'
+              placeholder='Graphic Design'
+            />
           </label>
         </div>
       </Form>
