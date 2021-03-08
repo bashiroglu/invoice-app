@@ -44,129 +44,105 @@ const InvoiceDrawer = () => {
           />
         </label>
         <Flex>
-          <div>
-            <label>
-              <Text>City</Text>
-              <Input mr name='fromCity' type='text' placeholder='London' />
-            </label>
-          </div>
-          <div>
-            <label>
-              <Text>Post Code</Text>
-              <Input
-                mr
-                postCode
-                name='fromPostCode'
-                type='text'
-                placeholder='e1 3ez'
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              <Text>Country</Text>
-              <Input
-                name='fromCountry'
-                type='text'
-                placeholder='United Kingdom'
-              />
-            </label>
-          </div>
+          <label>
+            <Text>City</Text>
+            <Input mr name='fromCity' type='text' placeholder='London' />
+          </label>
+          <label>
+            <Text>Post Code</Text>
+            <Input
+              mr
+              postCode
+              name='fromPostCode'
+              type='text'
+              placeholder='e1 3ez'
+            />
+          </label>
+          <label>
+            <Text>Country</Text>
+            <Input
+              name='fromCountry'
+              type='text'
+              placeholder='United Kingdom'
+            />
+          </label>
         </Flex>
         <BillToFrom>Bill To</BillToFrom>
-        <div>
-          <label>
-            <Text>Client’s Name</Text>
-            <Input
-              large
-              name='toClientName'
-              type='text'
-              placeholder='Alex Grim'
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            <Text>Client&#39;s email</Text>
-            <Input
-              large
-              name='toClientEmail'
-              type='text'
-              placeholder='alexgrim@mail.com'
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            <Text>Street Address</Text>
-            <Input
-              large
-              name='toStreetAdress'
-              type='text'
-              placeholder='84 Church Way'
-            />
-          </label>
-        </div>
+        <label>
+          <Text>Client’s Name</Text>
+          <Input
+            large
+            name='toClientName'
+            type='text'
+            placeholder='Alex Grim'
+          />
+        </label>
+        <label>
+          <Text>Client&#39;s email</Text>
+          <Input
+            large
+            name='toClientEmail'
+            type='text'
+            placeholder='alexgrim@mail.com'
+          />
+        </label>
+        <label>
+          <Text>Street Address</Text>
+          <Input
+            large
+            name='toStreetAdress'
+            type='text'
+            placeholder='84 Church Way'
+          />
+        </label>
         <Flex>
-          <div>
-            <label>
-              <Text>City</Text>
-              <Input mr name='toCity' type='text' placeholder='Bradford' />
-            </label>
-          </div>
-          <div>
-            <label>
-              <Text>Post code</Text>
-              <Input
-                mr
-                name='toPostCode'
-                type='text'
-                postCode
-                placeholder='BD1 9PB'
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              <Text>Country</Text>
-              <Input
-                name='toCountry'
-                type='text'
-                placeholder='United Kingdom'
-              />
-            </label>
-          </div>
+          <label>
+            <Text>City</Text>
+            <Input mr name='toCity' type='text' placeholder='Bradford' />
+          </label>
+          <label>
+            <Text>Post code</Text>
+            <Input
+              mr
+              name='toPostCode'
+              type='text'
+              postCode
+              placeholder='BD1 9PB'
+            />
+          </label>
+          <label>
+            <Text>Country</Text>
+            <Input
+              name='toCountry'
+              type='text'
+              placeholder='United Kingdom'
+            />
+          </label>
         </Flex>
         <Flex>
-          <div>
-            <label>
-              <Text>Invoice Date</Text>
-              <Input half name='invoiceDate' type='date' />
-            </label>
-          </div>
-          <div>
-            <label>
-              <Text>Payment Terms</Text>
-              <Select name='terms'>
-                <option value='1d'>Net 1 Days</option>
-                <option value='7d'>Net 7 Days</option>
-                <option value='14d'>Net 14 Days</option>
-                <option value='30d'>Net 30 Days</option>
-              </Select>
-            </label>
-          </div>
-        </Flex>
-        <div>
           <label>
-            <Text>Project Description</Text>
-            <Input
-              large
-              name='projectDescription'
-              type='text'
-              placeholder='Graphic Design'
-            />
+            <Text>Invoice Date</Text>
+            <Input half name='invoiceDate' type='date' />
           </label>
-        </div>
+          <label>
+            <Text>Payment Terms</Text>
+            <Select name='terms'>
+              <option value='1d'>Net 1 Days</option>
+              <option value='7d'>Net 7 Days</option>
+              <option value='14d'>Net 14 Days</option>
+              <option value='30d'>Net 30 Days</option>
+            </Select>
+          </label>
+        </Flex>
+        <label>
+          <Text>Project Description</Text>
+          <Input
+            large
+            name='projectDescription'
+            type='text'
+            placeholder='Graphic Design'
+          />
+        </label>
       </Form>
     </Container>
   );
