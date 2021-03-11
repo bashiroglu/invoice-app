@@ -48,6 +48,10 @@ export const Button = styled.button`
     fifth &&
     `
 		background: #ec5757;
+
+    &:hover {
+      background: #FF9797;
+    }
 	`};
 
   ${({ sixth }) =>
