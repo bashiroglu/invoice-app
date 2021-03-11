@@ -1,18 +1,26 @@
 import {
   BillToFrom,
+  ButtonContainer,
   Container,
+  DateInput,
   Flex,
   Form,
+  Heading,
+  Icon,
+  IconContainer,
   Input,
-  InvoiceID,
+  ItemInputs,
   Select,
+  Sum,
+  Tag,
   Text,
 } from './InvoiceDrawer.styles';
 
+import { Button } from '../common';
+import icon from '../../assets/trash-icon.svg';
 import { useState } from 'react';
 
 const InvoiceDrawer = () => {
-  // eslint-disable-next-line no-unused-vars
   const [_, setFormData] = useState({});
 
   const onFormSubmit = (e) => {
@@ -29,9 +37,9 @@ const InvoiceDrawer = () => {
 
   return (
     <Container>
-      <h2 style={styles.heading}>
-        Edit <InvoiceID>#XM9141</InvoiceID>
-      </h2>
+      <Heading mb='3'>
+        Edit <Tag>#</Tag>XM9141
+      </Heading>
       <Form onChange={onFormChange} onSubmit={onFormSubmit}>
         <BillToFrom>Bill From</BillToFrom>
         <label>
@@ -43,7 +51,7 @@ const InvoiceDrawer = () => {
             placeholder='19 Union Terrace'
           />
         </label>
-        <Flex>
+        <Flex mb='3'>
           <label>
             <Text>City</Text>
             <Input mr name='fromCity' type='text' placeholder='London' />
@@ -95,7 +103,7 @@ const InvoiceDrawer = () => {
             placeholder='84 Church Way'
           />
         </label>
-        <Flex>
+        <Flex mb='3'>
           <label>
             <Text>City</Text>
             <Input mr name='toCity' type='text' placeholder='Bradford' />
@@ -122,7 +130,7 @@ const InvoiceDrawer = () => {
         <Flex>
           <label>
             <Text>Invoice Date</Text>
-            <Input half name='invoiceDate' type='date' />
+            <DateInput half name='invoiceDate' type='date' />
           </label>
           <label>
             <Text>Payment Terms</Text>
@@ -143,13 +151,101 @@ const InvoiceDrawer = () => {
             placeholder='Graphic Design'
           />
         </label>
+        <div>
+          <Heading mt='4' color='#777F98'>
+            Item List
+          </Heading>
+          <div>
+            <Flex>
+              <Text mr='1.5' width='20'>
+                Item Name
+              </Text>
+              <Text mr='1.5' width='5'>
+                Qty
+              </Text>
+              <Text mr='1.5' width='10'>
+                Price
+              </Text>
+              <Text mr='1.5' width='10'>
+                Total
+              </Text>
+            </Flex>
+            <Flex mb='1.8'>
+              <ItemInputs
+                mr='1.5'
+                type='text'
+                name='itemName'
+                placeholder='Banner Design'
+                width='20'
+              />
+              <ItemInputs
+                mr='1.5'
+                name='qty'
+                type='number'
+                min='0'
+                defaultValue='0'
+                qty
+                width='5'
+              />
+              <ItemInputs
+                mr='1.5'
+                type='text'
+                name='price'
+                placeholder='156.00'
+                width='10'
+              />
+              <div>
+                <Sum>156.00</Sum>
+              </div>
+              <IconContainer ml='4'>
+                <Icon src={icon} alt='trash icon' />
+              </IconContainer>
+            </Flex>
+          </div>
+          <div>
+            <Flex mb='1.8'>
+              <ItemInputs
+                mr='1.5'
+                type='text'
+                name='itemName'
+                placeholder='Banner Design'
+                width='20'
+              />
+              <ItemInputs
+                mr='1.5'
+                name='qty'
+                type='number'
+                min='0'
+                defaultValue='0'
+                qty
+                width='5'
+              />
+              <ItemInputs
+                mr='1.5'
+                type='text'
+                name='price'
+                placeholder='156.00'
+                width='10'
+              />
+              <div>
+                <Sum>156.00</Sum>
+              </div>
+              <IconContainer ml='4'>
+                <Icon src={icon} alt='trash icon' />
+              </IconContainer>
+            </Flex>
+            <Button newItem>+ Add New Item</Button>
+          </div>
+        </div>
+        <ButtonContainer>
+          <Button edit mr='1'>
+            Cancel
+          </Button>
+          <Button primary>Save Changes</Button>
+        </ButtonContainer>
       </Form>
     </Container>
   );
-};
-
-const styles = {
-  heading: { marginBottom: '3rem' },
 };
 
 export default InvoiceDrawer;
