@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-	font-family: inherit;
-	font-weight: bold;
-	font-size: 1.2rem;
-	padding: 1.6rem 2.3rem;
-	color: #fff;
-	border: none;
-	outline: none;
-	border-radius: 24px;
-	cursor: pointer;
-	transition: 0.2s all ease-in-out;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1.6rem 2.3rem;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: var(--transition);
 
-	${({ primary }) =>
-		primary &&
-		`
+  ${({ primary }) =>
+    primary &&
+    `
 		background: var(--color-figure-1);
 
 		&:hover {
@@ -22,9 +22,9 @@ export const Button = styled.button`
 		};
 	`};
 
-	${({ edit }) =>
-		edit &&
-		`
+  ${({ edit }) =>
+    edit &&
+    `
 		background: #F9FAFE;
 		color: var(--color-figure-3);
 
@@ -33,9 +33,9 @@ export const Button = styled.button`
 		};
 	`};
 
-	${({ saveDraft }) =>
-		saveDraft &&
-		`
+  ${({ saveDraft }) =>
+    saveDraft &&
+    `
 		background: #373B53;
 		color: var(--color-gray-2);
 
@@ -44,16 +44,16 @@ export const Button = styled.button`
 		};
 	`};
 
-	${({ remove }) =>
-		remove &&
-		`
+  ${({ remove }) =>
+    remove &&
+    `
 		background: #ec5757;
 	`};
 
-	${({ newItem }) =>
-		newItem &&
-		`
-		width: 30rem;
+  ${({ newItem }) =>
+    newItem &&
+    `
+		width: fill-available;
 		background: #F9FAFE;
 		color: var(--color-figure-3);
 
@@ -61,4 +61,6 @@ export const Button = styled.button`
 		background: #DFE3FA;
 		};
 	`};
+
+  ${({ mr }) => mr && `margin-right: ${mr}rem`};
 `;
