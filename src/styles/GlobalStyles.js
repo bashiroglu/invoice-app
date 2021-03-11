@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   --color-sidebar: #252945;
   --color-font: #0c0e16;
   --font-main: "Spartan", sans-serif;
+  --transition: 0.1s all ease-in-out;
 }
 
 * {
