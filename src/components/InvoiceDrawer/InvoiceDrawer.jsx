@@ -238,10 +238,12 @@ const InvoiceDrawer = () => {
           </div>
         </div>
         <ButtonContainer>
-          <Button edit mr='1'>
+          <Button type='button' edit mr='1'>
             Cancel
           </Button>
-          <Button primary>Save Changes</Button>
+          <Button type='submit' primary>
+            Save Changes
+          </Button>
         </ButtonContainer>
       </Form>
     </Container>
