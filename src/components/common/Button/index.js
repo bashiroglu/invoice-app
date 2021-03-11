@@ -12,8 +12,8 @@ export const Button = styled.button`
   cursor: pointer;
   transition: var(--transition);
 
-  ${({ primary }) =>
-    primary &&
+  ${({ second }) =>
+    second &&
     `
 		background: var(--color-figure-1);
 
@@ -22,8 +22,8 @@ export const Button = styled.button`
 		};
 	`};
 
-  ${({ edit }) =>
-    edit &&
+  ${({ third }) =>
+    third &&
     `
 		background: #F9FAFE;
 		color: var(--color-figure-3);
@@ -33,8 +33,8 @@ export const Button = styled.button`
 		};
 	`};
 
-  ${({ saveDraft }) =>
-    saveDraft &&
+  ${({ fourth }) =>
+    fourth &&
     `
 		background: #373B53;
 		color: var(--color-gray-2);
@@ -44,14 +44,14 @@ export const Button = styled.button`
 		};
 	`};
 
-  ${({ remove }) =>
-    remove &&
+  ${({ fifth }) =>
+    fifth &&
     `
 		background: #ec5757;
 	`};
 
-  ${({ newItem }) =>
-    newItem &&
+  ${({ sixth }) =>
+    sixth &&
     `
 		width: fill-available;
 		background: #F9FAFE;
