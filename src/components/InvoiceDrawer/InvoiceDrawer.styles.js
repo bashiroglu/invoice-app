@@ -37,16 +37,6 @@ export const BillToFrom = styled.p`
   margin-bottom: 2rem;
 `;
 
-export const Text = styled.p`
-  color: rgb(126, 136, 195);
-  text-transform: capitalize;
-  margin: 1.5rem 0;
-  font-weight: 500;
-  line-height: 1.6;
-  width: ${({ width }) => `${width}rem`};
-  ${({ mr }) => mr && `margin-right: ${mr}rem`};
-`;
-
 export const Input = styled.input`
   min-height: 5rem;
   width: ${({ large }) => (large ? '50rem' : '15rem')};
@@ -101,10 +91,6 @@ export const Select = styled.select`
 
 export const DateInput = styled(Input)`
   text-indent: 1rem;
-`;
-
-export const Tag = styled.span`
-  color: rgb(136, 142, 176);
 `;
 
 export const Heading = styled.h2`

@@ -5,7 +5,6 @@ const GlobalStyle = createGlobalStyle`
   --color-figure-1: #7c5dfa;
   --color-figure-2: #9277ff;
   --color-figure-3: #7E88C3;
-  --color-white: #fff;
   --color-white-bg: #f2f2f2;
   --color-3: #1e2139;
   --color-4: #494e6e;
@@ -14,30 +13,28 @@ const GlobalStyle = createGlobalStyle`
   --color-font: #0c0e16;
   --font-main: "Spartan", sans-serif;
   --transition: 0.1s all ease-in-out;
-}
-
-* {
-  margin: 0;
-  padding: 0;
+  --theme: ${({ theme }) => theme.bg};
 }
 
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: inherit;
 }
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; //1 rem = 10px/16px= 62.5%
+  font-size: 62.5%;
 }
 
 body {
   font-size: 18px;
   color: var(--color-font);
   font-family: var(--font-main);
-  position: relative;
-  background-color: var(--color-white-bg);
+  transition: background 0.3s ease-in-out;
+  background: var(--theme);
 }
 `;
 

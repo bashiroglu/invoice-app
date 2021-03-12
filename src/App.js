@@ -1,13 +1,16 @@
-import React from 'react';
-import Sidebar from './components/sidebar/Sidebar';
 import GlobalStyle from './styles/GlobalStyles';
+import Sidebar from './components/sidebar/Sidebar';
+import { ThemeProvider } from 'styled-components';
+import useDarkTheme from './hooks/useDarkTheme';
 
 function App() {
+  const [themes, theme, toggleTheme] = useDarkTheme();
+
   return (
-    <div>
+    <ThemeProvider theme={themes}>
       <GlobalStyle />
-      <Sidebar />
-    </div>
+      <Sidebar theme={theme} toggleTheme={toggleTheme} />
+    </ThemeProvider>
   );
 }
 

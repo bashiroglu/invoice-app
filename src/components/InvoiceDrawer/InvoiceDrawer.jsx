@@ -12,11 +12,9 @@ import {
   ItemInputs,
   Select,
   Sum,
-  Tag,
-  Text,
 } from './InvoiceDrawer.styles';
+import { Button, Tag, Text } from '../common';
 
-import { Button } from '../common';
 import icon from '../../assets/trash-icon.svg';
 import { useState } from 'react';
 

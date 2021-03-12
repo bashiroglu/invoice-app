@@ -1,29 +1,35 @@
-import React from 'react';
-import ProfileImg from '../../assets/image-avatar.jpg';
-import LogoImg from '../../assets/logo.svg';
-import MoonIcon from '../../assets/icon-moon.svg';
 import {
-  StyledSidebar,
-  SidebarTopContainer,
-  SidebarTopContainerBottomPart,
+  Icon,
   SidebarProfile,
   SidebarProfileImage,
+  SidebarTopContainer,
+  SidebarTopContainerBottomPart,
+  StyledSidebar,
   ThemeMode,
 } from './Sidebar.styles';
 
-function Sidebar() {
+import LogoImg from '../../assets/logo.svg';
+import MoonIcon from '../../assets/icon-moon.svg';
+import ProfileImg from '../../assets/image-avatar.jpg';
+import SunIcon from '../../assets/icon-sun.svg';
+
+function Sidebar({ theme, toggleTheme }) {
   return (
     <StyledSidebar>
       <SidebarTopContainer>
-        <img src={LogoImg} alt="invoice logo" className="logo" />
+        <img src={LogoImg} alt='invoice logo' className='logo' />
         <SidebarTopContainerBottomPart></SidebarTopContainerBottomPart>
       </SidebarTopContainer>
 
       <ThemeMode>
-        <img src={MoonIcon} alt="dark icon" />
+        <Icon
+          onClick={toggleTheme}
+          src={theme == 'light' ? MoonIcon : SunIcon}
+          alt={`${theme} theme icon`}
+        />
       </ThemeMode>
       <SidebarProfile>
-        <SidebarProfileImage src={ProfileImg} alt="avatar" />
+        <SidebarProfileImage src={ProfileImg} alt='avatar' />
       </SidebarProfile>
     </StyledSidebar>
   );
