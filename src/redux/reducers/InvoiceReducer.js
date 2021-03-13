@@ -3,7 +3,7 @@ import data from '../../data.json';
 
 const initialState = { ...data };
 
-const InvoiceReducer = (state = initialState, { type, payload }) => {
+const invoiceReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL:
       return { ...state };
@@ -12,4 +12,4 @@ const InvoiceReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default InvoiceReducer;
+export default invoiceReducer;

@@ -1,29 +1,15 @@
-import React from 'react';
-import { InvoicesContainer } from '../../pages/Invoices/Invoices.styles';
 import Invoice from '../invoice/Invoice';
+import { InvoicesContainer } from '../../pages/Invoices/Invoices.styles';
+import { useSelector } from 'react-redux';
 
 function InvoiceList() {
-  const invoicesDummy = [
-    {
-      code: 'RT3080',
-      date: 'Due  19 Aug 2021',
-      personName: 'Jensen Huang',
-      amount: '£ 1,800.90',
-      status: 'paid',
-    },
-    {
-      code: 'XM9141',
-      date: 'Due  19 Aug 2021',
-      personName: 'Alex Grim',
-      amount: '£ 556.00',
-      status: 'pending',
-    },
-  ];
+  const invoices = useSelector((state) => state.invoices);
+
   return (
     <InvoicesContainer>
-      {invoicesDummy.map((invoice, i) => {
-        return <Invoice key={i} {...invoice} />;
-      })}
+      {Object.values(invoices).map((invoice) => (
+        <Invoice key={invoice.id} {...invoice} />
+      ))}
     </InvoicesContainer>
   );
 }
