@@ -1,17 +1,17 @@
-import React from 'react';
-import PlusIcon from '../svgs/PlusIcon';
 import {
   PlusIconContainer,
   StyledCreateButton,
 } from './InvoicesHeader.styles';
 
-function CreateButton(props) {
+import PlusIcon from '../svgs/PlusIcon';
+
+function CreateButton({ children }) {
   return (
     <StyledCreateButton>
       <PlusIconContainer>
         <PlusIcon />
       </PlusIconContainer>
-      <span>{props.children}</span>
+      <span>{children}</span>
     </StyledCreateButton>
   );
 }

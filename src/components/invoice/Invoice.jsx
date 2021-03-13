@@ -1,36 +1,34 @@
-import React from 'react';
-import RightArrow from '../svgs/RightArrow';
 import {
-  InvoiceCode,
+  IconButton,
   InvoiceContainer,
   InvoiceDate,
-  InvoicePersonName,
   InvoicePersonAmount,
+  InvoicePersonName,
   RightSideContainer,
-  IconButton,
-  StatusContainer,
 } from './Invoice.styles';
 
-function Invoice({ code, date, personName, amount, status }) {
+import RightArrow from '../svgs/RightArrow';
+import Status from '../Status/Status';
+import Tag from '../Tag/Tag';
+import formatNumbers from '../../helpers/formatNumbers';
+
+const Invoice = ({ id, createdAt, clientName, total, status }) => {
+  const formattedTotal = formatNumbers(total);
+
   return (
     <InvoiceContainer>
-      <InvoiceCode>
-        <span>#</span>
-        {code}
-      </InvoiceCode>
-      <InvoiceDate>{date}</InvoiceDate>
-      <InvoicePersonName>{personName}</InvoicePersonName>
-      <InvoicePersonAmount>{amount}</InvoicePersonAmount>
+      <Tag small>{id}</Tag>
+      <InvoiceDate>{createdAt}</InvoiceDate>
+      <InvoicePersonName>{clientName}</InvoicePersonName>
+      <InvoicePersonAmount>£ {formattedTotal}</InvoicePersonAmount>
       <RightSideContainer>
-        <StatusContainer status={status}>
-          <span>{status[0].toUpperCase() + status.slice(1)}</span>
-        </StatusContainer>
+        <Status status={status} />
         <IconButton>
           <RightArrow />
         </IconButton>
       </RightSideContainer>
     </InvoiceContainer>
   );
-}
+};
 
 export default Invoice;

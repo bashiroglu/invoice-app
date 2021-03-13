@@ -5,7 +5,6 @@ import {
   DateInput,
   Flex,
   Form,
-  Heading,
   Icon,
   IconContainer,
   Input,
@@ -13,12 +12,13 @@ import {
   Select,
   Sum,
 } from './InvoiceDrawer.styles';
-import { Button, Tag, Text } from '../common';
+import { Button, Heading, Tag, Text } from '../common';
 
 import icon from '../../assets/trash-icon.svg';
 import { useState } from 'react';
 
 const InvoiceDrawer = () => {
+  // eslint-disable-next-line no-unused-vars
   const [_, setFormData] = useState({});
 
   const onFormSubmit = (e) => {

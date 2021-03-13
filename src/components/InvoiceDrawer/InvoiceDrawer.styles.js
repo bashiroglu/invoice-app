@@ -93,12 +93,6 @@ export const DateInput = styled(Input)`
   text-indent: 1rem;
 `;
 
-export const Heading = styled.h2`
-  ${({ mt }) => mt && `margin-top: ${mt}rem`};
-  ${({ mb }) => mb && `margin-bottom: ${mb}rem;`};
-  ${({ color }) => color && `color: ${color}`};
-`;
-
 export const ItemInputs = styled(Input)`
   width: ${({ width }) => `${width}rem`};
   ${({ qty }) =>
