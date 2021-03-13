@@ -8,6 +8,7 @@ import {
   ThemeMode,
 } from './Sidebar.styles';
 
+import { Link } from 'react-router-dom';
 import LogoImg from '../../assets/logo.svg';
 import MoonIcon from '../../assets/icon-moon.svg';
 import ProfileImg from '../../assets/image-avatar.jpg';
@@ -17,7 +18,9 @@ function Sidebar({ theme, toggleTheme }) {
   return (
     <StyledSidebar>
       <SidebarTopContainer>
-        <img src={LogoImg} alt='invoice logo' className='logo' />
+        <Link to='/'>
+          <img src={LogoImg} alt='invoice logo' className='logo' />
+        </Link>
         <SidebarTopContainerBottomPart></SidebarTopContainerBottomPart>
       </SidebarTopContainer>
 
