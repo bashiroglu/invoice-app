@@ -5,7 +5,7 @@ export const StyledSidebar = styled.div`
   height: 100vh;
   background-color: ${({ theme }) => theme.sidebarBg};
   border-radius: 0px 20px 20px 0px;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   overflow: hidden;

@@ -19,6 +19,8 @@ export const InvoiceDate = styled.p`
   font-weight: 500;
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colorGray};
+  min-width: 10.6rem;
+  text-align: left;
 `;
 
 export const InvoicePersonName = styled.p`
@@ -26,6 +28,8 @@ export const InvoicePersonName = styled.p`
   font-size: 1.2rem;
   line-height: 1.5rem;
   color: var(--color-gray-2);
+  min-width: 11rem;
+  text-align: left;
 `;
 
 export const InvoicePersonAmount = styled.p`
@@ -33,6 +37,8 @@ export const InvoicePersonAmount = styled.p`
   font-size: 1.6rem;
   text-align: right;
   color: ${({ theme }) => theme.text};
+  min-width: 10.6rem;
+  text-align: center;
 `;
 
 export const RightSideContainer = styled.div`
