@@ -11,16 +11,27 @@ import RightArrow from '../svgs/RightArrow';
 import Status from '../Status/Status';
 import Tag from '../Tag/Tag';
 import formatNumbers from '../../helpers/formatNumbers';
+import { useHistory } from 'react-router-dom';
 
-const Invoice = ({ id, createdAt, clientName, total, status }) => {
+const Invoice = ({
+  id,
+  createdAt,
+  clientName,
+  total,
+  status,
+  currency = '£',
+}) => {
   const formattedTotal = formatNumbers(total);
+  const history = useHistory();
 
   return (
-    <InvoiceContainer>
+    <InvoiceContainer onClick={() => history.push(`invoice/${id}`)}>
       <Tag small>{id}</Tag>
       <InvoiceDate>{createdAt}</InvoiceDate>
       <InvoicePersonName>{clientName}</InvoicePersonName>
-      <InvoicePersonAmount>£ {formattedTotal}</InvoicePersonAmount>
+      <InvoicePersonAmount>
+        {currency} {formattedTotal}
+      </InvoicePersonAmount>
       <RightSideContainer>
         <Status status={status} />
         <IconButton>
