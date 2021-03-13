@@ -1,4 +1,5 @@
 export const lightTheme = {
+  sidebarBg: '#373B53',
   bg: '#F8F8FB',
   invoiceBg: '#fff',
   text: '#0C0E16',
@@ -25,6 +26,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  sidebarBg: '#1E2139',
   bg: '#141625',
   invoiceBg: '#1E2139',
   text: '#fff',

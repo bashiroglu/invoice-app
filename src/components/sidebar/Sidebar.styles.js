@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledSidebar = styled.div`
   width: 10.3rem;
   height: 100vh;
-  background-color: var(--color-sidebar);
+  background-color: ${({ theme }) => theme.sidebarBg};
   border-radius: 0px 20px 20px 0px;
   position: absolute;
   display: flex;
