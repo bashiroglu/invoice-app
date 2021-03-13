@@ -1,5 +1,3 @@
 import { GET_ALL } from './actionTypes';
 
-export const getAll = () => ({
-  type: GET_ALL,
-});
+export const getAll = () => ({ type: GET_ALL });

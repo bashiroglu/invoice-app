@@ -34,7 +34,7 @@ body {
   color: var(--color-font);
   font-family: var(--font-main);
   transition: background 0.3s ease-in-out;
-  background: var(--theme);
+  background: ${({ theme }) => theme.bg};
 }
 `;
 

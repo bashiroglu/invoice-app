@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Text = styled.p`
-  color: rgb(126, 136, 195);
+  color: ${({ theme }) => theme.label};
   text-transform: capitalize;
   margin: 1.5rem 0;
   font-weight: 500;
