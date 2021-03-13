@@ -17,9 +17,15 @@ import {
 import { Button } from '../common';
 import Status from '../Status/Status';
 import Tag from '../Tag/Tag';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const InvoiceID = () => {
-  const status = 'pending';
+  let { id } = useParams();
+  const invoices = useSelector((state) => state.invoices);
+  const { status, description } = Object.values(invoices).find(
+    (invoice) => invoice.id == id,
+  );
 
   return (
     <Container>
@@ -36,8 +42,8 @@ const InvoiceID = () => {
       <StyledDetails>
         <div>
           <div>
-            <Tag>XM9141</Tag>
-            <Text>Graphic Design</Text>
+            <Tag>{id}</Tag>
+            <Text>{description}</Text>
           </div>
           <div></div>
         </div>
