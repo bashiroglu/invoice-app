@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-flow: column wrap;
   gap: 1.5rem 0;
+  background: ${({ theme, drawerOpen }) =>
+    drawerOpen && theme.bgOnActiveDrawer};
+  transition: var(--transitionSlow);
+  min-height: 100vh;
 `;
 
 export const StyledActions = styled.div`

@@ -9,6 +9,7 @@ export const StyledSidebar = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  z-index: 2;
   justify-content: space-between;
   .logo {
     position: absolute;
