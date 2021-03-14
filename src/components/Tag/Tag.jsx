@@ -1,4 +1,4 @@
-import { Tag as HashTag } from '../common';
+import { Tag as HashTag } from './Tag.style';
 import styled from 'styled-components';
 
 const Tag = ({ small, children }) => (
