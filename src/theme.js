@@ -1,11 +1,43 @@
+const sharedStyles = {
+  paid: '51, 214, 159',
+  pending: '255, 143, 0',
+  draft: '55, 59, 83',
+};
+
+const sharedButtons = {
+  secondBg: '#7C5DFA',
+  secondFg: '#FFFFFF',
+  secondHoverBg: '#9277FF',
+  secondHoverFg: '#FFFFFF',
+  fifthBg: '#ec5757',
+  fifthFg: '#fff',
+  fifthHoverBg: '#FF9797',
+  fifthHoverFg: '#fff',
+  sixthBg: '#F9FAFE',
+  sixthFg: '#7E88C3',
+  sixthHoverBg: '#DFE3FA',
+  sixthHoverFg: '#7E88C3',
+};
+
 export const lightTheme = {
+  id: 'light',
   sidebarBg: '#373B53',
   bg: '#F8F8FB',
+  bgOnActiveDrawer: '#7C7C7E',
   invoiceBg: '#fff',
+  drawerBg: '#fff',
   text: '#0C0E16',
   label: '#858BB2',
+  formInputBg: '#fff',
+  formInputBorderInactive: '1px solid #DFE3FA',
+  formInputBorderActive: '1px solid #9277FF',
   colorGray: '#888eb0',
+  scrollbarColor: '#DFE3FA',
+
+  ...sharedStyles,
+
   buttons: {
+    ...sharedButtons,
     thirdBg: '#F9FAFE',
     thirdFg: '#7E88C3',
     thirdHoverBg: '#DFE3FA',
@@ -14,25 +46,28 @@ export const lightTheme = {
     fourthFg: '#888eb0',
     fourthHoverBg: '#0C0E16',
     fourthHoverFg: '#888EB0',
-    fifthBg: '#ec5757',
-    fifthFg: '#fff',
-    fifthHoverBg: '#FF9797',
-    fifthHoverFg: '#fff',
-    sixthBg: '#F9FAFE',
-    sixthFg: '#7E88C3',
-    sixthHoverBg: '#DFE3FA',
-    sixthHoverFg: '#7E88C3',
   },
 };
 
 export const darkTheme = {
+  id: 'dark',
   sidebarBg: '#1E2139',
   bg: '#141625',
+  bgOnActiveDrawer: '#0A0B13',
   invoiceBg: '#1E2139',
+  drawerBg: '#141625',
   text: '#fff',
   label: '#DFE3FA',
+  formInputBg: '#1E2139',
+  formInputBorderInactive: '1px solid #252945',
+  formInputBorderActive: '1px solid #252945',
   colorGray: '#DFE3FA',
+  scrollbarColor: '#252945',
+
+  ...sharedStyles,
+
   buttons: {
+    ...sharedButtons,
     thirdBg: '#252945',
     thirdFg: '#DFE3FA',
     thirdHoverBg: '#fff',
@@ -41,13 +76,5 @@ export const darkTheme = {
     fourthFg: '#888eb0',
     fourthHoverBg: '#1E2139',
     fourthHoverFg: '#DFE3FA',
-    fifthBg: '#ec5757',
-    fifthFg: '#fff',
-    fifthHoverBg: '#FF9797',
-    fifthHoverFg: '#fff',
-    sixthBg: '#F9FAFE',
-    sixthFg: '#7E88C3',
-    sixthHoverBg: '#DFE3FA',
-    sixthHoverFg: '#7E88C3',
   },
 };
