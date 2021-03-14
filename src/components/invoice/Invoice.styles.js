@@ -9,6 +9,7 @@ export const InvoiceContainer = styled.div`
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-between;
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-bottom: 1.6rem;
