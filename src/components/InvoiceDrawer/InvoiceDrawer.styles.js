@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.aside`
-  background: #fff;
+  background: ${({ theme }) => theme.drawerBg};
   padding: 5rem;
-  margin-left: 10rem;
+  padding-left: 6rem;
+  margin-left: 9rem;
   height: 100vh;
   width: max-content;
   overflow: hidden;
-  border-radius: 0 3rem 3rem 0;
+  border-radius: 0 2rem 2rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: var(--transition);
 `;
 
 export const Form = styled.form`
@@ -21,7 +28,7 @@ export const Form = styled.form`
 
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background: rgb(223, 227, 250);
+    background: ${({ theme }) => theme.scrollbarColor};
     transition: var(--transition);
 
     &:active {
@@ -38,10 +45,12 @@ export const BillToFrom = styled.p`
 `;
 
 export const Input = styled.input`
+  background: ${({ theme }) => theme.formInputBg};
+  color: ${({ theme }) => theme.text};
   min-height: 5rem;
   width: ${({ large }) => (large ? '50rem' : '15rem')};
   border-radius: 4px;
-  border: 1px solid #dfe3fa;
+  border: ${({ theme }) => theme.formInputBorderInactive};
   outline: var(--color-figure-1);
   font-family: inherit;
   font-size: 1.2rem;
@@ -51,7 +60,7 @@ export const Input = styled.input`
   transition: var(--transition);
 
   &:is(:active, :focus) {
-    border: 1px solid var(--color-figure-1);
+    border: ${({ theme }) => theme.formInputBorderActive};
   }
 
   ${({ mr }) => mr && `margin-right: 2.5rem;`};
@@ -72,6 +81,8 @@ export const Flex = styled.div`
 `;
 
 export const Select = styled.select`
+  background: ${({ theme }) => theme.formInputBg};
+  color: ${({ theme }) => theme.text};
   min-height: 5rem;
   width: 24rem;
   border-radius: 4px;
