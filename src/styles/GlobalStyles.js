@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   --color-font: #0c0e16;
   --font-main: "Spartan", sans-serif;
   --transition: 0.1s all ease-in-out;
+  --transitionSlow: 0.25s all ease-in-out;
   --theme: ${({ theme }) => theme.bg};
 }
 
@@ -31,6 +32,7 @@ html {
 
 body {
   font-size: 18px;
+  position: relative;
   color: var(--color-font);
   font-family: var(--font-main);
   transition: background 0.3s ease-in-out;

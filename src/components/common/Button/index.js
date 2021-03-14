@@ -11,6 +11,7 @@ export const Button = styled.button`
   border-radius: 24px;
   cursor: pointer;
   transition: var(--transition);
+  user-select: none;
 
   ${({ second }) =>
     second &&
