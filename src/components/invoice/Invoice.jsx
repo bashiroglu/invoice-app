@@ -14,7 +14,6 @@ import formatNumbers from '../../helpers/formatNumbers';
 import { useHistory } from 'react-router-dom';
 
 const Invoice = ({
-  _id,
   invoiceId,
   createdAt,
   clientName,
@@ -26,7 +25,7 @@ const Invoice = ({
   const { push } = useHistory();
 
   return (
-    <InvoiceContainer onClick={() => push(`invoice/${_id}`)}>
+    <InvoiceContainer onClick={() => push(`invoices/${invoiceId}`)}>
       <Tag small>{invoiceId}</Tag>
       <InvoiceDate>{createdAt}</InvoiceDate>
       <InvoicePersonName>{clientName}</InvoicePersonName>
