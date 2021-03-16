@@ -9,6 +9,8 @@
 ### Optional:
 
 - [ ] skeleton animation on invoice loading
+- [ ] implement formik and yup
+- [ ] add typescript
 
 ## Tech used:
 
