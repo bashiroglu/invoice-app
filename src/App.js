@@ -1,8 +1,9 @@
 import { Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './styles/GlobalStyles';
-import InvoiceID from './components/InvoiceID/InvoiceID';
-import Invoices from './pages/Invoices/Invoices';
+import InvoiceDrawer from './components/invoiceDrawer/InvoiceDrawer';
+import InvoiceID from './components/invoiceID/InvoiceID';
+import Invoices from './pages/invoices/Invoices';
 import Sidebar from './components/sidebar/Sidebar';
 import { ThemeProvider } from 'styled-components';
 import useDarkTheme from './hooks/useDarkTheme';
@@ -15,9 +16,14 @@ function App() {
       <GlobalStyle />
       <Sidebar theme={theme} toggleTheme={toggleTheme} />
       <Switch>
-        <Route exact path='/' component={Invoices} />
-        <Route exact path='/invoice/:id' component={InvoiceID} />
+        <Route
+          path={['/invoices', '/invoices/new']}
+          exact
+          component={Invoices}
+        />
       </Switch>
+      <Route path='/invoices/:id' component={InvoiceID} />
+      <Route path='/invoices/:id/edit' component={InvoiceDrawer} />
     </ThemeProvider>
   );
 }
