@@ -1,5 +1,5 @@
 import Invoice from '../invoice/Invoice';
-import { InvoicesContainer } from '../../pages/Invoices/Invoices.styles';
+import { InvoicesContainer } from '../../pages/invoices/Invoices.styles';
 import { useSelector } from 'react-redux';
 
 function InvoiceList() {

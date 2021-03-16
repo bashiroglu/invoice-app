@@ -5,9 +5,9 @@ import {
 
 import PlusIcon from '../svgs/PlusIcon';
 
-function CreateButton({ children }) {
+function CreateButton({ children, ...props }) {
   return (
-    <StyledCreateButton>
+    <StyledCreateButton {...props}>
       <PlusIconContainer>
         <PlusIcon />
       </PlusIconContainer>

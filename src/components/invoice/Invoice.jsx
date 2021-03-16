@@ -8,8 +8,8 @@ import {
 } from './Invoice.styles';
 
 import RightArrow from '../svgs/RightArrow';
-import Status from '../Status/Status';
-import Tag from '../Tag/Tag';
+import Status from '../status/Status';
+import Tag from '../tag/Tag';
 import formatNumbers from '../../helpers/formatNumbers';
 import { useHistory } from 'react-router-dom';
 
@@ -22,10 +22,10 @@ const Invoice = ({
   currency = '£',
 }) => {
   const formattedTotal = formatNumbers(total);
-  const history = useHistory();
+  const { push } = useHistory();
 
   return (
-    <InvoiceContainer onClick={() => history.push(`invoice/${id}`)}>
+    <InvoiceContainer onClick={() => push(`invoices/${id}`)}>
       <Tag small>{id}</Tag>
       <InvoiceDate>{createdAt}</InvoiceDate>
       <InvoicePersonName>{clientName}</InvoicePersonName>

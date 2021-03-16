@@ -6,11 +6,14 @@ import {
 
 import CreateButton from './CreateButton';
 import { Heading } from '../common';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const InvoicesHeader = () => {
   const invoices = useSelector((state) => state.invoices);
   const numberOfInvoices = Object.keys(invoices).length;
+
+  const { push } = useHistory();
 
   return (
     <StyledInvoicesHeader>
@@ -23,7 +26,9 @@ const InvoicesHeader = () => {
         </p>
       </InfoBox>
       <Filter>Filter by status</Filter>
-      <CreateButton>New Invoice</CreateButton>
+      <CreateButton onClick={() => push('/invoices/new')}>
+        New Invoice
+      </CreateButton>
     </StyledInvoicesHeader>
   );
 };
