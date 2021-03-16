@@ -1,7 +1,7 @@
 import { Text as TemplateText } from '../common';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   display: flex;
   align-items: center;
   flex-flow: column wrap;

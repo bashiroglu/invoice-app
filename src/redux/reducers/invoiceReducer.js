@@ -1,9 +1,10 @@
 import { GET_ALL } from '../actionTypes';
 import data from '../../data.json';
 
-const initialState = { ...data };
+const invoiceData = { ...data };
 
-const invoiceReducer = (state = initialState, { type, payload }) => {
+// eslint-disable-next-line no-unused-vars
+const invoiceReducer = (state = invoiceData, { type, payload }) => {
   switch (type) {
     case GET_ALL:
       return { ...state };

@@ -12,9 +12,11 @@ import {
   Select,
   Sum,
 } from './InvoiceDrawer.styles';
-import { Button, Heading, Tag, Text } from '../common';
+import { Button, Heading, Text } from '../common';
 
+import Tag from '../tag/Tag';
 import icon from '../../assets/trash-icon.svg';
+import { useParams } from 'react-router';
 import { useState } from 'react';
 
 const InvoiceDrawer = () => {
@@ -33,10 +35,18 @@ const InvoiceDrawer = () => {
     }));
   };
 
+  const { id } = useParams();
+
   return (
     <Container>
       <Heading mb='3'>
-        Edit <Tag>#</Tag>XM9141
+        {id ? (
+          <>
+            Edit<Tag>{id}</Tag>
+          </>
+        ) : (
+          'New Invoice'
+        )}
       </Heading>
       <Form onChange={onFormChange} onSubmit={onFormSubmit}>
         <BillToFrom>Bill From</BillToFrom>
