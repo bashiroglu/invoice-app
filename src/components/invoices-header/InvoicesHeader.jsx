@@ -10,7 +10,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const InvoicesHeader = () => {
-  const invoices = useSelector((state) => state.invoices);
+  const invoices = useSelector((state) => state.invoices.invoices);
   const numberOfInvoices = Object.keys(invoices).length;
 
   const { push } = useHistory();
