@@ -9,7 +9,7 @@ import { Heading } from '../common';
 import { useSelector } from 'react-redux';
 
 const InvoicesHeader = () => {
-  const invoices = useSelector((state) => state.invoices);
+  const invoices = useSelector((state) => state.invoices.invoices);
   const numberOfInvoices = Object.keys(invoices).length;
 
   return (
