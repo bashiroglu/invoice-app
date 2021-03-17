@@ -16,14 +16,21 @@ function App() {
       <GlobalStyle />
       <Sidebar theme={theme} toggleTheme={toggleTheme} />
       <Switch>
-        <Route
-          path={['/invoices', '/invoices/new']}
-          exact
-          component={Invoices}
-        />
+        <Route path='/invoices/new'>
+          <Invoices />
+          <InvoiceDrawer />
+        </Route>
+        <Route exact path='/invoices/all'>
+          <Invoices />
+        </Route>
+        <Route exact path='/invoices/all/:id'>
+          <InvoiceID />
+        </Route>
+        <Route path='/invoices/edit/:id/'>
+          <InvoiceID />
+          <InvoiceDrawer />
+        </Route>
       </Switch>
-      <Route path='/invoices/:id' component={InvoiceID} />
-      <Route path='/invoices/:id/edit' component={InvoiceDrawer} />
     </ThemeProvider>
   );
 }

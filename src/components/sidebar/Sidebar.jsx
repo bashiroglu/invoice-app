@@ -18,7 +18,7 @@ function Sidebar({ theme, toggleTheme }) {
   return (
     <StyledSidebar>
       <SidebarTopContainer>
-        <Link to='/invoices'>
+        <Link to='/invoices/all'>
           <img src={LogoImg} alt='invoice logo' className='logo' />
         </Link>
         <SidebarTopContainerBottomPart></SidebarTopContainerBottomPart>

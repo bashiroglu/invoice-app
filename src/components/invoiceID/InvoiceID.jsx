@@ -17,24 +17,12 @@ import { useState } from 'react';
 const InvoiceID = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { id } = useParams();
-  const invoices = useSelector((state) => state.invoices);
-  const { status, description } =
-    Object.values(invoices).find((invoice) => invoice.id == id) || '';
+  const invoices = useSelector((state) => state.invoices.invoices);
 
-  const {
-    push,
-    location: { pathname },
-  } = useHistory();
-
-  const editPath = pathname + '/edit';
-  const endsWithEdit = pathname.endsWith('/edit');
-
-  const pushToEditPath = () => {
-    if (!endsWithEdit) push(editPath);
-  };
+  const { push } = useHistory();
 
   const cancelDeletion = () => {
-    alert('canceled');
+    console.log('canceled');
   };
 
   const deleteInvoice = () => {
@@ -55,9 +43,9 @@ const InvoiceID = () => {
         <StyledActions>
           <Flex>
             <Text>Status</Text>
-            <Status status={status}>{status}</Status>
+            <Status status={'pending'}>{'Paid'}</Status>
           </Flex>
-          <Button third onClick={pushToEditPath}>
+          <Button third onClick={() => push(`/invoices/edit/${id}`)}>
             Edit
           </Button>
           <Button
@@ -73,7 +61,7 @@ const InvoiceID = () => {
           <div>
             <div>
               <Tag>{id}</Tag>
-              <Text>{description}</Text>
+              <Text>{'description'}</Text>
             </div>
           </div>
         </StyledDetails>

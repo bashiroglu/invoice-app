@@ -22,10 +22,13 @@ const Invoice = ({
   currency = '£',
 }) => {
   const formattedTotal = formatNumbers(total);
-  const { push } = useHistory();
+  const {
+    push,
+    location: { pathname },
+  } = useHistory();
 
   return (
-    <InvoiceContainer onClick={() => push(`invoices/${invoiceId}`)}>
+    <InvoiceContainer onClick={() => push(`${pathname}/${invoiceId}`)}>
       <Tag small>{invoiceId}</Tag>
       <InvoiceDate>{createdAt}</InvoiceDate>
       <InvoicePersonName>{clientName}</InvoicePersonName>
