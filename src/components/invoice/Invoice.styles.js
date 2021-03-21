@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const InvoiceContainer = styled.div`
+export const InvoiceContainer = styled(Link)`
   background-color: ${({ theme }) => theme.invoiceBg};
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
   padding: 1.6rem 3.2rem;
@@ -10,6 +11,13 @@ export const InvoiceContainer = styled.div`
   flex-wrap: nowrap;
   justify-content: space-between;
   cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid var(--color-figure-1);
+  }
 
   &:not(:last-child) {
     margin-bottom: 1.6rem;

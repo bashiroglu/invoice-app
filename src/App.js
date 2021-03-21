@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './styles/GlobalStyles';
 import InvoiceDrawer from './components/invoiceDrawer/InvoiceDrawer';
@@ -16,6 +16,9 @@ function App() {
       <GlobalStyle />
       <Sidebar theme={theme} toggleTheme={toggleTheme} />
       <Switch>
+        <Route exact path='/'>
+          <Redirect to='/invoices/all' />
+        </Route>
         <Route path='/invoices/new'>
           <Invoices />
           <InvoiceDrawer />

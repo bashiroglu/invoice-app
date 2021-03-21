@@ -6,6 +6,7 @@ export const Container = styled.aside`
   padding-left: 6rem;
   margin-left: 9rem;
   height: 100vh;
+  min-height: 100%;
   width: max-content;
   overflow: hidden;
   border-radius: 0 2rem 2rem 0;

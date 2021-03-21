@@ -28,7 +28,7 @@ export const Side = styled.div`
     right &&
     `
     background: #F8F8FB;
-    @media (max-width: 1022px) {
+    @media (max-width: 1024px) {
       width: 100%;
     }
   `};
@@ -39,7 +39,7 @@ export const Heading = styled.h1`
   font-size: 7.2rem;
   color: #fff;
 
-  @media (max-width: 1022px) {
+  @media (max-width: 1024px) {
     font-size: 3rem;
   }
 

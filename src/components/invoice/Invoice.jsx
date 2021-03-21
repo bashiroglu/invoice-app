@@ -11,7 +11,6 @@ import RightArrow from '../svgs/RightArrow';
 import Status from '../status/Status';
 import Tag from '../tag/Tag';
 import formatNumbers from '../../helpers/formatNumbers';
-import { useHistory } from 'react-router-dom';
 
 const Invoice = ({
   invoiceId,
@@ -22,13 +21,9 @@ const Invoice = ({
   currency = '£',
 }) => {
   const formattedTotal = formatNumbers(total);
-  const {
-    push,
-    location: { pathname },
-  } = useHistory();
 
   return (
-    <InvoiceContainer onClick={() => push(`${pathname}/${invoiceId}`)}>
+    <InvoiceContainer to={`/invoices/all/${invoiceId}`}>
       <Tag small>{invoiceId}</Tag>
       <InvoiceDate>{createdAt}</InvoiceDate>
       <InvoicePersonName>{clientName}</InvoicePersonName>
