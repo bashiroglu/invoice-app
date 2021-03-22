@@ -1,16 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const StyledSidebar = styled.div`
-  width: 10.3rem;
-  height: 100vh;
   background-color: ${({ theme }) => theme.sidebarBg};
-  border-radius: 0px 20px 20px 0px;
-  position: fixed;
   display: flex;
-  flex-direction: column;
   overflow: hidden;
   z-index: 2;
-  justify-content: space-between;
+
   .logo {
     position: absolute;
     width: 4rem;
@@ -18,6 +13,22 @@ export const StyledSidebar = styled.div`
     top: 50%;
     transform: translate(-50%, -50%);
   }
+
+  @media (min-width: 375px) {
+    border-radius: 0 0 20px 20px;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1440px) {
+    position: fixed;
+    border-radius: 0 20px 20px 0;
+    width: 10.3rem;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    z-index: 2;
+  } ;
 `;
 
 export const SidebarTopContainer = styled.div`
@@ -28,6 +39,14 @@ export const SidebarTopContainer = styled.div`
   display: flex;
   align-items: flex-end;
   position: relative;
+
+  @media (min-width: 375px) {
+    width: 8rem;
+  }
+
+  @media (min-width: 1440px) {
+    width: 100%;
+  }
 `;
 
 export const SidebarTopContainerBottomPart = styled.div`
@@ -41,14 +60,26 @@ export const SidebarProfile = styled.div`
   display: flex;
   justify-content: center;
   padding: 2.4rem;
-  border-top: 1px solid var(--color-4);
+
+  @media (min-width: 375px) {
+    border-left: 1px solid var(--color-4);
+  }
+
+  @media (min-width: 1440px) {
+    border-top: 1px solid var(--color-4);
+  }
 `;
 
 export const ThemeMode = styled.div`
   padding: 3.2rem;
-  display: flex;
-  justify-content: center;
-  margin-top: auto;
+
+  @media (min-width: 375px) {
+    margin: auto 0 auto auto;
+  }
+
+  @media (min-width: 1440px) {
+    margin: auto auto 0;
+  }
 `;
 
 export const SidebarProfileImage = styled.img`
