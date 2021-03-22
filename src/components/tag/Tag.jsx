@@ -1,5 +1,4 @@
-import { Tag as HashTag } from './Tag.style';
-import styled from 'styled-components';
+import { Tag as HashTag, Wrapper } from './Tag.style';
 
 const Tag = ({ small, children }) => (
   <Wrapper small={small}>
@@ -7,12 +6,5 @@ const Tag = ({ small, children }) => (
     {children}
   </Wrapper>
 );
-
-const Wrapper = styled.div`
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.text};
-  ${({ small }) => small && `font-size: 1.2rem`};
-`;
 
 export default Tag;

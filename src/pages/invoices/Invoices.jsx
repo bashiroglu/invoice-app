@@ -1,5 +1,4 @@
 import InvoiceList from '../../components/invoice-list/InvoiceList';
-import { InvoicesContainer } from './Invoices.styles';
 import InvoicesHeader from '../../components/invoices-header/InvoicesHeader';
 import { fetchInvoicesStartAsync } from '../../redux/invoices/invoices.actions';
 import { useDispatch } from 'react-redux';
@@ -12,14 +11,12 @@ const Invoices = () => {
     dispatch(fetchInvoicesStartAsync());
   }, []);
 
-  const body = (
-    <InvoicesContainer>
+  return (
+    <>
       <InvoicesHeader />
       <InvoiceList />
-    </InvoicesContainer>
+    </>
   );
-
-  return body;
 };
 
 export default Invoices;

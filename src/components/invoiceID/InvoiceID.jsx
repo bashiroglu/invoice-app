@@ -11,14 +11,11 @@ import { Button } from '../common';
 import Modal from '../modal/Modal';
 import Status from '../status/Status';
 import Tag from '../tag/Tag';
-import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
 const InvoiceID = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { id } = useParams();
-  const invoices = useSelector((state) => state.invoices.invoices);
-
   const { push } = useHistory();
 
   const cancelDeletion = () => {
