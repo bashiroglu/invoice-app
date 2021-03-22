@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
-export const InvoicesContainer = styled.div`
-  max-width: 73rem;
-  width: 73rem;
+export const InvoiceWrapper = styled.div`
   margin: 0 auto;
-  margin-top: 7.2rem;
+
+  @media (min-width: 375px) {
+    width: 90vw;
+  }
 `;

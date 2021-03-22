@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const InvoiceContainer = styled(Link)`
+  display: block;
   background-color: ${({ theme }) => theme.invoiceBg};
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
-  padding: 1.6rem 3.2rem;
   border-radius: 0.8rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition);
@@ -18,9 +14,38 @@ export const InvoiceContainer = styled(Link)`
   &:hover {
     border: 1px solid var(--color-figure-1);
   }
-
   &:not(:last-child) {
     margin-bottom: 1.6rem;
+  }
+
+  @media (min-width: 375px) {
+    display: grid;
+    grid: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 2.4rem;
+  }
+  @media (min-width: 768px) {
+    padding: 3rem 2.4rem;
+    grid-template-rows: 5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+  @media (min-width: 1440px) {
+    padding: 1.6rem 3.2rem;
+    width: max-content;
+    margin: 0 auto;
+    grid-template-columns: 8rem 14.6rem 14.6rem 14.6rem 14.6rem;
+  }
+`;
+
+export const TagWrapper = styled.div`
+  order: 1;
+
+  @media (min-width: 768px) {
+    width: 7rem;
   }
 `;
 
@@ -28,8 +53,14 @@ export const InvoiceDate = styled.p`
   font-weight: 500;
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colorGray};
-  min-width: 10.6rem;
   text-align: left;
+
+  @media (min-width: 375px) {
+    order: 3;
+  }
+  @media (min-width: 768px) {
+    order: 2;
+  }
 `;
 
 export const InvoicePersonName = styled.p`
@@ -37,22 +68,45 @@ export const InvoicePersonName = styled.p`
   font-size: 1.2rem;
   line-height: 1.5rem;
   color: var(--color-gray-2);
-  min-width: 11rem;
-  text-align: left;
+
+  @media (min-width: 375px) {
+    margin: 0 auto;
+    order: 2;
+  }
+  @media (min-width: 768px) {
+    order: 3;
+    text-align: left;
+    margin: unset;
+  }
 `;
 
 export const InvoicePersonAmount = styled.p`
+  order: 5;
   font-weight: bold;
   font-size: 1.6rem;
   text-align: right;
   color: ${({ theme }) => theme.text};
-  min-width: 10.6rem;
-  text-align: center;
+
+  @media (min-width: 375px) {
+    text-align: left;
+  }
+  @media (min-width: 768px) {
+    order: 4;
+    text-align: end;
+  }
 `;
 
 export const RightSideContainer = styled.div`
   display: flex;
   align-items: center;
+
+  @media (min-width: 375px) {
+    order: 4;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    order: 5;
+  }
 `;
 
 export const IconButton = styled.button`

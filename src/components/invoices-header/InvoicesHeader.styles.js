@@ -1,8 +1,21 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const StyledInvoicesHeader = styled.div`
   display: flex;
   align-items: center;
+  margin: 0 auto;
+
+  @media (min-width: 375px) {
+    width: 90vw;
+    padding: 3.2rem 0;
+  }
+  @media (min-width: 768px) {
+    padding: 5.6rem 0;
+  }
+  @media (min-width: 1440px) {
+    width: 77rem;
+    padding: 7rem 0 6.5rem;
+  }
 `;
 
 export const InfoBox = styled.div`

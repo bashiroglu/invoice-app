@@ -5,6 +5,7 @@ import {
   InvoicePersonAmount,
   InvoicePersonName,
   RightSideContainer,
+  TagWrapper,
 } from './Invoice.styles';
 
 import RightArrow from '../svgs/RightArrow';
@@ -26,7 +27,9 @@ const Invoice = ({
 
   return (
     <InvoiceContainer to={`/invoices/all/${invoiceId}`}>
-      <Tag small>{invoiceId}</Tag>
+      <TagWrapper>
+        <Tag small>{invoiceId}</Tag>
+      </TagWrapper>
       <InvoiceDate>Due {formattedCreatedAt}</InvoiceDate>
       <InvoicePersonName>{clientName}</InvoicePersonName>
       <InvoicePersonAmount>

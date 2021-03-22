@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 export const StyledSidebar = styled.div`
   background-color: ${({ theme }) => theme.sidebarBg};
@@ -18,7 +18,6 @@ export const StyledSidebar = styled.div`
     border-radius: 0 0 20px 20px;
     justify-content: space-between;
   }
-
   @media (min-width: 1440px) {
     position: fixed;
     border-radius: 0 20px 20px 0;
@@ -43,7 +42,6 @@ export const SidebarTopContainer = styled.div`
   @media (min-width: 375px) {
     width: 8rem;
   }
-
   @media (min-width: 1440px) {
     width: 100%;
   }
@@ -64,7 +62,6 @@ export const SidebarProfile = styled.div`
   @media (min-width: 375px) {
     border-left: 1px solid var(--color-4);
   }
-
   @media (min-width: 1440px) {
     border-left: none;
     border-top: 1px solid var(--color-4);
@@ -77,7 +74,6 @@ export const ThemeMode = styled.div`
   @media (min-width: 375px) {
     margin: auto 0 auto auto;
   }
-
   @media (min-width: 1440px) {
     margin: auto auto 0;
   }

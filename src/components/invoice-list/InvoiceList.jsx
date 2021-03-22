@@ -1,15 +1,15 @@
 import Invoice from '../invoice/Invoice';
-import { InvoicesContainer } from '../../pages/invoices/Invoices.styles';
+import { InvoiceWrapper } from './Invoices.styles';
 import { useSelector } from 'react-redux';
 
 function InvoiceList() {
   const invoices = useSelector((state) => state.invoices.invoices);
   return (
-    <InvoicesContainer>
+    <InvoiceWrapper>
       {Object.values(invoices).map((invoice) => (
         <Invoice key={invoice.invoiceId} {...invoice} />
       ))}
-    </InvoicesContainer>
+    </InvoiceWrapper>
   );
 }
 
