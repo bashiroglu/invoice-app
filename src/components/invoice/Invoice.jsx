@@ -11,6 +11,7 @@ import RightArrow from '../svgs/RightArrow';
 import Status from '../status/Status';
 import Tag from '../tag/Tag';
 import formatNumbers from '../../helpers/formatNumbers';
+import moment from 'moment';
 
 const Invoice = ({
   invoiceId,
@@ -21,11 +22,12 @@ const Invoice = ({
   currency = '£',
 }) => {
   const formattedTotal = formatNumbers(total);
+  const formattedCreatedAt = moment(createdAt).format('Do MMM YYYY');
 
   return (
     <InvoiceContainer to={`/invoices/all/${invoiceId}`}>
       <Tag small>{invoiceId}</Tag>
-      <InvoiceDate>{createdAt}</InvoiceDate>
+      <InvoiceDate>Due {formattedCreatedAt}</InvoiceDate>
       <InvoicePersonName>{clientName}</InvoicePersonName>
       <InvoicePersonAmount>
         {currency} {formattedTotal}
