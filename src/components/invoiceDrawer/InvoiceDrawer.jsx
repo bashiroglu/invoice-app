@@ -41,9 +41,15 @@ const InvoiceDrawer = () => {
     <Container>
       <Heading mb='3'>
         {id ? (
-          <>
-            Edit<Tag>{id}</Tag>
-          </>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+            }}
+          >
+            Edit <Tag>{id}</Tag>
+          </div>
         ) : (
           'New Invoice'
         )}
@@ -145,7 +151,6 @@ const InvoiceDrawer = () => {
                 name='qty'
                 type='number'
                 min='0'
-                defaultValue='0'
                 qty
                 width='5'
               />
@@ -171,7 +176,6 @@ const InvoiceDrawer = () => {
                 name='qty'
                 type='number'
                 min='0'
-                defaultValue='0'
                 qty
                 width='5'
               />
@@ -187,12 +191,28 @@ const InvoiceDrawer = () => {
           </div>
         </div>
         <ButtonContainer>
-          <Button type='button' third mr='1'>
-            Cancel
-          </Button>
-          <Button type='submit' second>
-            Save Changes
-          </Button>
+          {id ? (
+            <>
+              <Button type='button' third mr='1'>
+                Cancel
+              </Button>
+              <Button type='submit' second>
+                Save Changes
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button style={{ marginRight: 'auto' }} third type='button'>
+                Discard
+              </Button>
+              <Button type='button' fourth mr='1'>
+                Save as Draft
+              </Button>
+              <Button type='submit' second>
+                Save & Send
+              </Button>
+            </>
+          )}
         </ButtonContainer>
       </Form>
     </Container>

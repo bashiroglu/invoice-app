@@ -13,6 +13,8 @@ export const Button = styled.button`
   transition: var(--transition);
   user-select: none;
 
+  ${({ mr }) => mr && `margin-right: ${mr}rem`};
+
   ${({ second }) =>
     second &&
     `
@@ -66,6 +68,4 @@ export const Button = styled.button`
 		background: #DFE3FA;
 		};
 	`};
-
-  ${({ mr }) => mr && `margin-right: ${mr}rem`};
 `;
