@@ -66,6 +66,7 @@ export const SidebarProfile = styled.div`
   }
 
   @media (min-width: 1440px) {
+    border-left: none;
     border-top: 1px solid var(--color-4);
   }
 `;
