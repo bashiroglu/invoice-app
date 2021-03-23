@@ -14,52 +14,63 @@ import {
 } from './InvoiceDetails.style';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { Button } from '../common';
-import Modal from '../modal/Modal';
-import Status from '../status/Status';
-import Tag from '../tag/Tag';
-import { useState } from 'react';
+import { Button } from '../../components/common';
+import Modal from '../../components/modal/Modal';
+import Status from '../../components/status/Status';
+import Tag from '../../components/tag/Tag';
+import { useState, useEffect } from 'react';
+import { fetchInvoiceDetailsStartAsync } from '../../redux/invoice-details/invoice-details.actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const InvoiceDetails = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const { id } = useParams();
-  // const invoices = useSelector((state) => state.invoices.invoices);
+  const { id: invoiceId } = useParams();
+  const dispatch = useDispatch();
+  const invoiceDetails = useSelector(
+    (state) => state.invoiceDetails.invoiceDetails,
+  );
+
+  useEffect(() => {
+    dispatch(fetchInvoiceDetailsStartAsync(invoiceId));
+  }, []);
 
   const {
-    id,
+    invoiceId: id,
     description,
     senderAddress: { street, city, postCode, country },
-  } = {
-    id: 'RT3080',
-    createdAt: '2021-08-18',
-    paymentDue: '2021-08-19',
-    description: 'Re-branding',
-    paymentTerms: 1,
-    clientName: 'Jensen Huang',
-    clientEmail: 'jensenh@mail.com',
-    status: 'paid',
-    senderAddress: {
-      street: '19 Union Terrace',
-      city: 'London',
-      postCode: 'E1 3EZ',
-      country: 'United Kingdom',
-    },
-    clientAddress: {
-      street: '106 Kendell Street',
-      city: 'Sharrington',
-      postCode: 'NR24 5WQ',
-      country: 'United Kingdom',
-    },
-    items: [
-      {
-        name: 'Brand Guidelines',
-        quantity: 1,
-        price: 1800.9,
-        total: 1800.9,
-      },
-    ],
-    total: 1800.9,
-  };
+  } = invoiceDetails;
+
+  // {
+  //   id: 'RT3080',
+  //   createdAt: '2021-08-18',
+  //   paymentDue: '2021-08-19',
+  //   description: 'Re-branding',
+  //   paymentTerms: 1,
+  //   clientName: 'Jensen Huang',
+  //   clientEmail: 'jensenh@mail.com',
+  //   status: 'paid',
+  //   senderAddress: {
+  //     street: '19 Union Terrace',
+  //     city: 'London',
+  //     postCode: 'E1 3EZ',
+  //     country: 'United Kingdom',
+  //   },
+  //   clientAddress: {
+  //     street: '106 Kendell Street',
+  //     city: 'Sharrington',
+  //     postCode: 'NR24 5WQ',
+  //     country: 'United Kingdom',
+  //   },
+  //   items: [
+  //     {
+  //       name: 'Brand Guidelines',
+  //       quantity: 1,
+  //       price: 1800.9,
+  //       total: 1800.9,
+  //     },
+  //   ],
+  //   total: 1800.9,
+  // };
 
   const { push } = useHistory();
 

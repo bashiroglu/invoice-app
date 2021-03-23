@@ -2,7 +2,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './styles/GlobalStyles';
 import InvoiceDrawer from './components/invoiceDrawer/InvoiceDrawer';
-import InvoiceDetails from './components/invoice-details/InvoiceDetails';
+import InvoiceDetails from './pages/invoice-details/InvoiceDetails';
 import Invoices from './pages/invoices/Invoices';
 import Sidebar from './components/sidebar/Sidebar';
 import { ThemeProvider } from 'styled-components';

@@ -1,4 +1,4 @@
-import { Text as TemplateText } from '../common';
+import { Text as TemplateText } from '../../components/common';
 import styled from 'styled-components';
 
 export const Container = styled.section`
