@@ -1,9 +1,17 @@
 import { darkTheme, lightTheme } from '../theme';
 import { useEffect, useState } from 'react';
 
+import useMedia from './useMedia';
+
 const useDarkTheme = () => {
   const [theme, setTheme] = useState('light');
   const themes = theme == 'light' ? lightTheme : darkTheme;
+
+  const prefersDarkMode = useMedia(
+    ['(prefers-color-scheme: dark)'],
+    [true],
+    false,
+  );
 
   const toggleTheme = () => {
     if (theme === 'light') {
@@ -20,10 +28,12 @@ const useDarkTheme = () => {
     if (localTheme) {
       window.localStorage.setItem('theme', localTheme);
       setTheme(localTheme);
+    } else if (prefersDarkMode) {
+      setTheme('dark');
     } else {
       setTheme('light');
     }
-  }, []);
+  }, [prefersDarkMode]);
 
   return [themes, theme, toggleTheme];
 };
