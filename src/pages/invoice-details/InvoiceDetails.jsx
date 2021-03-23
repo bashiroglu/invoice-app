@@ -24,53 +24,53 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const InvoiceDetails = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const { id: invoiceId } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
+  const isFetching = useSelector(
+    (state) => state.invoiceDetails.isFetching,
+  );
   const invoiceDetails = useSelector(
     (state) => state.invoiceDetails.invoiceDetails,
   );
 
-  useEffect(() => {
-    dispatch(fetchInvoiceDetailsStartAsync(invoiceId));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchInvoiceDetailsStartAsync(invoiceId));
+  // }, []);
 
   const {
-    invoiceId: id,
     description,
     senderAddress: { street, city, postCode, country },
-  } = invoiceDetails;
-
-  // {
-  //   id: 'RT3080',
-  //   createdAt: '2021-08-18',
-  //   paymentDue: '2021-08-19',
-  //   description: 'Re-branding',
-  //   paymentTerms: 1,
-  //   clientName: 'Jensen Huang',
-  //   clientEmail: 'jensenh@mail.com',
-  //   status: 'paid',
-  //   senderAddress: {
-  //     street: '19 Union Terrace',
-  //     city: 'London',
-  //     postCode: 'E1 3EZ',
-  //     country: 'United Kingdom',
-  //   },
-  //   clientAddress: {
-  //     street: '106 Kendell Street',
-  //     city: 'Sharrington',
-  //     postCode: 'NR24 5WQ',
-  //     country: 'United Kingdom',
-  //   },
-  //   items: [
-  //     {
-  //       name: 'Brand Guidelines',
-  //       quantity: 1,
-  //       price: 1800.9,
-  //       total: 1800.9,
-  //     },
-  //   ],
-  //   total: 1800.9,
-  // };
+  } = {
+    id: 'RT3080',
+    createdAt: '2021-08-18',
+    paymentDue: '2021-08-19',
+    description: 'Re-branding',
+    paymentTerms: 1,
+    clientName: 'Jensen Huang',
+    clientEmail: 'jensenh@mail.com',
+    status: 'paid',
+    senderAddress: {
+      street: '19 Union Terrace',
+      city: 'London',
+      postCode: 'E1 3EZ',
+      country: 'United Kingdom',
+    },
+    clientAddress: {
+      street: '106 Kendell Street',
+      city: 'Sharrington',
+      postCode: 'NR24 5WQ',
+      country: 'United Kingdom',
+    },
+    items: [
+      {
+        name: 'Brand Guidelines',
+        quantity: 1,
+        price: 1800.9,
+        total: 1800.9,
+      },
+    ],
+    total: 1800.9,
+  };
 
   const { push } = useHistory();
 
