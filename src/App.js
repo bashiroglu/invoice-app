@@ -2,7 +2,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './styles/GlobalStyles';
 import InvoiceDrawer from './components/invoiceDrawer/InvoiceDrawer';
-import InvoiceID from './components/invoiceID/InvoiceID';
+import InvoiceDetails from './components/invoice-details/InvoiceDetails';
 import Invoices from './pages/invoices/Invoices';
 import Sidebar from './components/sidebar/Sidebar';
 import { ThemeProvider } from 'styled-components';
@@ -27,10 +27,10 @@ function App() {
           <Invoices />
         </Route>
         <Route exact path='/invoices/all/:id'>
-          <InvoiceID />
+          <InvoiceDetails />
         </Route>
         <Route path='/invoices/edit/:id/'>
-          <InvoiceID />
+          <InvoiceDetails />
           <InvoiceDrawer />
         </Route>
       </Switch>

@@ -21,7 +21,7 @@ export const fetchInvoicesStartAsync = () => {
     let response;
     try {
       response = await axios.get(
-        'https://invoices-app-api.herokuapp.com/api/v1/invoices',
+        `${process.env.REACT_APP_API_URL}/api/v1/invoices`,
       );
     } catch (error) {
       console.log(error);
