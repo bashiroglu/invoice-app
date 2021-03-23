@@ -1,10 +1,9 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled.aside`
+export const Container = styled(motion.aside)`
   background: ${({ theme }) => theme.drawerBg};
   padding: 5rem;
-  padding-left: 6rem;
-  margin-left: 9rem;
   height: 100vh;
   min-height: 100%;
   width: max-content;
@@ -15,7 +14,6 @@ export const Container = styled.aside`
   left: 0;
   bottom: 0;
   z-index: 1;
-  transition: var(--transition);
 `;
 
 export const Form = styled.form`

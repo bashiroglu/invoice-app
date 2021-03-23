@@ -13,11 +13,21 @@ const Modal = ({ id, cancelDeletion, deleteInvoice, setModalIsOpen }) => {
 
   const handleDelete = () => {
     deleteInvoice();
-    push('/invoices');
+    push('/');
+  };
+
+  const animation = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: 1 },
   };
 
   return (
-    <Background>
+    <Background
+      variants={animation}
+      initial='hidden'
+      animate='visible'
+      exit='hidden'
+    >
       <Popup>
         <Heading fontSize='2' mb='1.3'>
           Confirm Deletion

@@ -12,6 +12,11 @@ export const StyledSidebar = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    transition: var(--transition);
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.1) rotate(90deg);
+    }
   }
 
   @media (min-width: 375px) {

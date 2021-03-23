@@ -33,6 +33,10 @@ export const lightTheme = {
   formInputBorderActive: '1px solid #9277FF',
   colorGray: '#888eb0',
   scrollbarColor: '#DFE3FA',
+  modal: {
+    bg: '#fff',
+    fg: '#888EB0',
+  },
 
   ...sharedStyles,
 
@@ -63,6 +67,10 @@ export const darkTheme = {
   formInputBorderActive: '1px solid #252945',
   colorGray: '#DFE3FA',
   scrollbarColor: '#252945',
+  modal: {
+    bg: '#1E2139',
+    fg: '#fff',
+  },
 
   ...sharedStyles,
 

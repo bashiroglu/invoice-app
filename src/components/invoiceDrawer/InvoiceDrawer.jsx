@@ -37,8 +37,20 @@ const InvoiceDrawer = () => {
 
   const { id } = useParams();
 
+  const animation = {
+    initial: { x: -100 },
+    animate: { x: 100, transition: 0.5 },
+    exit: { x: -800 },
+  };
+
   return (
-    <Container>
+    <Container
+      initial='initial'
+      animate='animate'
+      exit='exit'
+      transition='transition'
+      variants={animation}
+    >
       <Heading mb='3'>
         {id ? (
           <div

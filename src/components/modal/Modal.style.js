@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Background = styled.div`
+export const Background = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,23 +16,22 @@ export const Background = styled.div`
 `;
 
 export const Popup = styled.div`
+  background: ${({ theme }) => theme.modal.bg};
   width: 100%;
   border-radius: 8px;
   padding: 4.8rem;
-  background: #fff;
   max-width: 50rem;
   transition: var(--transition);
 `;
 
 export const Text = styled.div`
-  color: ${({ theme }) => theme.label};
+  color: ${({ theme }) => theme.modal.fg};
   text-transform: capitalize;
   margin: 1.5rem 0;
   font-weight: 500;
   line-height: 1.6;
   width: ${({ width }) => `${width}rem`};
   ${({ mr }) => mr && `margin-right: ${mr}rem`};
-
   font-size: 12px;
 `;
 
