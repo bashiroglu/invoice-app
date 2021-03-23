@@ -13,7 +13,7 @@ const Modal = ({ id, cancelDeletion, deleteInvoice, setModalIsOpen }) => {
 
   const handleDelete = () => {
     deleteInvoice();
-    push('/invoices');
+    push('/');
   };
 
   return (
