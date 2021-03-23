@@ -40,7 +40,7 @@ const InvoiceDrawer = () => {
   const animation = {
     initial: { x: -100 },
     animate: { x: 100, transition: 0.5 },
-    exit: { x: -500 },
+    exit: { x: -800 },
   };
 
   return (
