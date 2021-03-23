@@ -19,7 +19,6 @@ export const StyledInvoicesHeader = styled.div`
 `;
 
 export const InfoBox = styled.div`
-  margin-right: auto;
   p {
     font-weight: 500;
     font-size: 12px;
@@ -31,7 +30,8 @@ export const Filter = styled.p`
   color: ${({ theme }) => theme.text};
   font-weight: bold;
   font-size: 12px;
-  margin-right: 6.5rem;
+  margin-left: auto;
+  margin-right: 1.8rem;
 `;
 
 export const StyledCreateButton = styled.button`
