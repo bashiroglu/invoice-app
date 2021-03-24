@@ -11,7 +11,7 @@ export const Container = styled(motion.aside)`
   border-radius: 0 2rem 2rem 0;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -800px;
   bottom: 0;
   z-index: 1;
 `;
