@@ -13,15 +13,18 @@ import {
   Sum,
 } from './InvoiceDrawer.styles';
 import { Button, Heading, Text } from '../common';
+import { useEffect, useReducer, useState } from 'react';
 
 import Tag from '../tag/Tag';
+import animationReducer from '../../helpers/animationReducer';
 import icon from '../../assets/trash-icon.svg';
 import { useParams } from 'react-router';
-import { useState } from 'react';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 const InvoiceDrawer = () => {
   // eslint-disable-next-line no-unused-vars
   const [_, setFormData] = useState({});
+  const { width } = useWindowDimensions();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -35,21 +38,23 @@ const InvoiceDrawer = () => {
     }));
   };
 
-  const { id } = useParams();
+  const [{ state }, dispatch] = useReducer(animationReducer, {});
 
-  const animation = {
-    initial: { x: -100 },
-    animate: { x: 100, transition: 0.5 },
-    exit: { x: -800 },
-  };
+  useEffect(() => {
+    if (width >= '1440' && !width < 1440) dispatch({ type: 'desktop' });
+    if (width >= '768' && !width < 375 && width < 1440)
+      dispatch({ type: 'tablet' });
+    if (width >= '375' && width < 768) dispatch({ type: 'mobile' });
+  }, [width]);
+
+  const { id } = useParams();
 
   return (
     <Container
       initial='initial'
       animate='animate'
       exit='exit'
-      transition='transition'
-      variants={animation}
+      variants={state}
     >
       <Heading mb='3'>
         {id ? (
