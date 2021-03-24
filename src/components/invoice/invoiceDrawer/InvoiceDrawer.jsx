@@ -51,13 +51,7 @@ const InvoiceDrawer = () => {
           >
             <Heading mb='3'>
               {id ? (
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '1rem',
-                  }}
-                >
+                <div>
                   Edit <Tag>{id}</Tag>
                 </div>
               ) : (

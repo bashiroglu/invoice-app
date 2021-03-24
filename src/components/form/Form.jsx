@@ -1,74 +1,70 @@
-import icon from '../../assets/trash-icon.svg';
 import { Button, Heading, Text } from '../common';
-import {
-  BillToFrom,
-  ButtonContainer,
-  DateInput,
-  Flex,
-  Icon,
-  IconContainer,
-  Input,
-  ItemInputs,
-  Select,
-  StyledForm,
-  Sum,
-} from './Form.styles';
+import { BillToFrom, Flex, Select, StyledForm } from './Form.styles';
+import FormButtonContainer from './formButtonContainer/FormButtonContainer';
+import FormItemListTags from './formItemListTags/FormItemListTags';
+import FormLabel from './formLabel/FormLabel';
+import ItemListInputs from './formItemListInputs/FormItemListInputs';
 
 const Form = ({ onFormChange, onFormSubmit, id }) => {
   return (
     <>
       <StyledForm onChange={onFormChange} onSubmit={onFormSubmit}>
         <BillToFrom>Bill From</BillToFrom>
-        <label>
-          <Text>Street Address</Text>
-          <Input large name='fromStreetAdress' type='text' />
-        </label>
+        <FormLabel
+          large
+          name='fromStreetAdress'
+          text='Street Address'
+          type='text'
+        />
         <Flex mb='3'>
-          <label>
-            <Text>City</Text>
-            <Input mr name='fromCity' type='text' />
-          </label>
-          <label>
-            <Text>Post Code</Text>
-            <Input mr postCode name='fromPostCode' type='text' />
-          </label>
-          <label>
-            <Text>Country</Text>
-            <Input name='fromCountry' type='text' />
-          </label>
+          <FormLabel mr name='fromCity' text='City' type='text' />
+          <FormLabel
+            mr
+            postCode
+            name='fromPostCode'
+            text='Post Code'
+            type='text'
+          />
+          <FormLabel mr name='fromCountry' text='Country' type='text' />
         </Flex>
         <BillToFrom>Bill To</BillToFrom>
-        <label>
-          <Text>Client’s Name</Text>
-          <Input large name='toClientName' type='text' />
-        </label>
-        <label>
-          <Text>Client&#39;s email</Text>
-          <Input large name='toClientEmail' type='text' />
-        </label>
-        <label>
-          <Text>Street Address</Text>
-          <Input large name='toStreetAdress' type='text' />
-        </label>
+        <FormLabel
+          large
+          name='toClientName'
+          text='Client’s Name'
+          type='text'
+        />
+        <FormLabel
+          large
+          name='toClientEmail'
+          text='Client&#39;s email'
+          type='text'
+        />
+        <FormLabel
+          large
+          name='toStreetAdress'
+          text='Street Address'
+          type='text'
+        />
+
         <Flex mb='3'>
-          <label>
-            <Text>City</Text>
-            <Input mr name='toCity' type='text' />
-          </label>
-          <label>
-            <Text>Post code</Text>
-            <Input mr name='toPostCode' type='text' postCode />
-          </label>
-          <label>
-            <Text>Country</Text>
-            <Input name='toCountry' type='text' />
-          </label>
+          <FormLabel mr name='toCity' type='text' text='City' />
+          <FormLabel
+            mr
+            name='toPostCode'
+            type='text'
+            postCode
+            text='PostCode'
+          />
+          <FormLabel name='toCountry' type='text' text='Country' />
         </Flex>
         <Flex>
-          <label>
-            <Text>Invoice Date</Text>
-            <DateInput half name='invoiceDate' type='date' />
-          </label>
+          <FormLabel
+            half
+            name='invoiceDate'
+            type='date'
+            text='Invoice Date'
+          />
           <label>
             <Text>Payment Terms</Text>
             <Select name='terms'>
@@ -79,104 +75,25 @@ const Form = ({ onFormChange, onFormSubmit, id }) => {
             </Select>
           </label>
         </Flex>
-        <label>
-          <Text>Project Description</Text>
-          <Input large name='projectDescription' type='text' />
-        </label>
+        <FormLabel
+          large
+          name='projectDescription'
+          type='text'
+          text='Project Description'
+        />
         <div>
           <Heading mt='4' color='#777F98'>
             Item List
           </Heading>
           <div>
-            <Flex>
-              <Text mr='1.5' width='20'>
-                Item Name
-              </Text>
-              <Text mr='1.5' width='5'>
-                Qty
-              </Text>
-              <Text mr='1.5' width='10'>
-                Price
-              </Text>
-              <Text mr='1.5' width='10'>
-                Total
-              </Text>
-            </Flex>
-            <Flex mb='1.8'>
-              <ItemInputs
-                mr='1.5'
-                type='text'
-                name='itemName'
-                width='20'
-              />
-              <ItemInputs
-                mr='1.5'
-                name='qty'
-                type='number'
-                min='0'
-                qty
-                width='5'
-              />
-              <ItemInputs mr='1.5' type='text' name='price' width='10' />
-              <div>
-                <Sum>156.00</Sum>
-              </div>
-              <IconContainer ml='4'>
-                <Icon src={icon} alt='trash icon' />
-              </IconContainer>
-            </Flex>
+            <FormItemListTags />
+            <ItemListInputs />
           </div>
-          <div>
-            <Flex mb='1.8'>
-              <ItemInputs
-                mr='1.5'
-                type='text'
-                name='itemName'
-                width='20'
-              />
-              <ItemInputs
-                mr='1.5'
-                name='qty'
-                type='number'
-                min='0'
-                qty
-                width='5'
-              />
-              <ItemInputs mr='1.5' type='text' name='price' width='10' />
-              <div>
-                <Sum>156.00</Sum>
-              </div>
-              <IconContainer ml='4'>
-                <Icon src={icon} alt='trash icon' />
-              </IconContainer>
-            </Flex>
-            <Button sixth>+ Add New Item</Button>
-          </div>
+          <Button type='button' sixth>
+            + Add New Item
+          </Button>
         </div>
-        <ButtonContainer>
-          {id ? (
-            <>
-              <Button type='button' third mr='1'>
-                Cancel
-              </Button>
-              <Button type='submit' second>
-                Save Changes
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button style={{ marginRight: 'auto' }} third type='button'>
-                Discard
-              </Button>
-              <Button type='button' fourth mr='1'>
-                Save as Draft
-              </Button>
-              <Button type='submit' second>
-                Save & Send
-              </Button>
-            </>
-          )}
-        </ButtonContainer>
+        <FormButtonContainer id={id} />
       </StyledForm>
     </>
   );
