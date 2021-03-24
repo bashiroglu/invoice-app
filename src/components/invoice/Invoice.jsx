@@ -1,3 +1,8 @@
+import moment from 'moment';
+import formatNumbers from '../../helpers/formatNumbers';
+import Status from '../status/Status';
+import RightArrow from '../svgs/RightArrow';
+import Tag from '../tag/Tag';
 import {
   IconButton,
   InvoiceContainer,
@@ -7,12 +12,6 @@ import {
   RightSideContainer,
   TagWrapper,
 } from './Invoice.styles';
-
-import RightArrow from '../svgs/RightArrow';
-import Status from '../status/Status';
-import Tag from '../tag/Tag';
-import formatNumbers from '../../helpers/formatNumbers';
-import moment from 'moment';
 
 const Invoice = ({
   invoiceId,

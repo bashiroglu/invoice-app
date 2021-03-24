@@ -1,26 +1,23 @@
-import {
-  Container,
-  Flex,
-  StyledActions,
-  StyledDetails,
-  Text,
-  PersonalInformationContainer,
-  StyledId,
-  Profession,
-  GeneralInformation,
-  AdressDetails,
-  InvoiceSummary,
-  InvoiceSummaryTotal,
-} from './InvoiceDetails.style';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-
 import { Button } from '../../components/common';
 import Modal from '../../components/modal/Modal';
 import Status from '../../components/status/Status';
-import Tag from '../../components/tag/Tag';
-import { useState, useEffect } from 'react';
-import { fetchInvoiceDetailsStartAsync } from '../../redux/invoice-details/invoice-details.actions';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  AdressDetails,
+  Container,
+  Flex,
+  GeneralInformation,
+  InvoiceSummary,
+  InvoiceSummaryTotal,
+  PersonalInformationContainer,
+  Profession,
+  StyledActions,
+  StyledDetails,
+  StyledId,
+  Text,
+} from './InvoiceDetails.style';
 
 const InvoiceDetails = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -75,7 +72,7 @@ const InvoiceDetails = () => {
   const { push } = useHistory();
 
   const cancelDeletion = () => {
-    console.log('canceled');
+    //
   };
 
   const deleteInvoice = () => {

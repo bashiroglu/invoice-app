@@ -1,14 +1,13 @@
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
+import { Heading } from '../../common/Heading';
+import CreateButton from './CreateButton';
 import {
   Filter,
   InfoBox,
   StyledInvoicesHeader,
 } from './InvoicesHeader.styles';
-
-import CreateButton from './CreateButton';
-import { Heading } from '../common';
-import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 const InvoicesHeader = () => {
   const invoices = useSelector((state) => state.invoices.invoices);

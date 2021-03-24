@@ -1,9 +1,8 @@
+import PlusIcon from '../../svgs/PlusIcon';
 import {
   PlusIconContainer,
   StyledCreateButton,
 } from './InvoicesHeader.styles';
-
-import PlusIcon from '../svgs/PlusIcon';
 
 function CreateButton({ children, ...props }) {
   return (

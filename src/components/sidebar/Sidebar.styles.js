@@ -88,8 +88,19 @@ export const SidebarProfileImage = styled.img`
   border-radius: 50%;
   height: 4rem;
   width: 4rem;
+  transition: var(--transition);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const Icon = styled.img`
   cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    transform: scale(1.4);
+  }
 `;
