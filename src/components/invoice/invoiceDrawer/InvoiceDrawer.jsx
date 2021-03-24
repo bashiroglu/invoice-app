@@ -1,5 +1,7 @@
 import { useEffect, useReducer, useState } from 'react';
+import OutsideClickHandler from 'react-outside-click-handler';
 import { useParams } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import ScrollLock from 'react-scrolllock';
 import animationReducer from '../../../helpers/animationReducer';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
@@ -13,6 +15,7 @@ const InvoiceDrawer = () => {
   const [_, setFormData] = useState({});
   const { width } = useWindowDimensions();
   const { id } = useParams();
+  const history = useHistory();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -38,33 +41,36 @@ const InvoiceDrawer = () => {
   return (
     <ScrollLock>
       <Wrapper>
-        <Container
-          initial='initial'
-          animate='animate'
-          exit='exit'
-          variants={state}
-        >
-          <Heading mb='3'>
-            {id ? (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                }}
-              >
-                Edit <Tag>{id}</Tag>
-              </div>
-            ) : (
-              'New Invoice'
-            )}
-          </Heading>
-          <Form
-            id={id}
-            onFormSubmit={onFormSubmit}
-            onFormChange={onFormChange}
-          />
-        </Container>
+        <OutsideClickHandler onOutsideClick={() => history.goBack()}>
+          {/* TODO: FIX: sidebar click shouldn't count */}
+          <Container
+            initial='initial'
+            animate='animate'
+            exit='exit'
+            variants={state}
+          >
+            <Heading mb='3'>
+              {id ? (
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                  }}
+                >
+                  Edit <Tag>{id}</Tag>
+                </div>
+              ) : (
+                'New Invoice'
+              )}
+            </Heading>
+            <Form
+              id={id}
+              onFormSubmit={onFormSubmit}
+              onFormChange={onFormChange}
+            />
+          </Container>
+        </OutsideClickHandler>
       </Wrapper>
     </ScrollLock>
   );
