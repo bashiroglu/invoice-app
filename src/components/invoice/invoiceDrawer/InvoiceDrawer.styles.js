@@ -1,6 +1,18 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
+export const Wrapper = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background: rgba(124, 124, 126, 0.5);
+`;
+
 export const Container = styled(motion.aside)`
   background: ${({ theme }) => theme.drawerBg};
   padding: 5rem;

@@ -1,11 +1,12 @@
 import { useEffect, useReducer, useState } from 'react';
 import { useParams } from 'react-router';
+import ScrollLock from 'react-scrolllock';
 import animationReducer from '../../../helpers/animationReducer';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import { Heading } from '../../common';
 import Form from '../../form/Form';
 import Tag from '../../tag/Tag';
-import { Container } from './InvoiceDrawer.styles';
+import { Container, Wrapper } from './InvoiceDrawer.styles';
 
 const InvoiceDrawer = () => {
   // eslint-disable-next-line no-unused-vars
@@ -35,33 +36,37 @@ const InvoiceDrawer = () => {
   }, [width]);
 
   return (
-    <Container
-      initial='initial'
-      animate='animate'
-      exit='exit'
-      variants={state}
-    >
-      <Heading mb='3'>
-        {id ? (
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '1rem',
-            }}
-          >
-            Edit <Tag>{id}</Tag>
-          </div>
-        ) : (
-          'New Invoice'
-        )}
-      </Heading>
-      <Form
-        id={id}
-        onFormSubmit={onFormSubmit}
-        onFormChange={onFormChange}
-      />
-    </Container>
+    <ScrollLock>
+      <Wrapper>
+        <Container
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          variants={state}
+        >
+          <Heading mb='3'>
+            {id ? (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                }}
+              >
+                Edit <Tag>{id}</Tag>
+              </div>
+            ) : (
+              'New Invoice'
+            )}
+          </Heading>
+          <Form
+            id={id}
+            onFormSubmit={onFormSubmit}
+            onFormChange={onFormChange}
+          />
+        </Container>
+      </Wrapper>
+    </ScrollLock>
   );
 };
 
