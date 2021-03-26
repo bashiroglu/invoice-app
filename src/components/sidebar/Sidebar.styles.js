@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSidebar = styled.div`
+export const StyledSidebar = styled.aside`
   background-color: ${({ theme }) => theme.sidebarBg};
   display: flex;
   overflow: hidden;
