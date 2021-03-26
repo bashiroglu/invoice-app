@@ -19,6 +19,7 @@ const InvoiceDrawer = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    console.log(_);
     e.target.reset();
   };
 
@@ -33,16 +34,32 @@ const InvoiceDrawer = () => {
 
   useEffect(() => {
     if (width >= '1440' && !width < 1440) dispatch({ type: 'desktop' });
-    if (width >= '768' && !width < 375 && width < 1440)
+    else if (width >= '768' && !width < 375 && width < 1440)
       dispatch({ type: 'tablet' });
-    if (width >= '375' && width < 768) dispatch({ type: 'mobile' });
+    else {
+      dispatch({ type: 'mobile' });
+    }
   }, [width]);
+
+  const checkElementName = (e) => {
+    if (
+      e.target.parentElement?.localName == 'aside' ||
+      e.target.localName == 'aside' ||
+      e.target.parentElement?.parentElement?.localName == 'aside'
+    )
+      return;
+    return history.goBack();
+  };
 
   return (
     <ScrollLock>
       <Wrapper>
-        <OutsideClickHandler onOutsideClick={() => history.goBack()}>
-          {/* TODO: FIX: sidebar click shouldn't count */}
+        <OutsideClickHandler
+          onOutsideClick={(e) => {
+            // TODO: check if input's are dirty before closing drawer
+            checkElementName(e);
+          }}
+        >
           <Container
             initial='initial'
             animate='animate'
