@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
@@ -11,25 +11,9 @@ import Tag from '../../tag/Tag';
 import { Container, Wrapper } from './InvoiceDrawer.styles';
 
 const InvoiceDrawer = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [_, setFormData] = useState({});
   const { width } = useWindowDimensions();
   const { id } = useParams();
   const history = useHistory();
-
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-    console.log(_);
-    e.target.reset();
-  };
-
-  const onFormChange = (e) => {
-    setFormData((oldState) => ({
-      ...oldState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
   const [{ state }, dispatch] = useReducer(animationReducer, {});
 
   useEffect(() => {
@@ -75,11 +59,7 @@ const InvoiceDrawer = () => {
                 'New Invoice'
               )}
             </Heading>
-            <Form
-              id={id}
-              onFormSubmit={onFormSubmit}
-              onFormChange={onFormChange}
-            />
+            <Form id={id} />
           </Container>
         </OutsideClickHandler>
       </Wrapper>

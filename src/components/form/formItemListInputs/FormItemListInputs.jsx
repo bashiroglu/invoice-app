@@ -7,6 +7,7 @@ import {
   ItemInputs,
   Sum,
 } from '../Form.styles';
+import { Field } from 'formik';
 
 const FormItemListInputs = (props) => {
   return [...Array(2)].map(() => (
@@ -14,12 +15,34 @@ const FormItemListInputs = (props) => {
   ));
 };
 
-const FormItemListInput = ({ total = 0 }) => {
+const FormItemListInput = ({ total = 0, handleBlur }) => {
   return (
     <Flex mb='1.8'>
-      <ItemInputs mr='1.5' type='text' name='itemName' width='20' />
-      <ItemInputs mr='1.5' type='text' name='qty' qty width='5' min='0' />
-      <ItemInputs mr='1.5' type='text' name='price' width='10' />
+      <Field
+        as={ItemInputs}
+        handleBlur={handleBlur}
+        mr='1.5'
+        type='text'
+        name='itemName'
+        width='20'
+      />
+      <Field
+        as={ItemInputs}
+        handleBlur={handleBlur}
+        mr='1.5'
+        type='text'
+        name='qty'
+        width='5'
+        min='0'
+      />
+      <Field
+        as={ItemInputs}
+        handleBlur={handleBlur}
+        mr='1.5'
+        type='text'
+        name='price'
+        width='10'
+      />
       <Sum>{total}</Sum>
       <IconContainer ml='4'>
         <Icon src={icon} alt='trash icon' />
