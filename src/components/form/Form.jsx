@@ -32,10 +32,10 @@ const Form = ({ id }) => {
         isSubmitting,
         handleBlur,
         handleSubmit,
-        handleReset,
+        handleReset
       }) => (
         <StyledForm onSubmit={handleSubmit}>
-          <pre>{JSON.stringify({ values, errors }, null, 2)}</pre>
+          <pre>{JSON.stringify({ values }, null, 2)}</pre>
           <FormFields handleBlur={handleBlur} />
           <FormButtonContainer id={id} />
         </StyledForm>

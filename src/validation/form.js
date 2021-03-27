@@ -6,7 +6,7 @@ export default Yup.object().shape({
     street: Yup.string().required(),
     city: Yup.string().required(),
     postCode: Yup.string().required(),
-    country: Yup.string().required(),
+    country: Yup.string().required()
   }),
   clientName: Yup.string().required(),
   clientEmail: Yup.string().email().required(),
@@ -14,7 +14,7 @@ export default Yup.object().shape({
     street: Yup.string().required(),
     city: Yup.string().required(),
     postCode: Yup.string().required(),
-    country: Yup.string().required(),
+    country: Yup.string().required()
   }),
   paymentTerms: Yup.string().required(),
   description: Yup.string().required(),
@@ -22,10 +22,9 @@ export default Yup.object().shape({
     .of(
       Yup.object().shape({
         name: Yup.string().required(),
-        quantity: Yup.number().typeError().required(),
-        price: Yup.number().typeError().required(),
-        total: Yup.number(),
-      }),
+        quantity: Yup.number().required(),
+        price: Yup.number().required()
+      })
     )
-    .min(1),
+    .min(1)
 });

@@ -1,6 +1,7 @@
+import { Field } from 'formik';
 import { Text } from '../../common';
 import { Select } from '../Form.styles';
-import { Field } from 'formik';
+
 const FormSelect = () => {
   return (
     <label>
