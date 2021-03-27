@@ -1,5 +1,5 @@
 import { Field } from 'formik';
-import { Flex, ItemInputs } from '../Form.styles';
+import { Flex, ItemInputs } from './Form.styles';
 
 const FormItemListInputs = ({ formItems, setFormItems, handleBlur }) => {
   const deleteItem = (id) => {

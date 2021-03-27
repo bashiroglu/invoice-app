@@ -1,5 +1,5 @@
-import { Text } from '../../common';
-import { Input } from '../Form.styles';
+import { Text } from '../common';
+import { Input } from './Form.styles';
 
 const FormLabel = ({ text, ...props }) => {
   return (

@@ -1,5 +1,5 @@
 import { Field } from 'formik';
-import FormLabel from '../formLabel/FormLabel';
+import FormLabel from './FormLabel';
 
 const FormInvoiceDate = ({ handleBlur }) => {
   return (

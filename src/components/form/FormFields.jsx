@@ -1,15 +1,15 @@
 import { Field } from 'formik';
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { Button, Heading } from '../../common';
-import BillFrom from '../billFrom';
-import BillTo from '../BillTo';
-import { Flex } from '../Form.styles';
-import FormInvoiceDate from '../formInvoiceDate/FormInvoiceDate';
-import FormItemListInputs from '../formItemListInputs/FormItemListInputs';
-import FormItemListTags from '../formItemListTags/FormItemListTags';
-import FormLabel from '../formLabel/FormLabel';
-import FormSelect from '../formSelect/FormSelect';
+import BillFrom from './BillFrom';
+import BillTo from './BillTo';
+import { Button, Heading } from '../common';
+import FormInvoiceDate from './FormInvoiceDate';
+import FormItemListInputs from './FormItemListInputs';
+import FormItemListTags from './FormItemListTags';
+import FormLabel from './FormLabel';
+import { Flex } from './Form.styles';
+import FormSelect from './FormSelect';
 
 const FormFields = ({ handleBlur }) => {
   const [formItems, setFormItems] = useState({

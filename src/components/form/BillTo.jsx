@@ -1,6 +1,6 @@
 import { Field } from 'formik';
 import { BillToFrom, Flex } from './Form.styles';
-import FormLabel from './formLabel/FormLabel';
+import FormLabel from './FormLabel';
 
 const BillTo = ({ handleBlur }) => {
   return (

@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
-import { Button } from '../../common';
-import { ButtonContainer } from '../Form.styles';
+import { Button } from '../common';
+import { ButtonContainer } from './Form.styles';
 
 const FormButtonContainer = ({ id }) => {
   const { goBack } = useHistory();

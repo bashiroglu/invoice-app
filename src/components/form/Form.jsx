@@ -3,8 +3,8 @@ import { Formik } from 'formik';
 import initialValues from '../../data/initialValues';
 import validationSchema from '../../validation/form';
 import { StyledForm } from './Form.styles';
-import FormButtonContainer from './formButtonContainer/FormButtonContainer';
-import FormFields from './formFields/FormFields';
+import FormButtonContainer from './FormButtonContainer';
+import FormFields from './FormFields';
 
 const Form = ({ id }) => {
   // const [formData, setFormData] = useState(initialValues);
