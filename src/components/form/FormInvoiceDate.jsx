@@ -10,6 +10,7 @@ const FormInvoiceDate = ({ handleBlur }) => {
       name='invoiceDate'
       type='date'
       text='Invoice Date'
+      date
     />
   );
 };

@@ -55,6 +55,13 @@ export const Input = styled.input`
     width: 24rem;
     margin-right: 2rem;
   `};
+
+  ${({ date }) =>
+    date &&
+    `
+    text-indent: 1rem; 
+    padding-right: 2rem;
+  `};
 `;
 
 export const Flex = styled.div`
