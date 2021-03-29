@@ -1,9 +1,11 @@
+import moment from 'moment';
+
 const initialValues = {
   senderAddress: {
     street: '',
     city: '',
     postCode: '',
-    country: '',
+    country: ''
   },
   clientName: '',
   clientEmail: '',
@@ -11,12 +13,18 @@ const initialValues = {
     street: '',
     city: '',
     postCode: '',
-    country: '',
+    country: ''
   },
-  createdAt: new Date(),
+  createdAt: moment().format('Do MMM YYYY, HH:mm'),
   paymentTerms: '',
   description: '',
-  items: [],
+  items: [
+    {
+      name: '',
+      quantity: '',
+      price: ''
+    }
+  ]
 };
 
 export default initialValues;
