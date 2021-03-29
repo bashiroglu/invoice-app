@@ -1,6 +1,7 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
+import { Form } from 'formik';
 
-export const StyledForm = styled.form`
+export const StyledForm = styled(Form)`
   overflow: hidden scroll;
   height: 100%;
   padding: 0 5rem 3rem 0;
@@ -54,6 +55,13 @@ export const Input = styled.input`
     width: 24rem;
     margin-right: 2rem;
   `};
+
+  ${({ date }) =>
+    date &&
+    `
+    text-indent: 1rem; 
+    padding-right: 2rem;
+  `};
 `;
 
 export const Flex = styled.div`
@@ -89,12 +97,6 @@ export const DateInput = styled(Input)`
 
 export const ItemInputs = styled(Input)`
   width: ${({ width }) => `${width}rem`};
-  ${({ qty }) =>
-    qty &&
-    `
-    text-indent: 1.5rem;
-    text-align: center;
-  `};
   ${({ mr }) => mr && `margin-right: ${mr}rem`};
 `;
 

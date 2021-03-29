@@ -13,6 +13,11 @@ export const Button = styled.button`
   transition: var(--transition);
   user-select: none;
 
+  &:is(:active, :focus) {
+    outline: 1px dashed ${({ theme }) => theme.outlineColor};
+    outline-offset: 1px;
+  }
+
   ${({ mr }) => mr && `margin-right: ${mr}rem`};
 
   ${({ second }) =>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSidebar = styled.div`
+export const StyledSidebar = styled.aside`
   background-color: ${({ theme }) => theme.sidebarBg};
   display: flex;
   overflow: hidden;
@@ -90,6 +90,7 @@ export const SidebarProfileImage = styled.img`
   width: 4rem;
   transition: var(--transition);
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     transform: scale(1.1);

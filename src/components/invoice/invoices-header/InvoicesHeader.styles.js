@@ -48,6 +48,11 @@ export const StyledCreateButton = styled.button`
   cursor: pointer;
   outline: none;
 
+  &:is(:active, :focus) {
+    outline: 1px dashed ${({ theme }) => theme.outlineColor};
+    outline-offset: 1px;
+  }
+
   &:hover {
     background-color: #9277ff;
   }

@@ -1,7 +1,7 @@
 const sharedStyles = {
   paid: '51, 214, 159',
   pending: '255, 143, 0',
-  draft: '55, 59, 83',
+  draft: '55, 59, 83'
 };
 
 const sharedButtons = {
@@ -16,7 +16,7 @@ const sharedButtons = {
   sixthBg: '#F9FAFE',
   sixthFg: '#7E88C3',
   sixthHoverBg: '#DFE3FA',
-  sixthHoverFg: '#7E88C3',
+  sixthHoverFg: '#7E88C3'
 };
 
 export const lightTheme = {
@@ -33,9 +33,10 @@ export const lightTheme = {
   formInputBorderActive: '1px solid #9277FF',
   colorGray: '#888eb0',
   scrollbarColor: '#DFE3FA',
+  outlineColor: '#000',
   modal: {
     bg: '#fff',
-    fg: '#888EB0',
+    fg: '#888EB0'
   },
 
   ...sharedStyles,
@@ -49,8 +50,8 @@ export const lightTheme = {
     fourthBg: '#373B53',
     fourthFg: '#888eb0',
     fourthHoverBg: '#0C0E16',
-    fourthHoverFg: '#888EB0',
-  },
+    fourthHoverFg: '#888EB0'
+  }
 };
 
 export const darkTheme = {
@@ -67,9 +68,10 @@ export const darkTheme = {
   formInputBorderActive: '1px solid #252945',
   colorGray: '#DFE3FA',
   scrollbarColor: '#252945',
+  outlineColor: '#fff',
   modal: {
     bg: '#1E2139',
-    fg: '#fff',
+    fg: '#fff'
   },
 
   ...sharedStyles,
@@ -83,6 +85,6 @@ export const darkTheme = {
     fourthBg: '#373B53',
     fourthFg: '#888eb0',
     fourthHoverBg: '#1E2139',
-    fourthHoverFg: '#DFE3FA',
-  },
+    fourthHoverFg: '#DFE3FA'
+  }
 };

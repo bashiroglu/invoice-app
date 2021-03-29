@@ -7,9 +7,9 @@ import { fetchInvoicesStartAsync } from '../../redux/invoices/invoices.actions';
 const Invoices = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchInvoicesStartAsync());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchInvoicesStartAsync());
+  // }, []);
 
   return (
     <>

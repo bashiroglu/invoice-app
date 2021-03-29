@@ -1,5 +1,5 @@
-import { Text } from '../../common';
-import { Flex } from '../Form.styles';
+import { Text } from '../common';
+import { Flex } from './Form.styles';
 
 const FormItemListTags = () => {
   return (
