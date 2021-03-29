@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-// import { useState } from 'react';
 import initialValues from '../../data/initialValues';
 import validationSchema from '../../validation/form';
 import { StyledForm } from './Form.styles';
@@ -7,14 +6,6 @@ import FormButtonContainer from './FormButtonContainer';
 import FormFields from './FormFields';
 
 const Form = ({ id }) => {
-  // const [formData, setFormData] = useState(initialValues);
-
-  // const onFormSubmit = ({ e, values }) => {
-  // e.preventDefault();
-  // console.log(JSON.stringify(values, null, 2));
-  // e.target.reset();
-  // };
-
   return (
     <Formik
       initialValues={initialValues}
@@ -35,8 +26,7 @@ const Form = ({ id }) => {
         handleReset
       }) => (
         <StyledForm onSubmit={handleSubmit}>
-          <pre>{JSON.stringify({ values }, null, 2)}</pre>
-          <FormFields handleBlur={handleBlur} />
+          <FormFields values={values} handleBlur={handleBlur} />
           <FormButtonContainer id={id} />
         </StyledForm>
       )}
