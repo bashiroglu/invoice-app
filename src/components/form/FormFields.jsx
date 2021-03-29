@@ -1,38 +1,15 @@
 import { Field } from 'formik';
-import { useState } from 'react';
-import { v4 as uuid } from 'uuid';
+import { Heading } from '../common';
 import BillFrom from './BillFrom';
 import BillTo from './BillTo';
-import { Button, Heading } from '../common';
+import { Flex } from './Form.styles';
 import FormInvoiceDate from './FormInvoiceDate';
 import FormItemListInputs from './FormItemListInputs';
 import FormItemListTags from './FormItemListTags';
 import FormLabel from './FormLabel';
-import { Flex } from './Form.styles';
 import FormSelect from './FormSelect';
 
-const FormFields = ({ handleBlur }) => {
-  const [formItems, setFormItems] = useState({
-    [uuid()]: {
-      name: '',
-      quantity: '',
-      price: '',
-      total: 0
-    }
-  });
-
-  const handleAddItemClick = () => {
-    setFormItems((prevState) => ({
-      ...prevState,
-      [uuid()]: {
-        name: '',
-        quantity: 0,
-        price: 0,
-        total: 0
-      }
-    }));
-  };
-
+const FormFields = ({ values, handleBlur }) => {
   return (
     <>
       <BillFrom handleBlur={handleBlur} />
@@ -55,14 +32,7 @@ const FormFields = ({ handleBlur }) => {
         </Heading>
         <>
           <FormItemListTags />
-          <FormItemListInputs
-            formItems={formItems}
-            setFormItems={setFormItems}
-            handleBlur={handleBlur}
-          />
-          <Button onClick={() => handleAddItemClick()} type='button' sixth>
-            + Add New Item
-          </Button>
+          <FormItemListInputs values={values} handleBlur={handleBlur} />
         </>
       </>
     </>
