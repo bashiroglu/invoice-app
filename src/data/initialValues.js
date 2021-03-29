@@ -16,6 +16,7 @@ const initialValues = {
     country: ''
   },
   createdAt: moment().format('Do MMM YYYY, HH:mm'),
+  invoiceDate: '',
   paymentTerms: '',
   description: '',
   items: [

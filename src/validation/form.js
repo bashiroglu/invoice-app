@@ -1,7 +1,6 @@
 import * as Yup from 'yup';
 
 export default Yup.object().shape({
-  createdAt: Yup.date().required(),
   senderAddress: Yup.object().shape({
     street: Yup.string().required(),
     city: Yup.string().required(),
@@ -26,5 +25,6 @@ export default Yup.object().shape({
         price: Yup.number().required()
       })
     )
+    .required('must have at least one item')
     .min(1)
 });
