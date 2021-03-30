@@ -83,7 +83,6 @@ export const Select = styled.select`
   font-size: 1.2rem;
   font-weight: bold;
   text-indent: 2rem;
-  background: #fff;
   transition: var(--transition);
 
   &:is(:active, :focus) {
