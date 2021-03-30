@@ -19,6 +19,10 @@ export const StyledForm = styled(Form)`
       background: rgb(228, 234, 246);
     }
   }
+
+  @media (min-width: 375px) {
+    padding: 0 0 3rem 0;
+  }
 `;
 
 export const BillToFrom = styled.p`

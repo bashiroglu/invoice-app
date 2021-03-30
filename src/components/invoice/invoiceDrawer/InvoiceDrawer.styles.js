@@ -27,4 +27,9 @@ export const Container = styled(motion.aside)`
   left: -800px;
   bottom: 0;
   z-index: 1;
+
+  @media (min-width: 375px) {
+    padding: 2.4rem;
+    width: 100%;
+  }
 `;
