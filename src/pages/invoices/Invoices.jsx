@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import InvoiceList from '../../components/invoice/invoice-list/InvoiceList';
-import InvoicesHeader from '../../components/invoice/invoices-header/InvoicesHeader';
+import InvoiceList from '../../components/invoice/invoiceList/InvoiceList';
+import InvoicesHeader from '../../components/invoice/invoicesHeader/InvoicesHeader';
 import { fetchInvoicesStartAsync } from '../../redux/invoices/invoices.actions';
 
 const Invoices = () => {
