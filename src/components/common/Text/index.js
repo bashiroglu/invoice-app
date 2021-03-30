@@ -8,4 +8,6 @@ export const Text = styled.p`
   line-height: 1.6;
   width: ${({ width }) => `${width}rem`};
   ${({ mr }) => mr && `margin-right: ${mr}rem`};
+  ${({ size }) => size && `font-size: ${size}px`};
+  ${({ noCap }) => noCap && `text-transform: none`};
 `;

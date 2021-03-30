@@ -6,6 +6,7 @@ export const Heading = styled.h2`
   ${({ mb }) => mb && `margin-bottom: ${mb}rem;`};
   ${({ color }) => color && `color: ${color}`};
   ${({ fontSize }) => fontSize && `font-size: ${fontSize}rem`};
+  ${({ width }) => width && `width: ${width}`};
 
   @media (min-width: 375px) {
     ${({ invoice }) => invoice && `font-size: 2rem`};
