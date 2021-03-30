@@ -7,3 +7,16 @@ export const InvoiceWrapper = styled.main`
     width: 90vw;
   }
 `;
+
+export const NoInvoiceWrapper = styled.section`
+  margin: 10rem auto 0;
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const StyledHeader = styled.header`
+  text-align: center;
+`;
