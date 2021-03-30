@@ -25,6 +25,7 @@ const FormFields = ({ values, handleBlur }) => {
         name='description'
         type='text'
         text='Project Description'
+        placeholder='e.g. Graphic Design Service'
       />
       <>
         <Heading mt='4' color='#777F98'>

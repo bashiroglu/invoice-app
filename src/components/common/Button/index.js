@@ -68,6 +68,7 @@ export const Button = styled.button`
 		width: fill-available;
 		background: #F9FAFE;
 		color: var(--color-figure-3);
+    margin-left: 2px;
 
 		&:hover {
 		background: #DFE3FA;

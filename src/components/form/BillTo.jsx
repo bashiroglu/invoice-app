@@ -20,6 +20,7 @@ const BillTo = ({ handleBlur }) => {
         large
         name='clientEmail'
         text='Client&#39;s email'
+        placeholder='e.g. email@example.com'
         type='text'
       />
       <Field
