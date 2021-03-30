@@ -65,13 +65,22 @@ export const Button = styled.button`
   ${({ sixth }) =>
     sixth &&
     `
-		width: fill-available;
 		background: #F9FAFE;
 		color: var(--color-figure-3);
     margin-left: 2px;
 
 		&:hover {
-		background: #DFE3FA;
+  		background: #DFE3FA;
 		};
+    
+    @media (min-width: 375px) {
+      width: 40rem;
+    }
+    @media (min-width: 520px) {
+      width: 50rem;
+    }
+    @media (min-width: 768px) {
+      width: fill-available;
+    }
 	`};
 `;

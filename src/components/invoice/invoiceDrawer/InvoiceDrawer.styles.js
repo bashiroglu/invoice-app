@@ -15,8 +15,7 @@ export const Wrapper = styled(motion.div)`
 
 export const Container = styled(motion.aside)`
   background: ${({ theme }) => theme.drawerBg};
-  padding: 5rem;
-  padding-left: 8rem;
+  transition: var(--transition);
   height: 100vh;
   min-height: 100%;
   width: max-content;
@@ -31,5 +30,10 @@ export const Container = styled(motion.aside)`
   @media (min-width: 375px) {
     padding: 2.4rem;
     width: 100%;
+  }
+  @media (min-width: 768px) {
+    width: fit-content;
+    padding: 5rem;
+    padding-left: 8rem;
   }
 `;
