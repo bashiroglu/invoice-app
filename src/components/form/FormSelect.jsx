@@ -22,7 +22,7 @@ import styled from 'styled-components/macro';
 
 const FormSelect = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const options = ['30d', '14d', '7d', '1d'];
+  const options = ['Net 1 Day', 'Net 7 Day', 'Net 13 Day', 'Net 30 Day'];
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
   const toggling = () => setIsOpen((s) => !s);
@@ -57,7 +57,7 @@ const FormSelect = () => {
 
 const DropdownContainer = styled.div`
   background: ${({ theme }) => theme.formInputBg};
-  color: ${({ theme }) => theme.text};
+  /* color: ${({ theme }) => theme.text}; */
   height: 5rem;
   width: 24rem;
   border-radius: 4px;
@@ -66,7 +66,7 @@ const DropdownContainer = styled.div`
   font-family: inherit;
   font-size: 1.2rem;
   font-weight: bold;
-  text-indent: 2rem;
+  /* text-indent: 2rem; */
   transition: var(--transition);
   position: relative;
 
@@ -78,10 +78,14 @@ const DropdownContainer = styled.div`
 const DropDownHeader = styled.div`
   height: 100%;
   width: 100%;
-  color: gray;
-  padding-top: 1.5rem;
-  text-align: center;
-  text-indent: -1rem;
+  /* color: gray; */
+  text-align: left;
+  padding: 1.7rem 0;
+  padding-left: 2rem;
+  font-weight: bold;
+  /* text-align: center; */
+  /* text-indent: -1rem; */
+  margin-bottom: 8px;
   background: ${({ theme }) => theme.formInputBg};
   border-radius: 4px;
   transition: var(--transition);
@@ -89,26 +93,40 @@ const DropDownHeader = styled.div`
 
 const DropDownListContainer = styled.div`
   text-align: center;
-  text-indent: -1rem;
-  border-radius: 4px;
+  overflow: hidden;
+  /* text-indent: -1rem; */
+  border-radius: 8px;
   transition: var(--transition);
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
 `;
 
 const DropDownList = styled.div`
   transition: var(--transition);
-  margin: 1rem 0;
-  background: gray;
+  /* margin: 1rem 0; */
+  /* background: gray; */
 
-  & > * + * {
+  /* & > * + * {
     margin: 1rem;
-  }
+  } */
 `;
 
 const ListItem = styled.div`
-  padding: 1rem 0;
-  margin: 1rem 0;
-  background: ${({ theme }) => theme.formInputBg};
+  padding: 1.5rem 2.4rem;
+  /* margin: 1rem 0; */
+  /* background: ${({ theme }) => theme.formInputBg}; */
+  /* padding: 0 2.4rem; */
+  text-align: left;
+  background: #fff;
   transition: var(--transition);
+  cursor: pointer;
+
+  &:hover {
+    color: #7c5dfa;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid #dfe3fa;
+  }
 `;
 
 export default FormSelect;
