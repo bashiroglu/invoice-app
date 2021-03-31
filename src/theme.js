@@ -42,6 +42,13 @@ export const lightTheme = {
     bg: '#fff',
     fg: '#888EB0'
   },
+  invoiceSelect: {
+    fg: '#0C0E16',
+    bg: '#fff',
+    border: '#DFE3FA',
+    shadow: 'rgba(72, 84, 159, 0.25))',
+    hover: '#7c5dfa'
+  },
   invoiceDetailsItemsWrapper: {
     bg: '#F9FAFE'
   },
@@ -80,6 +87,13 @@ export const darkTheme = {
   invoiceFg: '#fff',
   invoiceDetails: {
     text: { fg: '#DFE3FA' }
+  },
+  invoiceSelect: {
+    fg: '#fff',
+    bg: '#252945',
+    border: '#1E2139',
+    shadow: '0px 10px 20px rgba(0, 0, 0, 0.25)',
+    hover: '#7c5dfa'
   },
   drawerBg: '#141625',
   text: '#fff',

@@ -1,21 +1,5 @@
-import { Field } from 'formik';
 import { Text } from '../common';
-// import { Select } from './Form.styles';
 import { v4 as uuid } from 'uuid';
-
-// const FormSelect = () => {
-//   return (
-//     <label>
-//       <Text>Payment Terms</Text>
-//       <Field as={Select} name='paymentTerms'>
-//         <option value='1d'>Net 1 Days</option>
-//         <option value='7d'>Net 7 Days</option>
-//         <option value='14d'>Net 14 Days</option>
-//         <option value='30d'>Net 30 Days</option>
-//       </Field>
-//     </label>
-//   );
-// };
 
 import { useState } from 'react';
 import styled from 'styled-components/macro';
@@ -57,7 +41,7 @@ const FormSelect = () => {
 
 const DropdownContainer = styled.div`
   background: ${({ theme }) => theme.formInputBg};
-  /* color: ${({ theme }) => theme.text}; */
+  color: ${({ theme }) => theme.invoiceSelect.fg};
   height: 5rem;
   width: 24rem;
   border-radius: 4px;
@@ -66,7 +50,6 @@ const DropdownContainer = styled.div`
   font-family: inherit;
   font-size: 1.2rem;
   font-weight: bold;
-  /* text-indent: 2rem; */
   transition: var(--transition);
   position: relative;
 
@@ -78,13 +61,10 @@ const DropdownContainer = styled.div`
 const DropDownHeader = styled.div`
   height: 100%;
   width: 100%;
-  /* color: gray; */
   text-align: left;
   padding: 1.7rem 0;
   padding-left: 2rem;
   font-weight: bold;
-  /* text-align: center; */
-  /* text-indent: -1rem; */
   margin-bottom: 8px;
   background: ${({ theme }) => theme.formInputBg};
   border-radius: 4px;
@@ -94,38 +74,28 @@ const DropDownHeader = styled.div`
 const DropDownListContainer = styled.div`
   text-align: center;
   overflow: hidden;
-  /* text-indent: -1rem; */
   border-radius: 8px;
   transition: var(--transition);
-  background: #ffffff;
+  background: ${({ theme }) => theme.invoiceSelect.bg};
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
 `;
 
 const DropDownList = styled.div`
   transition: var(--transition);
-  /* margin: 1rem 0; */
-  /* background: gray; */
-
-  /* & > * + * {
-    margin: 1rem;
-  } */
 `;
 
 const ListItem = styled.div`
   padding: 1.5rem 2.4rem;
-  /* margin: 1rem 0; */
-  /* background: ${({ theme }) => theme.formInputBg}; */
-  /* padding: 0 2.4rem; */
+  color: ${({ theme }) => theme.invoiceSelect.fg};
+  background: ${({ theme }) => theme.invoiceSelect.bg};
   text-align: left;
-  background: #fff;
   transition: var(--transition);
   cursor: pointer;
-
   &:hover {
-    color: #7c5dfa;
+    color: ${({ theme }) => theme.invoiceSelect.hover};
   }
   &:not(:last-child) {
-    border-bottom: 1px solid #dfe3fa;
+    border-bottom: 1px solid ${({ theme }) => theme.invoiceSelect.border};
   }
 `;
 
