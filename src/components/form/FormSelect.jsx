@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { Text } from '../common';
 
@@ -19,28 +19,24 @@ const FormSelect = () => {
     <label>
       <Text>Payment Terms</Text>
       <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
-        <DropdownContainer>
-          <DropDownHeader onClick={toggle}>
-            {selectedOption}
-          </DropDownHeader>
+        <SelectContainer>
+          <SelectHeader onClick={toggle}>{selectedOption}</SelectHeader>
           {isOpen && (
-            <DropDownListContainer>
-              <DropDownList>
-                {options.map((option) => (
-                  <ListItem onClick={onOptionClicked(option)} key={uuid()}>
-                    {option}
-                  </ListItem>
-                ))}
-              </DropDownList>
-            </DropDownListContainer>
+            <SelectListContainer>
+              {options.map((option) => (
+                <ListItem onClick={onOptionClicked(option)} key={uuid()}>
+                  {option}
+                </ListItem>
+              ))}
+            </SelectListContainer>
           )}
-        </DropdownContainer>
+        </SelectContainer>
       </OutsideClickHandler>
     </label>
   );
 };
 
-const DropdownContainer = styled.div`
+const SelectContainer = styled.div`
   background: ${({ theme }) => theme.formInputBg};
   color: ${({ theme }) => theme.invoiceSelect.fg};
   height: 5rem;
@@ -59,7 +55,7 @@ const DropdownContainer = styled.div`
   }
 `;
 
-const DropDownHeader = styled.div`
+const SelectHeader = styled.div`
   height: 100%;
   width: 100%;
   text-align: left;
@@ -72,17 +68,13 @@ const DropDownHeader = styled.div`
   transition: var(--transition);
 `;
 
-const DropDownListContainer = styled.div`
+const SelectListContainer = styled.div`
   text-align: center;
   overflow: hidden;
   border-radius: 8px;
   transition: var(--transition);
   background: ${({ theme }) => theme.invoiceSelect.bg};
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
-`;
-
-const DropDownList = styled.div`
-  transition: var(--transition);
 `;
 
 const ListItem = styled.div`
