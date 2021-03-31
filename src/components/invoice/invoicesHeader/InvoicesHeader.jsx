@@ -2,18 +2,14 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import { Heading } from '../../common/Heading';
+import Filter from '../../filter/Filter';
 import CreateButton from './CreateButton';
-import {
-  Filter,
-  InfoBox,
-  StyledInvoicesHeader,
-} from './InvoicesHeader.styles';
+import { InfoBox, StyledInvoicesHeader } from './InvoicesHeader.styles';
 
 const InvoicesHeader = () => {
   const invoices = useSelector((state) => state.invoices.invoices);
   const numberOfInvoices = Object.keys(invoices).length;
   const { width } = useWindowDimensions();
-
   const { push } = useHistory();
 
   return (
@@ -32,7 +28,7 @@ const InvoicesHeader = () => {
           )}
         </p>
       </InfoBox>
-      <Filter>{width <= '1024' ? 'Filter' : 'Filter by status'}</Filter>
+      <Filter />
       <CreateButton onClick={() => push('/invoices/new')}>
         {width <= '1024' ? 'New' : 'New Invoice'}
       </CreateButton>
