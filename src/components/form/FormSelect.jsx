@@ -1,15 +1,14 @@
-import { Text } from '../common';
-import { v4 as uuid } from 'uuid';
-
 import { useState } from 'react';
+import OutsideClickHandler from 'react-outside-click-handler';
 import styled from 'styled-components/macro';
+import { v4 as uuid } from 'uuid';
+import { Text } from '../common';
 
 const FormSelect = () => {
   const [isOpen, setIsOpen] = useState(false);
   const options = ['Net 1 Day', 'Net 7 Day', 'Net 13 Day', 'Net 30 Day'];
   const [selectedOption, setSelectedOption] = useState(options[0]);
-
-  const toggling = () => setIsOpen((s) => !s);
+  const toggle = () => setIsOpen((s) => !s);
 
   const onOptionClicked = (value) => () => {
     setSelectedOption(value);
@@ -19,22 +18,24 @@ const FormSelect = () => {
   return (
     <label>
       <Text>Payment Terms</Text>
-      <DropdownContainer>
-        <DropDownHeader onClick={toggling}>
-          {selectedOption}
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {options.map((option) => (
-                <ListItem onClick={onOptionClicked(option)} key={uuid()}>
-                  {option}
-                </ListItem>
-              ))}
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropdownContainer>
+      <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
+        <DropdownContainer>
+          <DropDownHeader onClick={toggle}>
+            {selectedOption}
+          </DropDownHeader>
+          {isOpen && (
+            <DropDownListContainer>
+              <DropDownList>
+                {options.map((option) => (
+                  <ListItem onClick={onOptionClicked(option)} key={uuid()}>
+                    {option}
+                  </ListItem>
+                ))}
+              </DropDownList>
+            </DropDownListContainer>
+          )}
+        </DropdownContainer>
+      </OutsideClickHandler>
     </label>
   );
 };
