@@ -13,7 +13,6 @@ export const StyledActions = styled.div`
   background: ${({ theme }) => theme.invoiceBg};
   border-radius: 0.8rem;
   padding: 2.4rem 3.2rem;
-  margin-top: 3rem;
 
   @media (min-width: 375px) {
     width: 35rem;
@@ -75,21 +74,34 @@ export const DetailsText = styled.p`
   line-height: 1.5rem;
   letter-spacing: -0.25px;
   color: ${({ theme }) => theme.invoiceDetails.text.fg};
-  @media (max-width: 768px) {
-    ${({ mb }) => mb && `margin-bottom: ${mb}rem;`};
-  }
+  ${({ mb }) => mb && `margin-bottom: ${mb}rem;`};
 `;
 
 export const SentTo = styled.div`
-  margin: 2rem 0 4rem;
+  @media (min-width: 375px) {
+    margin: 2rem 0 4rem;
+  }
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const StyledId = styled.p`
   font-weight: 700;
-  font-size: 1.6rem;
   line-height: 2.4rem;
-  letter-spacing: -0.8px;
   color: ${({ theme }) => theme.text};
+
+  @media (min-width: 375px) {
+    font-size: 1.2rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+`;
+
+export const StyledDates = styled.div`
+  margin-bottom: 2rem;
 `;
 
 export const GeneralInformation = styled.div`
@@ -119,11 +131,12 @@ export const GridContainer = styled.div`
   display: grid;
 
   @media (min-width: 375px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
   }
   @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 3rem;
   }
 `;
 
@@ -145,6 +158,8 @@ export const FlexChild = styled.div`
 export const DetailValues = styled.p`
   font-size: 1.4rem;
   font-weight: bold;
+  align-self: flex-end;
+  ${({ mb }) => mb && `margin-bottom: ${mb}rem`};
 `;
 
 export const StyledInvoiceSummaryTotal = styled.div`
@@ -159,9 +174,11 @@ export const StyledInvoiceSummaryTotal = styled.div`
 
   & > span {
     font-size: 1.1rem;
+    font-weight: 500;
   }
   & > :last-child {
     font-size: 2rem;
+    font-weight: bold;
   }
 `;
 
@@ -179,6 +196,7 @@ export const StyledInvoiceItemsWrapper = styled.div`
 
 export const ProjectDescription = styled.div`
   color: ${({ theme }) => theme.invoiceDetailsProjectDescription.fg};
+  margin-bottom: 0.8rem;
 `;
 
 export const Quantity = styled.div`

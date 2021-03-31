@@ -20,12 +20,14 @@ import {
   Quantity,
   SentTo,
   StyledActions,
+  StyledDates,
   StyledDetails,
   StyledId,
   StyledInvoiceItemsPrice,
   StyledInvoiceItemsWrapper,
   StyledInvoiceSummaryTotal
 } from './InvoiceDetails.style';
+import GoBack from '../../components/goBack/GoBack';
 
 /**
  * todo: refactor vars
@@ -105,6 +107,7 @@ const InvoiceDetails = () => {
           setModalIsOpen={setModalIsOpen}
         />
       )}
+      <GoBack />
       <Container>
         <StyledActions>
           {width < 768 ? (
@@ -144,27 +147,25 @@ const InvoiceDetails = () => {
           <>
             <GridContainer>
               <FlexParent>
-                <div style={{ marginBottom: '1rem' }}>
+                <StyledDates>
                   <DetailsText mb='1'>Invoice Date</DetailsText>
                   <DetailValues>21 Aug 2021</DetailValues>
-                </div>
+                </StyledDates>
                 <FlexChild>
-                  <DetailsText>Payment Due</DetailsText>
-                  <DetailValues style={{ alignSelf: 'flex-end' }}>
-                    20 Sep 2021
-                  </DetailValues>
+                  <DetailsText mb='1'>Payment Due</DetailsText>
+                  <DetailValues>20 Sep 2021</DetailValues>
                 </FlexChild>
               </FlexParent>
               <div>
                 <DetailsText mb='1'>Bill To</DetailsText>
-                <DetailValues>Alex Grim</DetailValues>
+                <DetailValues mb='1'>Alex Grim</DetailValues>
                 <DetailsText>{street}</DetailsText>
                 <DetailsText>{city}</DetailsText>
                 <DetailsText>{postCode}</DetailsText>
                 <DetailsText>{country}</DetailsText>
               </div>
               <SentTo>
-                <DetailsText>Sent to</DetailsText>
+                <DetailsText mb='1'>Sent to</DetailsText>
                 <DetailValues>alexgrim@mail.com</DetailValues>
               </SentTo>
             </GridContainer>
