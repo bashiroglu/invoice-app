@@ -62,6 +62,10 @@ export const lightTheme = {
     bg: '#373B53',
     fg: '#fff'
   },
+  goBack: {
+    fg: '#0C0E16',
+    hover: '#7E88C3'
+  },
 
   ...sharedStyles,
 
@@ -119,6 +123,9 @@ export const darkTheme = {
   },
   invoiceSummaryTotal: {
     bg: '#0C0E16',
+    fg: '#fff'
+  },
+  goBack: {
     fg: '#fff'
   },
 
