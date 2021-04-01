@@ -68,6 +68,7 @@ export const lightTheme = {
   },
   checkbox: {
     color: '#DFE3FA',
+    background: '#DFE3FA',
     border: {
       color: '#7c5dfa'
     }
@@ -136,6 +137,7 @@ export const darkTheme = {
   },
   checkbox: {
     color: '#1E2139',
+    background: '#1e2139',
     border: {
       color: '#7c5dfa'
     }

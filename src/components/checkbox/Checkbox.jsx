@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { CheckboxInput, Wrapper, CheckboxControl } from './Checkbox.style';
 import CheckboxSvg from '../svgs/Checkbox.svg';
+import { CheckboxControl, CheckboxInput, Wrapper } from './Checkbox.style';
 
 const Checkbox = ({ option }) => {
   const [state, setState] = useState({});

@@ -13,7 +13,7 @@ import { DropdownContainer, ListItem, Wrapper } from './Filter.style';
  */
 
 const Filter = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const options = ['draft', 'pending', 'paid'];
   const { width } = useWindowDimensions();
   const text = width < 768 ? <p>Filter</p> : <p>Filter by Status</p>;
