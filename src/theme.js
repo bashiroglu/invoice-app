@@ -25,6 +25,10 @@ export const lightTheme = {
   bg: '#F8F8FB',
   bgOnActiveDrawer: '#7C7C7E',
   invoiceBg: '#fff',
+  invoiceFg: '#0C0E16',
+  invoiceDetails: {
+    text: { fg: '#7e88c3' }
+  },
   drawerBg: '#fff',
   text: '#0C0E16',
   label: '#858BB2',
@@ -37,6 +41,37 @@ export const lightTheme = {
   modal: {
     bg: '#fff',
     fg: '#888EB0'
+  },
+  invoiceSelect: {
+    fg: '#0C0E16',
+    bg: '#fff',
+    border: '#DFE3FA',
+    shadow: 'rgba(72, 84, 159, 0.25))',
+    hover: '#7c5dfa'
+  },
+  invoiceDetailsItemsWrapper: {
+    bg: '#F9FAFE'
+  },
+  invoiceDetailsItemsPrice: {
+    fg: '#0C0E16'
+  },
+  invoiceDetailsProjectDescription: {
+    fg: '#0C0E16'
+  },
+  invoiceSummaryTotal: {
+    bg: '#373B53',
+    fg: '#fff'
+  },
+  goBack: {
+    fg: '#0C0E16',
+    hover: '#7E88C3'
+  },
+  checkbox: {
+    color: '#DFE3FA',
+    background: '#DFE3FA',
+    border: {
+      color: '#7c5dfa'
+    }
   },
 
   ...sharedStyles,
@@ -60,6 +95,17 @@ export const darkTheme = {
   bg: '#141625',
   bgOnActiveDrawer: '#0A0B13',
   invoiceBg: '#1E2139',
+  invoiceFg: '#fff',
+  invoiceDetails: {
+    text: { fg: '#DFE3FA' }
+  },
+  invoiceSelect: {
+    fg: '#fff',
+    bg: '#252945',
+    border: '#1E2139',
+    shadow: '0px 10px 20px rgba(0, 0, 0, 0.25)',
+    hover: '#7c5dfa'
+  },
   drawerBg: '#141625',
   text: '#fff',
   label: '#DFE3FA',
@@ -72,6 +118,29 @@ export const darkTheme = {
   modal: {
     bg: '#1E2139',
     fg: '#fff'
+  },
+  invoiceDetailsItemsWrapper: {
+    bg: '#252945'
+  },
+  invoiceDetailsItemsPrice: {
+    fg: '#fff'
+  },
+  invoiceDetailsProjectDescription: {
+    fg: '#fff'
+  },
+  invoiceSummaryTotal: {
+    bg: '#0C0E16',
+    fg: '#fff'
+  },
+  goBack: {
+    fg: '#fff'
+  },
+  checkbox: {
+    color: '#1E2139',
+    background: '#1e2139',
+    border: {
+      color: '#7c5dfa'
+    }
   },
 
   ...sharedStyles,

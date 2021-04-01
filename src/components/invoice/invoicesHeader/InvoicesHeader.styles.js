@@ -26,14 +26,6 @@ export const InfoBox = styled.div`
   }
 `;
 
-export const Filter = styled.p`
-  color: ${({ theme }) => theme.text};
-  font-weight: bold;
-  font-size: 12px;
-  margin-left: auto;
-  margin-right: 1.8rem;
-`;
-
 export const StyledCreateButton = styled.button`
   background-color: var(--color-figure-1);
   color: #fff;

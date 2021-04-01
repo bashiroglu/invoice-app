@@ -1,7 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
 import InvoiceDrawer from './components/invoice/invoiceDrawer/InvoiceDrawer';
 import Layout from './components/layout/Layout';
-import InvoiceDetails from './pages/invoice-details/InvoiceDetails';
+import InvoiceDetails from './pages/invoiceDetails/InvoiceDetails';
 import Invoices from './pages/invoices/Invoices';
 
 function App() {

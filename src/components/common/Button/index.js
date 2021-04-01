@@ -13,6 +13,13 @@ export const Button = styled.button`
   transition: var(--transition);
   user-select: none;
 
+  @media (max-width: 435px) {
+    width: 10rem;
+    padding: 0;
+    height: 4rem;
+    font-size: 1rem;
+  }
+
   &:is(:active, :focus) {
     outline: 1px dashed ${({ theme }) => theme.outlineColor};
     outline-offset: 1px;
@@ -65,12 +72,16 @@ export const Button = styled.button`
   ${({ sixth }) =>
     sixth &&
     `
-		width: fill-available;
 		background: #F9FAFE;
 		color: var(--color-figure-3);
+    margin-left: 2px;
 
 		&:hover {
-		background: #DFE3FA;
+  		background: #DFE3FA;
 		};
+    
+    @media (min-width: 375px) {
+      width: 95%;
+    }
 	`};
 `;
