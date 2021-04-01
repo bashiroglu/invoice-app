@@ -2,13 +2,17 @@ import { useEffect, useReducer } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
-import ScrollLock from 'react-scrolllock';
+import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import animationReducer from '../../../helpers/animationReducer';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import { Heading } from '../../common';
 import Form from '../../form/Form';
 import Tag from '../../tag/Tag';
-import { Container, Wrapper } from './InvoiceDrawer.styles';
+import {
+  Container,
+  HeadingWrapper,
+  Wrapper
+} from './InvoiceDrawer.styles';
 
 const InvoiceDrawer = () => {
   const { width } = useWindowDimensions();
@@ -35,6 +39,14 @@ const InvoiceDrawer = () => {
     return history.goBack();
   };
 
+  const heading = id ? (
+    <HeadingWrapper>
+      Edit <Tag>{id}</Tag>
+    </HeadingWrapper>
+  ) : (
+    <>New Invoice</>
+  );
+
   return (
     <ScrollLock>
       <Wrapper>
@@ -44,23 +56,17 @@ const InvoiceDrawer = () => {
             checkElementName(e);
           }}
         >
-          <Container
-            initial='initial'
-            animate='animate'
-            exit='exit'
-            variants={state}
-          >
-            <Heading mb='3'>
-              {id ? (
-                <div>
-                  Edit <Tag>{id}</Tag>
-                </div>
-              ) : (
-                'New Invoice'
-              )}
-            </Heading>
-            <Form id={id} />
-          </Container>
+          <TouchScrollable>
+            <Container
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              variants={state}
+            >
+              <Heading mb='3'>{heading}</Heading>
+              <Form id={id} />
+            </Container>
+          </TouchScrollable>
         </OutsideClickHandler>
       </Wrapper>
     </ScrollLock>

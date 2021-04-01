@@ -37,3 +37,12 @@ export const Container = styled(motion.aside)`
     padding-left: 8rem;
   }
 `;
+
+export const HeadingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  & > * {
+    font-size: 24px;
+  }
+`;
