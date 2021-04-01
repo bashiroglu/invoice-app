@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -20,12 +20,16 @@ export const DropdownContainer = styled.div`
   width: 17rem;
   height: 12rem;
   border-radius: 8px;
-  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+  box-shadow: 0px 5px 10px rgba(72, 84, 159, 0.25);
   overflow: hidden;
   background: ${({ theme }) => theme.invoiceSelect.bg};
+  z-index: 10;
 `;
 
 export const ListItem = styled.div`
+  display: flex;
+  align-items: center;
+  user-select: none;
   text-transform: capitalize;
   padding: 1.2rem 2.5rem;
   color: ${({ theme }) => theme.invoiceSelect.fg};
