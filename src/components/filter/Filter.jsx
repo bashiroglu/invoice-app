@@ -6,12 +6,6 @@ import Checkbox from '../checkbox/Checkbox';
 import BottomArrow from '../svgs/BottomArrow';
 import { DropdownContainer, ListItem, Wrapper } from './Filter.style';
 
-/**
- * todo: add custom checkbox
- * align center
- * keep state of checked
- */
-
 const Filter = () => {
   const [open, setOpen] = useState(false);
   const options = ['draft', 'pending', 'paid'];
