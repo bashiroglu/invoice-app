@@ -66,6 +66,12 @@ export const lightTheme = {
     fg: '#0C0E16',
     hover: '#7E88C3'
   },
+  checkbox: {
+    color: '#DFE3FA',
+    border: {
+      color: '#7c5dfa'
+    }
+  },
 
   ...sharedStyles,
 
@@ -127,6 +133,12 @@ export const darkTheme = {
   },
   goBack: {
     fg: '#fff'
+  },
+  checkbox: {
+    color: '#1E2139',
+    border: {
+      color: '#7c5dfa'
+    }
   },
 
   ...sharedStyles,
