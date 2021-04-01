@@ -40,18 +40,26 @@ const SelectContainer = styled.div`
   background: ${({ theme }) => theme.formInputBg};
   color: ${({ theme }) => theme.invoiceSelect.fg};
   height: 5rem;
-  width: 24rem;
   border-radius: 4px;
-  border: 1px solid #dfe3fa;
   outline: var(--color-figure-1);
   font-family: inherit;
   font-size: 1.2rem;
   font-weight: bold;
   transition: var(--transition);
   position: relative;
+  border: 1px solid transparent;
 
   &:is(:active, :focus) {
     border: 1px solid var(--color-figure-1);
+  }
+  @media (min-width: 375px) {
+    width: 30rem;
+  }
+  @media (min-width: 520px) {
+    width: 50rem;
+  }
+  @media (min-width: 768px) {
+    width: 24rem;
   }
 `;
 

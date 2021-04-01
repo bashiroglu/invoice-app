@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -44,9 +44,6 @@ export const StyledDetails = styled.div`
   background: ${({ theme }) => theme.invoiceBg};
   color: ${({ theme }) => theme.invoiceFg};
   border-radius: 0.8rem;
-  /* padding: 5rem;
-  display: flex;
-  flex-direction: column; */
 
   @media (min-width: 375px) {
     width: 35rem;

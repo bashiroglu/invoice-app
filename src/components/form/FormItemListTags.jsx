@@ -1,19 +1,26 @@
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { Text } from '../common';
 import { Flex } from './Form.styles';
 
 const FormItemListTags = () => {
+  const { width } = useWindowDimensions();
+  const inputWidths = {
+    name: width < 768 ? 5 : 20,
+    quantity: width < 768 ? 10 : 5,
+    price: width < 768 ? 8 : 10
+  };
   return (
     <Flex>
-      <Text mr='1.5' width='20'>
+      <Text itemName tags mr width={inputWidths.name}>
         Item Name
       </Text>
-      <Text mr='1.5' width='5'>
+      <Text tags mr width={inputWidths.quantity}>
         Qty
       </Text>
-      <Text mr='1.5' width='10'>
+      <Text tags mr width={inputWidths.price}>
         Price
       </Text>
-      <Text mr='1.5' width='10'>
+      <Text tags mr>
         Total
       </Text>
     </Flex>

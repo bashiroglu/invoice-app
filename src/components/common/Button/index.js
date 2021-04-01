@@ -13,6 +13,13 @@ export const Button = styled.button`
   transition: var(--transition);
   user-select: none;
 
+  @media (max-width: 435px) {
+    width: 10rem;
+    padding: 0;
+    height: 4rem;
+    font-size: 1rem;
+  }
+
   &:is(:active, :focus) {
     outline: 1px dashed ${({ theme }) => theme.outlineColor};
     outline-offset: 1px;
@@ -74,13 +81,7 @@ export const Button = styled.button`
 		};
     
     @media (min-width: 375px) {
-      width: 40rem;
-    }
-    @media (min-width: 520px) {
-      width: 50rem;
-    }
-    @media (min-width: 768px) {
-      width: fill-available;
+      width: 95%;
     }
 	`};
 `;

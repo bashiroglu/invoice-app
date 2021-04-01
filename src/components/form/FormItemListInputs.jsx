@@ -2,11 +2,19 @@ import { Field, FieldArray } from 'formik';
 import icon from '../../assets/trash-icon.svg';
 import { Button } from '../common';
 import { Flex, Icon, IconContainer, ItemInputs, Sum } from './Form.styles';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 const FormItemListInputs = ({ values, handleBlur }) => {
   const calculateTotalPrice = (quantity, price) => {
     if (!quantity) quantity = 1;
     return price * quantity;
+  };
+
+  const { width } = useWindowDimensions();
+  const inputWidths = {
+    name: width < 768 ? 5 : 20,
+    quantity: width < 768 ? 10 : 5,
+    price: width < 768 ? 8 : 10
   };
 
   return (
@@ -24,7 +32,8 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     mr='1.5'
                     type='text'
                     name={`items.${index}.name`}
-                    width='20'
+                    width={inputWidths.name}
+                    itemName
                   />
                   <Field
                     as={ItemInputs}
@@ -32,7 +41,7 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     mr='1.5'
                     type='number'
                     name={`items.${index}.quantity`}
-                    width='5'
+                    width={inputWidths.quantity}
                     min='0'
                   />
                   <Field
@@ -41,7 +50,7 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     mr='1.5'
                     type='number'
                     name={`items.${index}.price`}
-                    width='10'
+                    width={inputWidths.price}
                     min='0'
                   />
                   <Sum>

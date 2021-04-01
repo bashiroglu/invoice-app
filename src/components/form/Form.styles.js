@@ -36,7 +36,6 @@ export const Input = styled.input`
   background: ${({ theme }) => theme.formInputBg};
   color: ${({ theme }) => theme.text};
   min-height: 5rem;
-  width: ${({ large }) => (large ? '50rem' : '15rem')};
   border-radius: 4px;
   border: ${({ theme }) => theme.formInputBorderInactive};
   outline: var(--color-figure-1);
@@ -53,18 +52,30 @@ export const Input = styled.input`
 
   ${({ mr }) => mr && `margin-right: 2.5rem;`};
 
-  ${({ half }) =>
-    half &&
-    `
-    width: 24rem;
-    margin-right: 2rem;
-  `};
-
   ${({ date }) =>
     date &&
     `
     text-indent: 1rem; 
     padding-right: 2rem;
+  `};
+
+  @media (min-width: 375px) {
+    width: 30rem;
+  }
+  @media (min-width: 520px) {
+    width: 50rem;
+  }
+  @media (min-width: 768px) {
+    width: ${({ large }) => (large ? '50rem' : '15rem')};
+  }
+
+  ${({ half }) =>
+    half &&
+    `    
+    margin-right: 2rem;
+    @media (min-width: 768px) {
+      width: 24rem;
+    }
   `};
 `;
 
@@ -73,6 +84,9 @@ export const Flex = styled.div`
   align-items: center;
 
   ${({ mb }) => mb && `margin-bottom: ${mb}rem;`};
+  @media (min-width: 375px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const Select = styled.select`
@@ -101,6 +115,15 @@ export const DateInput = styled(Input)`
 export const ItemInputs = styled(Input)`
   width: ${({ width }) => `${width}rem`};
   ${({ mr }) => mr && `margin-right: ${mr}rem`};
+  ${({ itemName }) =>
+    itemName &&
+    `
+    @media (max-width: 520px) {
+      display: block;
+      width:100%;
+      margin-bottom: 1rem;
+    }
+  `};
 `;
 
 export const IconContainer = styled.div`
@@ -123,4 +146,8 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  @media (min-width: 768px) {
+    width: 95%;
+  }
 `;
