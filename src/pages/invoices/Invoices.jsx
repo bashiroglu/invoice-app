@@ -1,20 +1,15 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useQuery } from 'react-query';
+import { fetchInvoices } from '../../api';
 import InvoiceList from '../../components/invoice/invoiceList/InvoiceList';
 import InvoicesHeader from '../../components/invoice/invoicesHeader/InvoicesHeader';
-import { fetchInvoicesStartAsync } from '../../redux/invoices/invoices.actions';
 
 const Invoices = () => {
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(fetchInvoicesStartAsync());
-  // }, []);
+  const { data, isError, isLoading } = useQuery('invoices', fetchInvoices);
 
   return (
     <>
-      <InvoicesHeader />
-      <InvoiceList />
+      <InvoicesHeader numberOfInvoices={data?.invoices?.length} />
+      <InvoiceList data={data} isError={isError} isLoading={isLoading} />
     </>
   );
 };
