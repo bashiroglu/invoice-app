@@ -24,6 +24,9 @@ export const InfoBox = styled.div`
     font-size: 12px;
     color: var(--color-gray-2);
   }
+  @media (min-width: 1024px) {
+    height: 7rem;
+  }
 `;
 
 export const StyledCreateButton = styled.button`

@@ -20,3 +20,11 @@ export const NoInvoiceWrapper = styled.section`
 export const StyledHeader = styled.header`
   text-align: center;
 `;
+
+export const SkeletonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 90vw;
+`;
