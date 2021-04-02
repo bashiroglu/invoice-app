@@ -20,6 +20,11 @@ export const Button = styled.button`
     font-size: 1rem;
   }
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   &:is(:active, :focus) {
     outline: 1px dashed ${({ theme }) => theme.outlineColor};
     outline-offset: 1px;
