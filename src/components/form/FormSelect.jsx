@@ -19,7 +19,7 @@ const FormSelect = () => {
     <label>
       <Text>Payment Terms</Text>
       <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
-        <SelectContainer>
+        <SelectContainer tabIndex='0'>
           <SelectHeader onClick={toggle}>{selectedOption}</SelectHeader>
           {isOpen && (
             <SelectListContainer>
@@ -47,7 +47,7 @@ const SelectContainer = styled.div`
   font-weight: bold;
   transition: var(--transition);
   position: relative;
-  border: 1px solid transparent;
+  border: 1px solid ${({ theme }) => theme.invoiceSelect.border};
 
   &:is(:active, :focus) {
     border: 1px solid var(--color-figure-1);

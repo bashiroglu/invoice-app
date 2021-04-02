@@ -57,6 +57,7 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     {calculateTotalPrice(item.quantity, item.price)}
                   </Sum>
                   <IconContainer
+                    tabIndex='0'
                     onClick={() => arrayHelpers.remove(index)}
                     ml='4'
                   >

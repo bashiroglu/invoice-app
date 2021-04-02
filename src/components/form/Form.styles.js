@@ -128,6 +128,12 @@ export const ItemInputs = styled(Input)`
 
 export const IconContainer = styled.div`
   margin-left: ${({ ml }) => `${ml}rem`};
+  outline: none;
+  &:active,
+  &:focus {
+    outline: 1px dashed ${({ theme }) => theme.outlineColor};
+    outline-offset: 5px;
+  }
 `;
 
 export const Sum = styled.p`
