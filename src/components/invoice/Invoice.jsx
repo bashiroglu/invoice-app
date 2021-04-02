@@ -10,7 +10,7 @@ import {
   InvoicePersonAmount,
   InvoicePersonName,
   RightSideContainer,
-  TagWrapper,
+  TagWrapper
 } from './Invoice.styles';
 
 const Invoice = ({
@@ -19,10 +19,13 @@ const Invoice = ({
   clientName,
   total,
   status,
-  currency = '£',
+  currency = '£'
 }) => {
+  console.log(createdAt);
   const formattedTotal = formatNumbers(total);
-  const formattedCreatedAt = moment(createdAt).format('Do MMM YYYY');
+  const formattedCreatedAt = moment(new Date(createdAt)).format(
+    'Do MMM YYYY'
+  );
 
   return (
     <InvoiceContainer to={`/invoices/all/${invoiceId}`}>
