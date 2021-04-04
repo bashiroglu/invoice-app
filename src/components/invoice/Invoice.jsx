@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { formatDate } from '../../helpers/formatDates';
 import formatNumbers from '../../helpers/formatNumbers';
 import Status from '../status/Status';
 import RightArrow from '../svgs/RightArrow';
@@ -22,9 +22,7 @@ const Invoice = ({
   currency = '£'
 }) => {
   const formattedTotal = formatNumbers(total);
-  const formattedCreatedAt = moment(new Date(createdAt)).format(
-    'Do MMM YYYY'
-  );
+  const formattedCreatedAt = formatDate(createdAt);
 
   return (
     <InvoiceContainer to={`/invoices/all/${invoiceId}`}>
