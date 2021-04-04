@@ -1,93 +1,37 @@
-import { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
-import { Button, Text } from '../../components/common';
+import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import { useParams } from 'react-router-dom';
+import GoBack from '../../components/goBack/GoBack';
+import InvoiceActions from '../../components/invoice/InvoiceActions/InvoiceActions';
+import InvoiceItems from '../../components/invoice/InvoiceItems/InvoiceItems';
 import Modal from '../../components/modal/Modal';
-import Status from '../../components/status/Status';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { formatDate } from '../../helpers/formatDates';
 import {
   AdressDetails,
   Container,
   DetailsText,
   DetailValues,
-  Flex,
   FlexChild,
   FlexParent,
   GeneralInformation,
   GridContainer,
   PersonalInformationContainer,
-  ProjectDescription,
-  Quantity,
   SentTo,
-  StyledActions,
   StyledDates,
   StyledDetails,
   StyledId,
-  StyledInvoiceItemsPrice,
-  StyledInvoiceItemsWrapper,
   StyledInvoiceSummaryTotal
 } from './InvoiceDetails.style';
-import GoBack from '../../components/goBack/GoBack';
-
-/**
- * todo: refactor vars
- * invoice summary comp
- * separate top and bottom
- * map items
- */
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchInvoiceDetailsStartAsync } from '../../redux/invoice-details/invoice-details.actions';
 
 const InvoiceDetails = () => {
+  const dispatch = useDispatch();
+  const { invoiceDetails } = useSelector((state) => state);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { id } = useParams();
-  const { width } = useWindowDimensions();
-  const { push } = useHistory();
 
-  // const dispatch = useDispatch();
-  // const isFetching = useSelector(
-  //   (state) => state.invoiceDetails.isFetching
-  // );
-  // const invoiceDetails = useSelector(
-  //   (state) => state.invoiceDetails.invoiceDetails
-  // );
-
-  // useEffect(() => {
-  //   dispatch(fetchInvoiceDetailsStartAsync(invoiceId));
-  // }, []);
-
-  const {
-    description,
-    senderAddress: { street, city, postCode, country }
-  } = {
-    id: 'RT3080',
-    createdAt: '2021-08-18',
-    paymentDue: '2021-08-19',
-    description: 'Re-branding',
-    paymentTerms: 1,
-    clientName: 'Jensen Huang',
-    clientEmail: 'jensenh@mail.com',
-    status: 'paid',
-    senderAddress: {
-      street: '19 Union Terrace',
-      city: 'London',
-      postCode: 'E1 3EZ',
-      country: 'United Kingdom'
-    },
-    clientAddress: {
-      street: '106 Kendell Street',
-      city: 'Sharrington',
-      postCode: 'NR24 5WQ',
-      country: 'United Kingdom'
-    },
-    items: [
-      {
-        name: 'Brand Guidelines',
-        quantity: 1,
-        price: 1800.9,
-        total: 1800.9
-      }
-    ],
-    total: 1800.9
-  };
+  useEffect(() => dispatch(fetchInvoiceDetailsStartAsync(id)), []);
 
   const cancelDeletion = () => {
     //
@@ -96,6 +40,17 @@ const InvoiceDetails = () => {
   const deleteInvoice = () => {
     alert('deleted');
   };
+
+  // useEffect(() => {
+  //   document.title = `Invoice ${id} | ${
+  //     invoiceDetails.invoiceDetails.status || 'pending'
+  //   }`;
+  // }, [id]);
+
+  console.log(invoiceDetails.invoiceDetails.senderAddress);
+
+  if (invoiceDetails.isFetching)
+    return <Skeleton width={900} height={500} />;
 
   return (
     <>
@@ -109,39 +64,34 @@ const InvoiceDetails = () => {
       )}
       <GoBack />
       <Container>
-        <StyledActions>
-          {width < 768 ? (
-            <Flex>
-              <Text>Status</Text>
-              <Status status={'pending'}>{'Paid'}</Status>
-            </Flex>
-          ) : (
-            <>
-              <Flex>
-                <Text>Status</Text>
-                <Status status={'pending'}>{'Paid'}</Status>
-              </Flex>
-              <Button third onClick={() => push(`/invoices/edit/${id}`)}>
-                Edit
-              </Button>
-              <Button fifth onClick={() => setModalIsOpen((s) => !s)}>
-                Delete
-              </Button>
-              <Button second>Mark as Paid</Button>
-            </>
-          )}
-        </StyledActions>
+        <InvoiceActions
+          status={invoiceDetails.invoiceDetails.status || <Skeleton />}
+          setModalIsOpen={setModalIsOpen}
+          id={id}
+        />
         <StyledDetails>
           <PersonalInformationContainer>
             <GeneralInformation>
-              <StyledId>#XM9141</StyledId>
-              <DetailsText mb='3'>Graphic Design</DetailsText>
+              <StyledId>
+                {invoiceDetails.invoiceDetails.invoiceId || <Skeleton />}
+              </StyledId>
+              <DetailsText mb='3'>
+                {invoiceDetails.invoiceDetails.description || <Skeleton />}
+              </DetailsText>
             </GeneralInformation>
             <AdressDetails>
-              <span>{street}</span>
-              <span>{city}</span>
-              <span>{postCode}</span>
-              <span>{country}</span>
+              <span>
+                {invoiceDetails.invoiceDetails.senderAddress?.street}
+              </span>
+              <span>
+                {invoiceDetails.invoiceDetails.senderAddress?.city}
+              </span>
+              <span>
+                {invoiceDetails.invoiceDetails.senderAddress?.postCode}
+              </span>
+              <span>
+                {invoiceDetails.invoiceDetails.senderAddress?.country}
+              </span>
             </AdressDetails>
           </PersonalInformationContainer>
           <>
@@ -149,36 +99,57 @@ const InvoiceDetails = () => {
               <FlexParent>
                 <StyledDates>
                   <DetailsText mb='1'>Invoice Date</DetailsText>
-                  <DetailValues>21 Aug 2021</DetailValues>
+                  <DetailValues>
+                    {formatDate(
+                      invoiceDetails.invoiceDetails.createdAt
+                    ) || <Skeleton />}
+                  </DetailValues>
                 </StyledDates>
                 <FlexChild>
                   <DetailsText mb='1'>Payment Due</DetailsText>
-                  <DetailValues>20 Sep 2021</DetailValues>
+                  <DetailValues>
+                    {formatDate(invoiceDetails.invoiceDetails.paymentDue)}
+                  </DetailValues>
                 </FlexChild>
               </FlexParent>
               <div>
                 <DetailsText mb='1'>Bill To</DetailsText>
-                <DetailValues mb='1'>Alex Grim</DetailValues>
-                <DetailsText>{street}</DetailsText>
-                <DetailsText>{city}</DetailsText>
-                <DetailsText>{postCode}</DetailsText>
-                <DetailsText>{country}</DetailsText>
+                <DetailValues mb='1'>
+                  {invoiceDetails.invoiceDetails.clientName || (
+                    <Skeleton />
+                  )}
+                </DetailValues>
+                <DetailsText>
+                  {invoiceDetails.invoiceDetails.clientAddress.street}
+                </DetailsText>
+                <DetailsText>
+                  {invoiceDetails.invoiceDetails.clientAddress.city}
+                </DetailsText>
+                <DetailsText>
+                  {invoiceDetails.invoiceDetails.clientAddress.postCode}
+                </DetailsText>
+                <DetailsText>
+                  {invoiceDetails.invoiceDetails.clientAddress.country}
+                </DetailsText>
               </div>
               <SentTo>
                 <DetailsText mb='1'>Sent to</DetailsText>
-                <DetailValues>alexgrim@mail.com</DetailValues>
+                <DetailValues>
+                  {invoiceDetails.invoiceDetails.clientEmail || (
+                    <Skeleton />
+                  )}
+                </DetailValues>
               </SentTo>
             </GridContainer>
-            <StyledInvoiceItemsWrapper>
-              <div>
-                <ProjectDescription>Banner Design</ProjectDescription>
-                <Quantity>1 x £ 156.00</Quantity>
-              </div>
-              <StyledInvoiceItemsPrice>£ 156.00</StyledInvoiceItemsPrice>
-            </StyledInvoiceItemsWrapper>
+            {/* <InvoiceItems
+              description={invoiceDetails.invoiceDetails.description}
+              items={invoiceDetails.invoiceDetails.items}
+            /> */}
             <StyledInvoiceSummaryTotal>
               <span>Grand Total</span>
-              <span>£ 556.00</span>
+              <span>
+                £ {invoiceDetails.invoiceDetails.total || <Skeleton />}
+              </span>
             </StyledInvoiceSummaryTotal>
           </>
         </StyledDetails>

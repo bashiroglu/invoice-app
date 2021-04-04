@@ -10,6 +10,7 @@ import Status from '../../status/Status';
 const InvoiceActions = ({ id, status, setModalIsOpen }) => {
   const { width } = useWindowDimensions();
   const { push } = useHistory();
+  const whenPaid = status === 'paid';
 
   return (
     <StyledActions>
@@ -30,7 +31,7 @@ const InvoiceActions = ({ id, status, setModalIsOpen }) => {
           <Button fifth onClick={() => setModalIsOpen((s) => !s)}>
             Delete
           </Button>
-          <Button disabled={status === 'paid'} second>
+          <Button disabled={whenPaid} second>
             Mark as Paid
           </Button>
         </>
