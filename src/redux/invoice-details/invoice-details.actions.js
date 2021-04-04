@@ -2,20 +2,19 @@ import axios from 'axios';
 import InvoiceDetailsActionTypes from './invoice-details.types';
 
 export const fetchInvoiceDetailsStart = () => ({
-  type: InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_START,
+  type: InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_START
 });
 
 export const fetchInvoiceDetailsSuccess = (invoiceDetails) => {
-  console.log('invoiceDetails', invoiceDetails);
   return {
     type: InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_SUCCESS,
-    payload: invoiceDetails,
+    payload: invoiceDetails
   };
 };
 
 export const fetchInvoiceDetailsFailure = (errorMessage) => ({
   type: InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_FAILURE,
-  payload: errorMessage,
+  payload: errorMessage
 });
 
 export const fetchInvoiceDetailsStartAsync = (invoiceId) => {
@@ -24,9 +23,8 @@ export const fetchInvoiceDetailsStartAsync = (invoiceId) => {
     let response;
     try {
       response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/v1/invoices/${invoiceId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/invoices/${invoiceId}`
       );
-      console.log(response.data.invoice);
 
       dispatch(fetchInvoiceDetailsSuccess(response.data.invoice));
     } catch (error) {
