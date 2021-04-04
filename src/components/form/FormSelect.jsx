@@ -1,3 +1,4 @@
+import { useField } from 'formik';
 import { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import styled from 'styled-components';
@@ -5,21 +6,27 @@ import { v4 as uuid } from 'uuid';
 import { Text } from '../common';
 
 const FormSelect = () => {
+  const [field, _, helpers] = useField('paymentTerms');
   const [isOpen, setIsOpen] = useState(false);
-  const options = ['Net 1 Day', 'Net 7 Day', 'Net 13 Day', 'Net 30 Day'];
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const options = ['Net 1 Day', 'Net 7 Day', 'Net 14 Day', 'Net 30 Day'];
+  const [selectedOption, setSelectedOption] = useState(
+    options[options.length - 1]
+  );
+
   const toggle = () => setIsOpen((s) => !s);
+  const { setValue } = helpers;
 
   const onOptionClicked = (value) => () => {
     setSelectedOption(value);
     setIsOpen(false);
+    setValue(value);
   };
 
   return (
     <label>
       <Text>Payment Terms</Text>
       <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
-        <SelectContainer tabIndex='0'>
+        <SelectContainer {...field} tabIndex='0'>
           <SelectHeader onClick={toggle}>{selectedOption}</SelectHeader>
           {isOpen && (
             <SelectListContainer>
