@@ -1,23 +1,26 @@
-// import { useSelector } from 'react-redux';
-import invoices from '../../../data/data.json';
+import { useEffect } from 'react';
 import { Heading, Text } from '../../common';
 import NoInvoicesSvg from '../../svgs/NoInvoices.svg';
 import Invoice from '../Invoice';
+import InvoiceSkeleton from '../InvoiceSkeleton/InvoiceSkeleton';
 import {
   InvoiceWrapper,
   NoInvoiceWrapper,
   StyledHeader
-} from './Invoices.styles';
+} from './InvoiceList.styles';
 
-function InvoiceList() {
-  const data = { ...invoices };
-  // const invoices = useSelector((state) => state.invoices.invoices);
+function InvoiceList({ invoices, isFetching }) {
+  useEffect(() => {
+    document.title = `You've got ${invoices.length} invoices`;
+  }, [invoices.length]);
+
+  if (isFetching) return <InvoiceSkeleton />;
 
   return (
     <>
-      {data ? (
+      {invoices ? (
         <InvoiceWrapper>
-          {Object.values(data).map((invoice) => (
+          {Object.values(invoices).map((invoice) => (
             <Invoice key={invoice.id} {...invoice} />
           ))}
         </InvoiceWrapper>
