@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 const initialValues = {
   senderAddress: {
     street: '',
@@ -15,7 +13,7 @@ const initialValues = {
     postCode: '',
     country: ''
   },
-  createdAt: moment().format('Do MMM YYYY, HH:mm'),
+  createdAt: new Date(),
   invoiceDate: '',
   paymentTerms: '',
   description: '',
