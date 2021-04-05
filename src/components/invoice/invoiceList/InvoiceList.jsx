@@ -21,7 +21,7 @@ function InvoiceList({ invoices, isFetching }) {
       {invoices ? (
         <InvoiceWrapper>
           {Object.values(invoices).map((invoice) => (
-            <Invoice key={invoice.id} {...invoice} />
+            <Invoice key={invoice.invoiceId} {...invoice} />
           ))}
         </InvoiceWrapper>
       ) : (
