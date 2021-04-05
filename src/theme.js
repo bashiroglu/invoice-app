@@ -27,7 +27,8 @@ export const lightTheme = {
   invoiceBg: '#fff',
   invoiceFg: '#0C0E16',
   invoiceDetails: {
-    text: { fg: '#7e88c3' }
+    text: { fg: '#7e88c3' },
+    bg: '#F9FAFE'
   },
   drawerBg: '#fff',
   text: '#0C0E16',
@@ -97,7 +98,8 @@ export const darkTheme = {
   invoiceBg: '#1E2139',
   invoiceFg: '#fff',
   invoiceDetails: {
-    text: { fg: '#DFE3FA' }
+    text: { fg: '#DFE3FA' },
+    bg: '#252945'
   },
   invoiceSelect: {
     fg: '#fff',
