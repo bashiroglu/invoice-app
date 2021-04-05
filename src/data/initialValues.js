@@ -13,10 +13,10 @@ const initialValues = {
     postCode: '',
     country: ''
   },
-  createdAt: new Date(),
   invoiceDate: '',
   paymentTerms: '',
   description: '',
+  status: 'draft',
   items: [
     {
       name: '',
