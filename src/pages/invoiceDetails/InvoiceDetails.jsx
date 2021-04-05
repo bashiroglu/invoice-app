@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import GoBack from '../../components/goBack/GoBack';
 import InvoiceActions from '../../components/invoice/invoiceActions/InvoiceActions';
 import InvoiceDetailsSummaryTotal from '../../components/invoice/invoiceDetailsSummaryTotal/InvoiceDetailsSummaryTotal';
-import InvoiceItems from '../../components/invoice/InvoiceItems/InvoiceItems';
+import InvoiceItems from '../../components/invoice/invoiceItems/InvoiceItems';
 import MainInvoiceDetails from '../../components/invoice/mainInvoiceDetails/MainInvoiceDetails';
 import PersonalInformationContainer from '../../components/invoice/personalInformationContainer/PersonalInformationContainer';
 import Modal from '../../components/modal/Modal';
