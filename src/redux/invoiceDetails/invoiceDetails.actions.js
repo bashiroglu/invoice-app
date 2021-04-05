@@ -1,5 +1,5 @@
 import axios from 'axios';
-import InvoiceDetailsActionTypes from './invoice-details.types';
+import InvoiceDetailsActionTypes from './invoiceDetails.types';
 
 export const fetchInvoiceDetailsStart = () => ({
   type: InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_START
