@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Heading, Text } from '../../common';
 import NoInvoicesSvg from '../../svgs/NoInvoices.svg';
 import Invoice from '../Invoice';
-import InvoiceSkeleton from '../InvoiceSkeleton/InvoiceSkeleton';
+import InvoiceSkeleton from '../invoiceSkeleton/InvoiceSkeleton';
 import {
   InvoiceWrapper,
   NoInvoiceWrapper,

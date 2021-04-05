@@ -1,11 +1,9 @@
 import { useHistory } from 'react-router';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
-import {
-  Flex,
-  StyledActions
-} from '../../../pages/invoiceDetails/InvoiceDetails.style';
+import { Flex } from '../../../pages/invoiceDetails/InvoiceDetails.style';
 import { Button, Text } from '../../common';
 import Status from '../../status/Status';
+import { StyledActions } from './InvoiceActions.style';
 
 const InvoiceActions = ({ id, status, setModalIsOpen }) => {
   const { width } = useWindowDimensions();

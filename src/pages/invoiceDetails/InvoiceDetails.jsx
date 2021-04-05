@@ -1,29 +1,15 @@
 import { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import GoBack from '../../components/goBack/GoBack';
-import InvoiceActions from '../../components/invoice/InvoiceActions/InvoiceActions';
+import InvoiceActions from '../../components/invoice/invoiceActions/InvoiceActions';
+import InvoiceDetailsSummaryTotal from '../../components/invoice/invoiceDetailsSummaryTotal/InvoiceDetailsSummaryTotal';
 import InvoiceItems from '../../components/invoice/InvoiceItems/InvoiceItems';
+import MainInvoiceDetails from '../../components/invoice/mainInvoiceDetails/MainInvoiceDetails';
+import PersonalInformationContainer from '../../components/invoice/personalInformationContainer/PersonalInformationContainer';
 import Modal from '../../components/modal/Modal';
-import { formatDate } from '../../helpers/formatDates';
-import {
-  AdressDetails,
-  Container,
-  DetailsText,
-  DetailValues,
-  FlexChild,
-  FlexParent,
-  GeneralInformation,
-  GridContainer,
-  PersonalInformationContainer,
-  SentTo,
-  StyledDates,
-  StyledDetails,
-  StyledId,
-  StyledInvoiceSummaryTotal
-} from './InvoiceDetails.style';
-import { useSelector, useDispatch } from 'react-redux';
 import { fetchInvoiceDetailsStartAsync } from '../../redux/invoice-details/invoice-details.actions';
+import { Container, StyledDetails } from './InvoiceDetails.style';
 
 const InvoiceDetails = () => {
   const dispatch = useDispatch();
@@ -41,16 +27,9 @@ const InvoiceDetails = () => {
     alert('deleted');
   };
 
-  // useEffect(() => {
-  //   document.title = `Invoice ${id} | ${
-  //     invoiceDetails.invoiceDetails.status || 'pending'
-  //   }`;
-  // }, [id]);
-
-  console.log(invoiceDetails.invoiceDetails.senderAddress);
-
-  if (invoiceDetails.isFetching)
-    return <Skeleton width={900} height={500} />;
+  useEffect(() => {
+    document.title = `Invoice #${id} - ${invoiceDetails.invoiceDetails.status}`;
+  }, [id, invoiceDetails.invoiceDetails.status]);
 
   return (
     <>
@@ -65,93 +44,18 @@ const InvoiceDetails = () => {
       <GoBack />
       <Container>
         <InvoiceActions
-          status={invoiceDetails.invoiceDetails.status || <Skeleton />}
+          status={invoiceDetails.invoiceDetails.status}
           setModalIsOpen={setModalIsOpen}
           id={id}
         />
         <StyledDetails>
-          <PersonalInformationContainer>
-            <GeneralInformation>
-              <StyledId>
-                {invoiceDetails.invoiceDetails.invoiceId || <Skeleton />}
-              </StyledId>
-              <DetailsText mb='3'>
-                {invoiceDetails.invoiceDetails.description || <Skeleton />}
-              </DetailsText>
-            </GeneralInformation>
-            <AdressDetails>
-              <span>
-                {invoiceDetails.invoiceDetails.senderAddress?.street}
-              </span>
-              <span>
-                {invoiceDetails.invoiceDetails.senderAddress?.city}
-              </span>
-              <span>
-                {invoiceDetails.invoiceDetails.senderAddress?.postCode}
-              </span>
-              <span>
-                {invoiceDetails.invoiceDetails.senderAddress?.country}
-              </span>
-            </AdressDetails>
-          </PersonalInformationContainer>
-          <>
-            <GridContainer>
-              <FlexParent>
-                <StyledDates>
-                  <DetailsText mb='1'>Invoice Date</DetailsText>
-                  <DetailValues>
-                    {formatDate(
-                      invoiceDetails.invoiceDetails.createdAt
-                    ) || <Skeleton />}
-                  </DetailValues>
-                </StyledDates>
-                <FlexChild>
-                  <DetailsText mb='1'>Payment Due</DetailsText>
-                  <DetailValues>
-                    {formatDate(invoiceDetails.invoiceDetails.paymentDue)}
-                  </DetailValues>
-                </FlexChild>
-              </FlexParent>
-              <div>
-                <DetailsText mb='1'>Bill To</DetailsText>
-                <DetailValues mb='1'>
-                  {invoiceDetails.invoiceDetails.clientName || (
-                    <Skeleton />
-                  )}
-                </DetailValues>
-                <DetailsText>
-                  {invoiceDetails.invoiceDetails.clientAddress.street}
-                </DetailsText>
-                <DetailsText>
-                  {invoiceDetails.invoiceDetails.clientAddress.city}
-                </DetailsText>
-                <DetailsText>
-                  {invoiceDetails.invoiceDetails.clientAddress.postCode}
-                </DetailsText>
-                <DetailsText>
-                  {invoiceDetails.invoiceDetails.clientAddress.country}
-                </DetailsText>
-              </div>
-              <SentTo>
-                <DetailsText mb='1'>Sent to</DetailsText>
-                <DetailValues>
-                  {invoiceDetails.invoiceDetails.clientEmail || (
-                    <Skeleton />
-                  )}
-                </DetailValues>
-              </SentTo>
-            </GridContainer>
-            {/* <InvoiceItems
-              description={invoiceDetails.invoiceDetails.description}
-              items={invoiceDetails.invoiceDetails.items}
-            /> */}
-            <StyledInvoiceSummaryTotal>
-              <span>Grand Total</span>
-              <span>
-                £ {invoiceDetails.invoiceDetails.total || <Skeleton />}
-              </span>
-            </StyledInvoiceSummaryTotal>
-          </>
+          <PersonalInformationContainer invoiceDetails={invoiceDetails} />
+          <MainInvoiceDetails invoiceDetails={invoiceDetails} />
+          <InvoiceItems
+            description={invoiceDetails.invoiceDetails.description}
+            items={invoiceDetails.invoiceDetails.items}
+          />
+          <InvoiceDetailsSummaryTotal invoiceDetails={invoiceDetails} />
         </StyledDetails>
       </Container>
     </>
