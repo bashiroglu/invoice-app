@@ -39,7 +39,7 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     as={ItemInputs}
                     handleBlur={handleBlur}
                     mr='1.5'
-                    type='number'
+                    type='text'
                     name={`items.${index}.quantity`}
                     width={inputWidths.quantity}
                     min='0'
@@ -48,7 +48,7 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     as={ItemInputs}
                     handleBlur={handleBlur}
                     mr='1.5'
-                    type='number'
+                    type='text'
                     name={`items.${index}.price`}
                     width={inputWidths.price}
                     min='0'

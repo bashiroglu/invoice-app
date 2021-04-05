@@ -8,7 +8,7 @@ import InvoiceItems from '../../components/invoice/invoiceItems/InvoiceItems';
 import MainInvoiceDetails from '../../components/invoice/mainInvoiceDetails/MainInvoiceDetails';
 import PersonalInformationContainer from '../../components/invoice/personalInformationContainer/PersonalInformationContainer';
 import Modal from '../../components/modal/Modal';
-import { fetchInvoiceDetailsStartAsync } from '../../redux/invoice-details/invoice-details.actions';
+import { fetchInvoiceDetailsStartAsync } from '../../redux/invoiceDetails/invoiceDetails.actions';
 import { Container, StyledDetails } from './InvoiceDetails.style';
 
 const InvoiceDetails = () => {
@@ -29,7 +29,7 @@ const InvoiceDetails = () => {
 
   useEffect(() => {
     document.title = `Invoice #${id} - ${invoiceDetails.invoiceDetails.status}`;
-  }, [id, invoiceDetails.invoiceDetails.status]);
+  }, [id, invoiceDetails.invoiceDetails?.status]);
 
   return (
     <>
@@ -44,14 +44,14 @@ const InvoiceDetails = () => {
       <GoBack />
       <Container>
         <InvoiceActions
-          status={invoiceDetails.invoiceDetails.status}
+          status={invoiceDetails.invoiceDetails?.status}
           setModalIsOpen={setModalIsOpen}
           id={id}
         />
         <StyledDetails>
           <PersonalInformationContainer invoiceDetails={invoiceDetails} />
           <MainInvoiceDetails invoiceDetails={invoiceDetails} />
-          <InvoiceItems items={invoiceDetails.invoiceDetails.items} />
+          <InvoiceItems items={invoiceDetails.invoiceDetails?.items} />
           <InvoiceDetailsSummaryTotal invoiceDetails={invoiceDetails} />
         </StyledDetails>
       </Container>
