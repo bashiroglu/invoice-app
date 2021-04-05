@@ -51,10 +51,7 @@ const InvoiceDetails = () => {
         <StyledDetails>
           <PersonalInformationContainer invoiceDetails={invoiceDetails} />
           <MainInvoiceDetails invoiceDetails={invoiceDetails} />
-          <InvoiceItems
-            description={invoiceDetails.invoiceDetails.description}
-            items={invoiceDetails.invoiceDetails.items}
-          />
+          <InvoiceItems items={invoiceDetails.invoiceDetails.items} />
           <InvoiceDetailsSummaryTotal invoiceDetails={invoiceDetails} />
         </StyledDetails>
       </Container>
