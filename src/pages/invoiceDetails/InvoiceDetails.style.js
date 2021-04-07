@@ -6,7 +6,6 @@ export const Container = styled.section`
   flex-flow: column wrap;
   gap: 1.5rem 0;
   transition: var(--transitionSlow);
-  min-height: 100vh;
 `;
 
 export const Flex = styled.div`

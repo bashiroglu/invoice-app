@@ -1,21 +1,11 @@
 import OutsideClickHandler from 'react-outside-click-handler';
-import { useHistory } from 'react-router';
+import ScrollLock from 'react-scrolllock';
 import { Button, Heading } from '../common';
 import { Background, Buttons, Popup, Text } from './Modal.style';
-import ScrollLock from 'react-scrolllock';
 
-const Modal = ({ id, cancelDeletion, deleteInvoice, setModalIsOpen }) => {
-  const { push } = useHistory();
-
-  const handleCancel = () => {
-    cancelDeletion();
-    setModalIsOpen((prevState) => !prevState);
-  };
-
-  const handleDelete = () => {
-    deleteInvoice();
-    push('/');
-  };
+const Modal = ({ id, cancelDeletion, deleteInvoice }) => {
+  const handleCancel = () => cancelDeletion();
+  const handleDelete = () => deleteInvoice();
 
   const animation = {
     hidden: { opacity: 0 },

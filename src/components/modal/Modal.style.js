@@ -2,15 +2,16 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const Background = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
+  right: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   z-index: 10;
   background: rgba(0, 0, 0, 0.4);
 `;
