@@ -13,7 +13,7 @@ const initialValues = {
     postCode: '',
     country: ''
   },
-  invoiceDate: '',
+  createdAt: '',
   paymentTerms: '',
   description: '',
   status: 'draft',
@@ -21,7 +21,8 @@ const initialValues = {
     {
       name: '',
       quantity: '',
-      price: ''
+      price: '',
+      total: 0
     }
   ]
 };
