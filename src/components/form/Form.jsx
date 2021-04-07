@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import initialValues from '../../data/initialValues';
@@ -11,7 +12,6 @@ import FormFields from './FormFields';
 const Form = ({ id }) => {
   const dispatch = useDispatch();
   const state = useSelector((s) => s.invoiceDetails.invoiceDetails);
-
   const {
     location: { pathname }
   } = useHistory();
@@ -20,16 +20,39 @@ const Form = ({ id }) => {
     ? state
     : initialValues;
 
+  const calculateTotalItems = (values) => {
+    return values?.items
+      ?.map((item) => {
+        item['total'] = item.quantity * item.price;
+        return item.quantity * item.price;
+      })
+      .reduce((acc, val) => acc + val);
+  };
+
   return (
     <Formik
       initialValues={newOrEditValues}
       validationSchema={validationSchema}
       onSubmit={(values) => {
-        dispatch(submitInvoice(values));
+        const submittedFormWithModifications = {
+          ...values,
+          paymentTerms: +values.paymentTerms.split(' ')[1],
+          total: calculateTotalItems(values)
+        };
+        const invoice = {
+          ...submittedFormWithModifications,
+          createdAt: new Date(
+            submittedFormWithModifications.createdAt
+          ).toISOString(),
+          paymentDue: moment()
+            .add(submittedFormWithModifications.paymentTerms, 'days')
+            .toISOString()
+        };
+        dispatch(submitInvoice(invoice));
       }}
     >
-      {({ values, handleBlur, handleSubmit }) => (
-        <StyledForm onSubmit={handleSubmit}>
+      {({ values, handleBlur }) => (
+        <StyledForm>
           <FormFields values={values} handleBlur={handleBlur} />
           <FormButtonContainer id={id} />
         </StyledForm>
