@@ -21,7 +21,7 @@ export const fetchAllInvoices = () => async (dispatch) => {
   try {
     response = await axios.get(process.env.REACT_APP_API_INVOICES);
   } catch (error) {
-    console.log(error);
+    console.warn(error);
   }
   dispatch(fetchInvoicesSuccess(response.data.invoices));
 };
@@ -34,6 +34,18 @@ export const submitInvoice = (body) => async (dispatch) => {
       payload: JSON.stringify(res.data.invoice)
     });
   } catch (err) {
-    console.log(err);
+    console.warn(err);
+  }
+};
+
+export const deleteInvoice = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`${process.env.REACT_APP_API_INVOICES}/${id}`);
+    dispatch({
+      type: InvoicesActionTypes.DELETE_INVOICE,
+      payload: id
+    });
+  } catch (err) {
+    console.warn(err);
   }
 };
