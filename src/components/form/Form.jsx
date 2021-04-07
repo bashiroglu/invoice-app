@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import moment from 'moment';
+import randomatic from 'randomatic';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import initialValues from '../../data/initialValues';
@@ -46,7 +47,8 @@ const Form = ({ id }) => {
           ).toISOString(),
           paymentDue: moment()
             .add(submittedFormWithModifications.paymentTerms, 'days')
-            .toISOString()
+            .toISOString(),
+          invoiceId: randomatic('A', 2) + randomatic('0000')
         };
         dispatch(submitInvoice(invoice));
       }}
