@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InvoiceList from '../../components/invoice/invoiceList/InvoiceList';
 import InvoicesHeader from '../../components/invoice/invoicesHeader/InvoicesHeader';
-import { fetchInvoicesStartAsync } from '../../redux/invoices/invoices.actions';
+import { fetchAllInvoices } from '../../redux/invoices/invoices.actions';
 
 const Invoices = () => {
   const dispatch = useDispatch();
   const invoices = useSelector((state) => state.invoices);
 
-  useEffect(() => dispatch(fetchInvoicesStartAsync()), []);
+  useEffect(() => dispatch(fetchAllInvoices()), []);
 
   return (
     <>

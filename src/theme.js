@@ -27,7 +27,8 @@ export const lightTheme = {
   invoiceBg: '#fff',
   invoiceFg: '#0C0E16',
   invoiceDetails: {
-    text: { fg: '#7e88c3' }
+    text: { fg: '#7e88c3' },
+    bg: '#F9FAFE'
   },
   drawerBg: '#fff',
   text: '#0C0E16',
@@ -35,6 +36,7 @@ export const lightTheme = {
   formInputBg: '#fff',
   formInputBorderInactive: '1px solid #DFE3FA',
   formInputBorderActive: '1px solid #9277FF',
+  formInputTotal: '#fff',
   colorGray: '#888eb0',
   scrollbarColor: '#DFE3FA',
   outlineColor: '#000',
@@ -97,7 +99,8 @@ export const darkTheme = {
   invoiceBg: '#1E2139',
   invoiceFg: '#fff',
   invoiceDetails: {
-    text: { fg: '#DFE3FA' }
+    text: { fg: '#DFE3FA' },
+    bg: '#252945'
   },
   invoiceSelect: {
     fg: '#fff',
@@ -112,6 +115,7 @@ export const darkTheme = {
   formInputBg: '#1E2139',
   formInputBorderInactive: '1px solid #252945',
   formInputBorderActive: '1px solid #252945',
+  formInputTotal: '#141625',
   colorGray: '#DFE3FA',
   scrollbarColor: '#252945',
   outlineColor: '#fff',

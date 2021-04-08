@@ -136,11 +136,16 @@ export const IconContainer = styled.div`
   }
 `;
 
-export const Sum = styled.p`
-  font-size: 1.2rem;
+export const TotalInput = styled.input`
+  font-size: 1.5rem;
   font-weight: bold;
+  background: ${({ theme }) => theme.formInputTotal};
   color: #888eb0;
   text-indent: 0.3rem;
+  border: none;
+  outline: none;
+  width: 4rem;
+  height: 5rem;
 `;
 
 export const Icon = styled.img`

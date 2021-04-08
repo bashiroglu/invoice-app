@@ -1,13 +1,13 @@
-import InvoiceDetailsActionTypes from './invoice-details.types';
+import InvoiceDetailsActionTypes from './invoiceDetails.types';
 
 const initialState = {
   invoiceDetails: {},
   isFetching: false,
-  errorMessage: '',
+  errorMessage: {}
 };
 const InvoiceDetailsReducer = (
   state = initialState,
-  { type, payload },
+  { type, payload }
 ) => {
   switch (type) {
     case InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_START:
@@ -16,7 +16,7 @@ const InvoiceDetailsReducer = (
       return {
         ...state,
         isFetching: false,
-        errorMessage: payload,
+        errorMessage: payload
       };
     case InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_SUCCESS:
       return { ...state, isFetching: false, invoiceDetails: payload };

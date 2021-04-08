@@ -3,7 +3,7 @@ import InvoicesActionTypes from './invoices.types';
 const initialState = {
   invoices: [],
   isFetching: false,
-  errorMessage: undefined,
+  errorMessage: {}
 };
 
 const invoiceReducer = (state = initialState, { type, payload }) => {
@@ -14,10 +14,21 @@ const invoiceReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isFetching: false,
-        errorMessage: payload,
+        errorMessage: payload
       };
     case InvoicesActionTypes.FETCH_INVOICES_SUCCESS:
       return { ...state, isFetching: false, invoices: payload };
+    case InvoicesActionTypes.SUBMIT_NEW_INVOICE:
+      return { ...state, invoices: [...state.invoices, payload] };
+    case InvoicesActionTypes.DELETE_INVOICE: {
+      return { ...state, invoices: [...state.invoices] };
+    }
+    case InvoicesActionTypes.EDIT_INVOICE: {
+      return {
+        ...state,
+        invoices: [...state.invoices /* edited invoice */]
+      };
+    }
     default:
       return state;
   }

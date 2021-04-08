@@ -70,8 +70,9 @@ export const InvoicePersonName = styled.p`
   color: var(--color-gray-2);
 
   @media (min-width: 375px) {
-    margin: 0 auto;
     order: 2;
+    text-align: end;
+    margin-right: 3rem;
   }
   @media (min-width: 768px) {
     order: 3;
@@ -90,6 +91,10 @@ export const InvoicePersonAmount = styled.p`
   @media (min-width: 375px) {
     text-align: left;
   }
+  @media (max-width: 768px) {
+    grid-row: 3;
+    align-self: end;
+  }
   @media (min-width: 768px) {
     order: 4;
     text-align: end;
@@ -99,13 +104,14 @@ export const InvoicePersonAmount = styled.p`
 export const RightSideContainer = styled.div`
   display: flex;
   align-items: center;
-
   @media (min-width: 375px) {
-    order: 4;
+    order: 6;
     margin-left: auto;
+    grid-row: 3;
   }
   @media (min-width: 768px) {
     order: 5;
+    grid-row: unset;
   }
 `;
 
