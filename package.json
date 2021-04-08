@@ -10,7 +10,6 @@
     "formik": "^2.2.6",
     "framer-motion": "^4.0.2",
     "moment": "^2.29.1",
-    "randomatic": "^3.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-loading-skeleton": "^2.2.0",
