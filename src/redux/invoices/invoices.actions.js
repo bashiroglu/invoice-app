@@ -26,9 +26,24 @@ export const fetchAllInvoices = () => async (dispatch) => {
   dispatch(fetchInvoicesSuccess(response.data.invoices));
 };
 
-export const submitInvoice = (body) => async (dispatch) => {
+export const submitNewInvoice = (body) => async (dispatch) => {
   try {
     const res = await axios.post(process.env.REACT_APP_API_INVOICES, body);
+    dispatch({
+      type: InvoicesActionTypes.SUBMIT_NEW_INVOICE,
+      payload: JSON.stringify(res.data.invoice)
+    });
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
+export const submitEditInvoice = (id, body) => async (dispatch) => {
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_INVOICES}/${id}`,
+      body
+    );
     dispatch({
       type: InvoicesActionTypes.SUBMIT_NEW_INVOICE,
       payload: JSON.stringify(res.data.invoice)

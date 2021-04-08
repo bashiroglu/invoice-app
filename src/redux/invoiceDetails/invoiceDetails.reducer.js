@@ -20,6 +20,8 @@ const InvoiceDetailsReducer = (
       };
     case InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_SUCCESS:
       return { ...state, isFetching: false, invoiceDetails: payload };
+    case InvoiceDetailsActionTypes.MARK_INVOICE_AS_PAID:
+      return { ...state };
     default:
       return state;
   }

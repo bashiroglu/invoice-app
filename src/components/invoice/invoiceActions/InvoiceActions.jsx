@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import { Flex } from '../../../pages/invoiceDetails/InvoiceDetails.style';
+// import { markInvoiceAsPaid } from '../../../redux/invoiceDetails/invoiceDetails.actions';
 import { Button, Text } from '../../common';
 import Status from '../../status/Status';
 import { StyledActions } from './InvoiceActions.style';
@@ -9,6 +10,10 @@ const InvoiceActions = ({ id, status, setModalIsOpen }) => {
   const { width } = useWindowDimensions();
   const { push } = useHistory();
   const whenPaid = status === 'paid';
+
+  // const handleMarkAsPaidClick = () => {
+  //   markInvoiceAsPaid(id);
+  // };
 
   return (
     <StyledActions>
@@ -29,7 +34,11 @@ const InvoiceActions = ({ id, status, setModalIsOpen }) => {
           <Button fifth onClick={() => setModalIsOpen((s) => !s)}>
             Delete
           </Button>
-          <Button disabled={whenPaid} second>
+          <Button
+            // onClick={handleMarkAsPaidClick}
+            disabled={whenPaid}
+            second
+          >
             Mark as Paid
           </Button>
         </>
