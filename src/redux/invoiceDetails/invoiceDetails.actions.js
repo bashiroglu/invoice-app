@@ -33,3 +33,11 @@ export const fetchInvoiceDetailsStartAsync = (invoiceId) => {
     }
   };
 };
+
+export const markInvoiceAsPaid = (id) => async (dispatch) => {
+  try {
+    REACT_APP_API_INVOICES;
+  } catch (err) {
+    console.warn(err);
+  }
+};
