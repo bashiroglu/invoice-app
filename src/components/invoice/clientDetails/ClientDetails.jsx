@@ -1,4 +1,5 @@
 import Skeleton from 'react-loading-skeleton';
+import { v4 as uuid } from 'uuid';
 import {
   DetailsText,
   DetailValues
@@ -11,7 +12,7 @@ const ClientDetails = ({ clientDetails, clientName }) => {
       <DetailValues mb='1'>{clientName}</DetailValues>
       {clientDetails ? (
         Object.values(clientDetails).map((detail) => (
-          <DetailsText key={detail}>{detail}</DetailsText>
+          <DetailsText key={uuid()}>{detail}</DetailsText>
         ))
       ) : (
         <Skeleton
