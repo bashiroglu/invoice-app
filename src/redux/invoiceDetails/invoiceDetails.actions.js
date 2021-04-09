@@ -1,5 +1,5 @@
-import axios from 'axios';
 import InvoiceDetailsActionTypes from './invoiceDetails.types';
+import axios from 'axios';
 
 export const fetchInvoiceDetailsStart = () => ({
   type: InvoiceDetailsActionTypes.FETCH_INVOICES_DETAILS_START
@@ -34,10 +34,13 @@ export const fetchInvoiceDetailsStartAsync = (invoiceId) => {
   };
 };
 
-// export const markInvoiceAsPaid = (id) => async (dispatch) => {
-//   try {
-//     REACT_APP_API_INVOICES;
-//   } catch (err) {
-//     console.warn(err);
-//   }
-// };
+export const markInvoiceAsPaid = async (id) => {
+  try {
+    await axios.post(
+      `https://invoices-app-api.herokuapp.com/api/v1/invoices/${id}`,
+      { status: 'paid' }
+    );
+  } catch (err) {
+    console.warn(err);
+  }
+};

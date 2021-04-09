@@ -1,19 +1,20 @@
-import { useHistory } from 'react-router';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
-import { Flex } from '../../../pages/invoiceDetails/InvoiceDetails.style';
-// import { markInvoiceAsPaid } from '../../../redux/invoiceDetails/invoiceDetails.actions';
 import { Button, Text } from '../../common';
+
+import { Flex } from '../../../pages/invoiceDetails/InvoiceDetails.style';
 import Status from '../../status/Status';
 import { StyledActions } from './InvoiceActions.style';
+import { markInvoiceAsPaid } from '../../../redux/invoiceDetails/invoiceDetails.actions';
+import { useHistory } from 'react-router';
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
 const InvoiceActions = ({ id, status, setModalIsOpen }) => {
   const { width } = useWindowDimensions();
   const { push } = useHistory();
   const whenPaid = status === 'paid';
 
-  // const handleMarkAsPaidClick = () => {
-  //   markInvoiceAsPaid(id);
-  // };
+  const handleMarkAsPaidClick = () => {
+    markInvoiceAsPaid(id);
+  };
 
   return (
     <StyledActions>
@@ -35,7 +36,7 @@ const InvoiceActions = ({ id, status, setModalIsOpen }) => {
             Delete
           </Button>
           <Button
-            // onClick={handleMarkAsPaidClick}
+            onClick={handleMarkAsPaidClick}
             disabled={whenPaid}
             second
           >
