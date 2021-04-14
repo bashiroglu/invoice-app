@@ -128,13 +128,24 @@ export const ItemInputs = styled(Input)`
 
 export const IconContainer = styled.div`
   margin-left: ${({ ml }) => `${ml}rem`};
+  outline: none;
+  &:active,
+  &:focus {
+    outline: 1px dashed ${({ theme }) => theme.outlineColor};
+    outline-offset: 5px;
+  }
 `;
 
-export const Sum = styled.p`
-  font-size: 1.2rem;
+export const TotalInput = styled.input`
+  font-size: 1.5rem;
   font-weight: bold;
+  background: ${({ theme }) => theme.formInputTotal};
   color: #888eb0;
   text-indent: 0.3rem;
+  border: none;
+  outline: none;
+  width: 4rem;
+  height: 5rem;
 `;
 
 export const Icon = styled.img`

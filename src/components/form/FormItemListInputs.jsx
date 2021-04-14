@@ -1,8 +1,14 @@
 import { Field, FieldArray } from 'formik';
 import icon from '../../assets/trash-icon.svg';
-import { Button } from '../common';
-import { Flex, Icon, IconContainer, ItemInputs, Sum } from './Form.styles';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { Button } from '../common';
+import {
+  Flex,
+  Icon,
+  IconContainer,
+  ItemInputs,
+  TotalInput
+} from './Form.styles';
 
 const FormItemListInputs = ({ values, handleBlur }) => {
   const calculateTotalPrice = (quantity, price) => {
@@ -39,7 +45,7 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     as={ItemInputs}
                     handleBlur={handleBlur}
                     mr='1.5'
-                    type='number'
+                    type='text'
                     name={`items.${index}.quantity`}
                     width={inputWidths.quantity}
                     min='0'
@@ -48,15 +54,20 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                     as={ItemInputs}
                     handleBlur={handleBlur}
                     mr='1.5'
-                    type='number'
+                    type='text'
                     name={`items.${index}.price`}
                     width={inputWidths.price}
                     min='0'
                   />
-                  <Sum>
-                    {calculateTotalPrice(item.quantity, item.price)}
-                  </Sum>
+                  <Field
+                    as={TotalInput}
+                    name={`items.${index}.total`}
+                    handleBlur={handleBlur}
+                    disabled
+                    value={calculateTotalPrice(item.quantity, item.price)}
+                  />
                   <IconContainer
+                    tabIndex='0'
                     onClick={() => arrayHelpers.remove(index)}
                     ml='4'
                   >
@@ -71,7 +82,8 @@ const FormItemListInputs = ({ values, handleBlur }) => {
                 arrayHelpers.push({
                   name: '',
                   quantity: '',
-                  price: ''
+                  price: '',
+                  total: 0
                 })
               }
               type='button'

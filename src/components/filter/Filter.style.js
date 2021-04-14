@@ -36,10 +36,6 @@ export const ListItem = styled.div`
   background: ${({ theme }) => theme.invoiceSelect.bg};
   transition: var(--transition);
   cursor: pointer;
-
-  &:hover {
-    color: ${({ theme }) => theme.invoiceSelect.hover};
-  }
 `;
 
 export const StyledFilterOptions = styled.div``;

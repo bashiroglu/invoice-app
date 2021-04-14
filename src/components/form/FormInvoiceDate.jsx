@@ -7,7 +7,7 @@ const FormInvoiceDate = ({ handleBlur }) => {
       handleBlur={handleBlur}
       as={FormLabel}
       half
-      name='invoiceDate'
+      name='createdAt'
       type='date'
       text='Invoice Date'
       date

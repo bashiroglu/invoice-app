@@ -20,11 +20,6 @@ export const CheckboxInput = styled.span`
     width: 1rem;
     height: 1rem;
 
-    &:is(:hover) + .checkbox__control {
-      border: 0.15rem solid ${({ theme }) => theme.checkbox.border.color};
-      transition: var(--transition);
-    }
-
     &:checked + .checkbox__control svg {
       transform: scale(0.9);
       color: white;
