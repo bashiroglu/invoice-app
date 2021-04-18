@@ -43,10 +43,10 @@ const Form = ({ id }) => {
       ...submittedFormWithModifications,
       createdAt: new Date(
         submittedFormWithModifications.createdAt
-      ).toISOString(),
+      ).toString(),
       paymentDue: moment()
         .add(submittedFormWithModifications.paymentTerms, 'days')
-        .toISOString()
+        .toString()
     };
     dispatch(submitNewInvoiceAction(invoice));
   };
@@ -63,6 +63,7 @@ const Form = ({ id }) => {
       onSubmit={
         pathname.includes('edit') ? submitEditInvoice : submitNewInvoice
       }
+      enableReinitialize
     >
       {({ values, handleBlur }) => (
         <StyledForm>
