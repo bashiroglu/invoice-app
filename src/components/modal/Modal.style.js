@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Background = styled(motion.div)`
   display: grid;
   place-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
